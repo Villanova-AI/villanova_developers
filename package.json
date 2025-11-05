@@ -1,0 +1,39 @@
+{
+  "name": "vue-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "docs:check-md": "vuepress check-md docs",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:pdf": "press-export-pdf export --c docs/.vuepress/vuepress-pdf.config.ts -D",
+    "docs:syncNext": "rsync -av --delete --exclude 'docs/README.md' --exclude 'docs/releases/README.md' --exclude 'tutorials/README.md' docs/next/ docs/v7.3/"
+  },
+  "devDependencies": {
+    "@condorhero/vuepress-plugin-export-pdf": "^2.0.1",
+    "vuepress": "^1.9.10",
+    "vuepress-plugin-check-md": "^0.0.3",
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-flexsearch": "^0.3.0",
+    "vuepress-plugin-medium-zoom": "^1.1.9",
+    "vuepress-plugin-redirect-frontmatter": "^1.0.0"
+  },
+  "resolutions": {
+    "**/glob-parent": "^5.1.2",
+    "**/highlight.js": "^10.4.1",
+    "**/markdown-it": "^12.3.2",
+    "**/node-forge": "^1.0.0",
+    "**/nth-check": "^2.0.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@vuepress/plugin-blog": "^1.9.4",
+    "vue-feather-icons": "^5.1.0"
+  }
+}
