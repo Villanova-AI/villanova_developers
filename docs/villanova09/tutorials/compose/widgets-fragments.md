@@ -1,5 +1,7 @@
 ---
-sidebarDepth:2
+title: "Widgets and Fragments"
+layout: tutorial
+sidebarDepth: 2
 ---
 # Widgets and Fragments
 
