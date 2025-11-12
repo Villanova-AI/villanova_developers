@@ -1,1 +1,0 @@
-Place the blog files in this directory. The archived blog files are at PS/Docs and Tutorials/Archived-Blogs/

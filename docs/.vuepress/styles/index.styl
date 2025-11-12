@@ -179,9 +179,148 @@ body {
   border-color: #00A0DF;
   background: #F3F4F8;
 }
+.huggingface-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* spazio tra icona e testo */
+  background-color: #ff9900; /* arancione HuggingFace, più visibile */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.huggingface-button img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+
+/* Container centrale dei testi e pulsanti */
+.begin-developing .width-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra i pulsanti e i testi */
+  justify-content: center;
+  text-align: center;
+  padding-top: 6rem; /* aumenta questo valore per spostare tutto più in basso */
+}
+
+/* Pulsanti uniformi neri */
+.button-container a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #000000; /* colore nero */
+  color: white; /* testo bianco */
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 10px 10px 0; /* spazio tra i pulsanti */
+  transition: background 0.2s;
+}
+
+.button-container a img {
+  width: 20px;
+  height: 20px;
+}
+
+.button-container a:hover {
+  background-color: #222222; /* effetto hover leggermente più chiaro */
+}
+
+/* Allinea verticalmente tutte le icone dei pulsanti */
+.button-container a {
+  display: inline-flex;
+  align-items: center; /* centra verticalmente icona e testo */
+  justify-content: center;
+  gap: 8px;
+  background-color: #000000; /* colore nero */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 10px 10px 0;
+  transition: background 0.2s;
+}
+
+/* Icone pulsanti */
+.button-container a img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle; /* forza allineamento verticale */
+}
+
+/* Se vuoi spostare leggermente GitHub e HuggingFace più in basso */
+.button-container a.github, 
+.button-container a.huggingface-button {
+  margin-top: 2px; /* regola questo valore finché non sono allineati */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* spazio tra pulsanti */
+}
+
+
+/* Hover */
+.button-container a:hover {
+  background-color: #222222;
+}
+.page-edit {
+  display: none !important;
+}
+
+/* Titolo principale */
+.begin-developing .width-container h1:first-child {
+  font-size: 4rem;          /* aumenta la grandezza */
+  font-weight: 900;         /* più grassetto */
+  line-height: 1.2;         /* distanza tra righe */
+  letter-spacing: 2px;      /* spazio tra lettere */
+  color: #000000;           /* nero elegante */
+  margin-bottom: 0.5rem;    /* margine inferiore */
+  text-transform: uppercase; /* tutto maiuscolo */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* leggerissima ombra */
+  transition: all 0.3s ease;
+}
+
+/* Seconda riga del titolo "to Villanova" */
+.begin-developing .width-container h1:nth-child(2) {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+  color: #0098DF;           /* puoi cambiare colore per evidenziare */
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+}
+
+.villanova {
+  color: #8000FF !important; /* viola brillante */
+  font-weight: 900 !important;
+  font-size: 3.5rem !important;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+}
+
+.theme-container .entando-navbar .search-box,
+.theme-container .navbar .search-box {
+  display: none !important;
+}
+
 
 /* Copy-code plugin to avoid extra whitespace */
 pre .code-copy {
   margin-top: -0.85rem;
   color: #CCC;
 }
+
+
