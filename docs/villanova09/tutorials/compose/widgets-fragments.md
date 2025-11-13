@@ -1,6 +1,9 @@
 ---
+<<<<<<< HEAD
 title: "Widgets and Fragments"
 layout: tutorial
+=======
+>>>>>>> 4081b1724d124886dc780c2d1e8bb6d6f4214149
 sidebarDepth: 2
 ---
 # Widgets and Fragments

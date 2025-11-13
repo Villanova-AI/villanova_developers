@@ -1,4 +1,4 @@
-# Entando Docs (Vuepress)
+# Villanova Docs (Vuepress)
 
 ## Project setup
 ```
