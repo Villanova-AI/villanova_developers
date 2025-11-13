@@ -93,7 +93,7 @@ module.exports = {
 				text: 'Developers',
 				type: 'links',
 				items: [
-					{ text: 'Getting Started', link: '/' },
+					{ text: 'Home', link: '/' },
 					{ text: 'Docs', link: '/villanova10/docs/' },
 					{ text: 'Tutorials', link: '/villanova09/tutorials/' },
 					{ text: 'Forum', link: 'https://forum.villanova.ai/' },

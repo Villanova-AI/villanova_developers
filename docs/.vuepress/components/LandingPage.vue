@@ -22,20 +22,18 @@
 					<h1>Welcome to Villanova.ai</h1>
 					<p>Your gateway to modern application development.</p>
 					<div class="button-container">
-						<a :href="path('/tutorials/getting-started/custom-install.html')">GET STARTED</a>
+						<a :href="path('/villanova09/tutorials/getting-started/custom-install.html')">GET STARTED</a>
 						<a href="https://github.com/Villanova-AI" target="_blank">
 							<img src="./assets/github.svg" />GITHUB
 						</a>
 						<a href="https://huggingface.co/villanova-ai" target="_blank" style="background: #222; color: white; padding: 6px 12px; border-radius: 8px;">
 							<img :src="path('/assets/mychat-icon.png')" alt="huggingface" style="width:20px; vertical-align:middle; margin-right:8px;"/>HUGGINGFACE
 						</a>
-						
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<!-- ✅ Start default/jhipster main content -->
+
 		<div v-else class="main-content">
 			<div v-if="jhipster" class="layout-container">
 				<div class="get-started-grid width-container">
@@ -59,40 +57,38 @@
 					<h1><span class="villanova">Villanova Platform</span></h1>
 					<p>Application Composition Platform for Kubernetes</p>
 					<div class="button-container">
-						<a :href="path('/docs/getting-started/')">GET STARTED</a>
+						<a :href="path('/villanova09/docs/getting-started/')">GET STARTED</a>
 						<a href="https://github.com/Villanova-AI" target="_blank">
 							<img src="./assets/github.svg" />GITHUB
 						</a>
 						<a 
-						href="https://huggingface.co/villanova-ai" 
-						target="_blank" 
-						class="huggingface-button"
+							href="https://huggingface.co/villanova-ai" 
+							target="_blank" 
+							class="huggingface-button"
 						>
 							<img src="./assets/huggingface.svg" alt="huggingface" />
 							HUGGING FACE
 						</a>
-						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
+
 <script>
 	export default {
 		data() {
 			return {
-				openshift: false, // 👈 metti true se vuoi testare il blocco OpenShift
-				jhipster: false   // 👈 oppure true per mostrare il blocco JHipster
+				openshift: false,
+				jhipster: false
 			}
 		},
 		methods: {
 			path(subpath) {
-				// Se VuePress fornisce la funzione $withBase, usala per gestire i link relativi
 				if (this.$withBase) {
 					return this.$withBase(subpath);
 				}
-				// Altrimenti restituisci direttamente il path
 				return subpath;
 			}
 		}

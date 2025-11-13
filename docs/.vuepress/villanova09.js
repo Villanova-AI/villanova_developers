@@ -18,11 +18,11 @@ module.exports = {
                         path: path + 'getting-started/landing-page.md',
                     },
                     {
-                        title: 'Entando Architecture',
+                        title: 'Villanova Architecture',
                         path: path + 'getting-started/concepts-overview.md',
                     },
                     {
-                        title: 'Entando CLI',
+                        title: 'Villanova CLI',
                         children: [
                             {
                                 title: 'Basics',
@@ -58,11 +58,11 @@ module.exports = {
                 title: 'Create Components',
                 children: [
                     {
-                        title: 'Entando Component Generator',
+                        title: 'Villanova Component Generator',
                         path: path + 'create/component-gen-overview.md'
                     },
                     {
-                        title: 'Entando Blueprint Features',
+                        title: 'Villanova Blueprint Features',
                         path: path + 'create/blueprint-features.md'
                     },
                     {
@@ -74,7 +74,7 @@ module.exports = {
                         path: path + 'create/component-gen-customize.md'
                     },
                     {
-                        title: 'How Microservices connect to Entando Apps',
+                        title: 'How Microservices connect to Villanova Apps',
                         path: path  + 'create/how-microservices-connect-to-apps.md'
                     },
                 ]
@@ -111,7 +111,7 @@ module.exports = {
                         path: path  + 'curate/troubleshooting-guide.md'
                     },
                     {
-                        title: 'Entando Hub Features and Definitions',
+                        title: 'Villanova Hub Features and Definitions',
                         path: path  + 'curate/hub-details.md'
                     }
                 ]
@@ -124,7 +124,7 @@ module.exports = {
                         path: path + 'compose/welcome-wizard.md'
                     },
                     {
-                        title: 'Entando App Builder',
+                        title: 'Villanova App Builder',
                         path: path + 'compose/app-builder.md'
                     },
                     {
@@ -136,7 +136,7 @@ module.exports = {
                         path: path  + 'compose/preinstalled-widgets.md'
                     },
                     {
-                        title: 'Entando Component Manager',
+                        title: 'Villanova Component Manager',
                         path: path  + 'compose/ecm-overview.md'
                     },
                 ]
@@ -153,7 +153,7 @@ module.exports = {
                         path: path + 'consume/high-avail-application.md'
                     },
                     {
-                        title: 'Entando Multitenancy',
+                        title: 'Villanova Multitenancy',
                         path: path + 'consume/multitenancy.md'
                     },
                     {
@@ -161,15 +161,15 @@ module.exports = {
                         path: path + 'consume/cluster-resource-limits.md'
                     },
                     {
-                        title: 'Entando APIs',
+                        title: 'Villanova APIs',
                         path: path + 'consume/entando-apis.md'
                     },
                     {
-                        title: 'Entando Identity Management System',
+                        title: 'Villanova Identity Management System',
                         path: path + 'consume/identity-management.md'
                     },
                     {
-                        title: 'Entando Operator',
+                        title: 'Villanova Operator',
                         path: path + 'consume/operator-intro.md'
                     }, 
                 ]
@@ -178,7 +178,7 @@ module.exports = {
                 title: 'Reference',
                 children: [
                     {
-                        title: 'Entando Glossary',
+                        title: 'Villanova Glossary',
                         path: path  + 'reference/glossary.md'
                     },
                     {
@@ -186,7 +186,7 @@ module.exports = {
                         path: path  + 'reference/deployment-structure.md'
                     },
                     {
-                        title: 'Backup and Restore an Entando Application',
+                        title: 'Backup and Restore an Villanova Application',
                         path: path  + 'reference/backup-restore.md'
                     },
                     {
@@ -252,7 +252,7 @@ module.exports = {
                         path: path,
                     },
                     {
-                        title: 'Install Entando',
+                        title: 'Install Villanova',
                         children: [
                             {
                                 title: 'Getting Started',
@@ -302,7 +302,7 @@ module.exports = {
                         path: path  + 'solution/customer-portal.md'
                     },
                     {
-                        title: 'Entando Hub',
+                        title: 'Villanova Hub',
                         path: path + 'solution/entando-hub.md',
                     },
                     {
@@ -319,7 +319,7 @@ module.exports = {
                 title: 'Create Components',
                 children: [
                     {
-                        title: 'Entando Platform Capability',
+                        title: 'Villanova Platform Capability',
                         path: path + 'create/mfe/epc.md'
                     },
                     {
@@ -461,7 +461,7 @@ module.exports = {
                         path: path  + 'devops/external-db.md',
                     },
                     {
-                        title: 'Entando Docker Image',
+                        title: 'Villanova Docker Image',
                         path: path  + 'devops/build-core-image.md',
                     },
                     {
@@ -485,7 +485,7 @@ module.exports = {
                         path: path  + 'devops/tls-with-cert-mgr.md',
                     },
                     {
-                        title: 'Configure the Entando App Context',
+                        title: 'Configure the Villanova App Context',
                         path: path  + 'devops/entando-de-app.md',
                     },
                 ]
