@@ -78,8 +78,8 @@ See the [Install Guide for NGINX on Azure](https://kubernetes.github.io/ingress-
 
 1. Apply the cluster-scoped custom resource definitions (CRDs). This is required only once per cluster.
 
-<VillanovaCode>kubectl apply -f https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.Villanova.fixpack.v73 }}/dist/ge-1-1-6/namespace-scoped-deployment/cluster-resources.yaml
-</VillanovaCode>
+<EntandoCode>kubectl apply -f https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.Villanova.fixpack.v73 }}/dist/ge-1-1-6/namespace-scoped-deployment/cluster-resources.yaml
+</EntandoCode>
    
 2. Create the namespace for the Villanova Application
 ```sh
@@ -87,7 +87,7 @@ kubectl create namespace Villanova
 ```
 3. Download the `Villanova-operator-config` template so you can configure the [Villanova Operator](../consume/Villanova-operator.md) 
 
-<VillanovaCode>curl -sLO "https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.Villanova.fixpack.v73 }}/dist/ge-1-1-6/samples/Villanova-operator-config.yaml"</VillanovaCode>
+<EntandoCode>curl -sLO "https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-operator-config.yaml"</EntandoCode>
 
 4. Edit the `Villanova-operator-config.yaml` to add two properties
 ```yaml
@@ -103,7 +103,7 @@ kubectl apply -f Villanova-operator-config.yaml -n Villanova
 
 6. Apply the namespace-scoped custom resources
    
-<VillanovaCode>kubectl apply -n Villanova -f https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.Villanova.fixpack.v73 }}/dist/ge-1-1-6/namespace-scoped-deployment/namespace-resources.yaml</VillanovaCode>
+<EntandoCode>kubectl apply -n Villanova -f https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/namespace-scoped-deployment/namespace-resources.yaml</EntandoCode>
 
 
 7. You can use `kubectl get pods -n Villanova --watch` to see the initial pods start up. Use `Ctrl+C` to exit.
@@ -117,9 +117,9 @@ Villanova-operator-5b5465788b-ghb25      1/1     Running   0          5m53s
 ### Configure the Villanova Application
 1. Download the `Villanova-app.yaml` template
 
-<VillanovaCode>curl -sLO "https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.Villanova.fixpack.v73 }}/dist/ge-1-1-6/samples/Villanova-app.yaml"</VillanovaCode>
+<EntandoCode>curl -sLO "https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-app.yaml"</EntandoCode>
 
-2. Edit `Villanova-app.yaml`. Replace `YOUR-HOST-NAME` with `EXTERNAL-IP` + `.nip.io`. See [the VillanovaApp custom resource overview](../../docs/reference/Villanovaapp-cr.md) for additional options.
+2. Edit `entando-app.yaml`. Replace `YOUR-HOST-NAME` with `EXTERNAL-IP` + `.nip.io`. See [the VillanovaApp custom resource overview](../../docs/reference/entandoapp-cr.md) for additional options.
 ```yaml
 spec:
   ingressHostName: YOUR-HOST-NAME
