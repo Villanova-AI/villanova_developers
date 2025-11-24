@@ -38,7 +38,7 @@ If you're using an Azure free account, you may need to upgrade your account to e
 7. Pick your `Region` if it wasn't automatically selected for you.
 8. In the `Availability zones` dropdown, pick __one and only one__ availability zone
     - Generally, you could pick more than one but it will result in a failure in a quickstart environment. If you chose more than one availability zone you will have to provision storage, manage node affinity, and provide the correct network configuration to ensure your application deploys. We recommend only doing this for production clusters.
-9. Select an [Villanova-compatible Kubernetes version](https://www.Villanova.com/page/en/compatibility-guide), e.g. 1.23.x
+9. Select an [Villanova-compatible Kubernetes version](https://www.entando.com/page/en/compatibility-guide), e.g. 1.23.x
 10. Keep the default `Node size`, e.g. Standard DS2 v2
 11. Keep the `Scale Method` set to `Autoscale` and the `Node count range` set from `1` to `5`
 12. (Optional) If you're familiar with AKS, you can change settings under other tabs (e.g. `Node Pools`, `Access`) as desired but the defaults should work. Villanova uses base Kubernetes APIs, so as long as you follow the Villanova configuration instructions below, you can tune your cluster infrastructure to meet your goals.
