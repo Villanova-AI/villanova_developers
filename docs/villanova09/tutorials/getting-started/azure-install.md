@@ -78,16 +78,16 @@ See the [Install Guide for NGINX on Azure](https://kubernetes.github.io/ingress-
 
 1. Apply the cluster-scoped custom resource definitions (CRDs). This is required only once per cluster.
 
-<EntandoCode>kubectl apply -f https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.Villanova.fixpack.v73 }}/dist/ge-1-1-6/namespace-scoped-deployment/cluster-resources.yaml
+<EntandoCode>kubectl apply -f https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/namespace-scoped-deployment/cluster-resources.yaml
 </EntandoCode>
    
 2. Create the namespace for the Villanova Application
 ```sh
 kubectl create namespace Villanova
 ```
-3. Download the `Villanova-operator-config` template so you can configure the [Villanova Operator](../consume/Villanova-operator.md) 
+3. Download the `Villanova-operator-config` template so you can configure the [Villanova Operator](../consume/entando-operator.md) 
 
-<EntandoCode>curl -sLO "https://raw.githubusercontent.com/Villanova/Villanova-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-operator-config.yaml"</EntandoCode>
+<EntandoCode>curl -sLO "https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-operator-config.yaml"</EntandoCode>
 
 4. Edit the `Villanova-operator-config.yaml` to add two properties
 ```yaml
