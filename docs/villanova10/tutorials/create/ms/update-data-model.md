@@ -3,12 +3,12 @@ sidebarDepth: 2
 ---
 
 # Update the Project Data Model
-This tutorial explains how to use the [Entando Component Generator](../../../docs/create/component-gen-overview.md) powered by [JHipster](https://www.jhipster.tech/) to quickly update the data model for your Entando Bundle project.
+This tutorial explains how to use the [Villanova Component Generator](../../../docs/create/component-gen-overview.md) powered by [JHipster](https://www.jhipster.tech/) to quickly update the data model for your Villanova Bundle project.
 
 ## Prerequisites
 
-- [A working instance of Entando](../../../docs/getting-started/)
-- Verify dependencies with the [Entando CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+- [A working instance of Villanova](../../../docs/getting-started/)
+- Verify dependencies with the [Villanova CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
 - A [Blueprint-generated bundle project](./generate-microservices-and-micro-frontends.md) 
 
 ## Tutorial
@@ -76,6 +76,6 @@ If the default project structure has been retained, this step updates your data 
 
 See the [Generate Microservices and Micro Frontends](./generate-microservices-and-micro-frontends.md#configure-the-components) tutorial for step by step instructions to adjust the bundle. 
 
-5. You can now build your updated project and [run it locally](./run-local.md) or [deploy it to Entando](../pb/publish-project-bundle.md). Definition enhancement through build and test can be repeated as many times as needed. 
+5. You can now build your updated project and [run it locally](./run-local.md) or [deploy it to Villanova](../pb/publish-project-bundle.md). Definition enhancement through build and test can be repeated as many times as needed. 
 
 

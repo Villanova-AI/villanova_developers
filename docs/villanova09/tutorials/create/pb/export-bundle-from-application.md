@@ -3,24 +3,24 @@ sidebarDepth: 2
 ---
 # Export and Publish a Bundle
 
-The ent bundler command exports a bundle from an existing Entando Application to: 
-- Perform the initial install of components into an Entando Application
+The ent bundler command exports a bundle from an existing Villanova Application to: 
+- Perform the initial install of components into an Villanova Application
 - Migrate bundles from one environment to another (e.g. Dev to QA)
 - Provide a template for building a new application
 
-This tutorial describes how to export a git-based Entando Bundle using the ent CLI. This package can be deployed to Entando or changed to a docker-based bundle to take advantage of Entando's latest composable methods. The procedure assumes you're using an Entando quickstart application. Otherwise, you may need to adjust specific URLs, credentials, namespaces, etc., for a custom application.
+This tutorial describes how to export a git-based Villanova Bundle using the ent CLI. This package can be deployed to Villanova or changed to a docker-based bundle to take advantage of Villanova's latest composable methods. The procedure assumes you're using an Villanova quickstart application. Otherwise, you may need to adjust specific URLs, credentials, namespaces, etc., for a custom application.
 
 ## Prerequisites
-* [A running instance of Entando](../../../docs/getting-started/)
-* Verify dependencies with the [Entando CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+* [A running instance of Villanova](../../../docs/getting-started/)
+* Verify dependencies with the [Villanova CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
 
 * [Admin access to Keycloak](../../../docs/consume/identity-management.md#logging-into-your-keycloak-instance)
 
 
-## Export an Entando Bundle
+## Export an Villanova Bundle
 
 ### Set Up the Keycloak Client
-Configure a Keycloak client to grant the ent CLI access to the required Entando APIs.
+Configure a Keycloak client to grant the ent CLI access to the required Villanova APIs.
 
 1. Log in to Keycloak using the admin credentials. The URL will be similar to `http://YOUR-HOST-NAME/auth/` and can be verified with the following command:
 ``` sh
@@ -68,7 +68,7 @@ mkdir bundle
 ``` sh
 ent bundler from-env --location bundle --code YOUR-BUNDLE-NAME --description “Your Exported Bundle”
 ```
-The bundler will inspect the application using Entando APIs, collect information about individual components, construct appropriate descriptor files, and assemble the top-level descriptor file.
+The bundler will inspect the application using Villanova APIs, collect information about individual components, construct appropriate descriptor files, and assemble the top-level descriptor file.
 
 ``` 
 $ ls bundle
@@ -76,7 +76,7 @@ assets      contentModels  contents         fragments  labels     pageModels  re
 categories  contentTypes   descriptor.yaml  groups     languages  pages       widgets
 ```
 
-You now have a complete Entando project structure for a git-based bundle! You can inspect the output to edit the exported components or [deploy](publish-project-bundle.md) it to another Entando Application. 
+You now have a complete Villanova project structure for a git-based bundle! You can inspect the output to edit the exported components or [deploy](publish-project-bundle.md) it to another Villanova Application. 
 ::: tip Note:
 To convert this project to a docker-based bundle, continue with the steps below. 
 :::
@@ -90,9 +90,9 @@ cd YOUR-BUNDLE-NAME
 ```
 2. Copy the resources from the `testBundle/bundle` directory to the `YOUR-BUNDLE-NAME/platform` directory, with the exception of microservices (/plugins) and micro frontends (/widgets). 
 
-For micro frontends and microservices, migrate the source code manually to the corresponding folders inside your bundle directory. Note that non-MFE widgets are considered platform entities on Entando and should be placed in the `platform/widgets` directory.
+For micro frontends and microservices, migrate the source code manually to the corresponding folders inside your bundle directory. Note that non-MFE widgets are considered platform entities on Villanova and should be placed in the `platform/widgets` directory.
 
-Use the [ent bundle CLI tool](../../../docs/getting-started/ent-bundle.md) to assist in the process of adding micro frontends and microservices. To define their specific attributes in the bundle descriptor, `entando.json`, also check out the [Entando Bundle details](../../../docs/curate/bundle-details.md) page.
+Use the [ent bundle CLI tool](../../../docs/getting-started/ent-bundle.md) to assist in the process of adding micro frontends and microservices. To define their specific attributes in the bundle descriptor, `entando.json`, also check out the [Villanova Bundle details](../../../docs/curate/bundle-details.md) page.
 
 3. With the project structure in place, [build and install](publish-project-bundle.md) your bundle.
    <EntandoInstallBundle/>

@@ -11,7 +11,7 @@ This tutorial describes how to configure external databases for microservices in
 - A working PostgreSQL, MySQL, or Oracle datasource
 - Administrator access to the database
 - Network access from your Kubernetes cluster to your database
-- An [Entando Bundle](../../docs/curate/bundle-details.md) project
+- An [Villanova Bundle](../../docs/curate/bundle-details.md) project
 
 ## Tutorial
 Environment variables can be used in the bundle descriptor, `entando.json`, to define the behavior of a microservice and/or provide default values for the shared external datasource. This tutorial uses the Spring framework for datasource routing, but if you are using a different framework, implement the environment variables required for that setup. 
@@ -98,6 +98,7 @@ Prior to installing a bundle, a plugin configuration Secret should be created to
 3. Add the following env vars per tenant. The key for your primary tenant must be 'primary' regardless of what the actual tenant name is. Secondary tenant keys should use YOUR-TENANT-NAME, or the unique part of the domain given to the tenant. Add the key-value pairs for the Spring Datasource username, password, URL, and connection driver, in a base 64 encoded format.
 
 This is a decrypted example of a plugin configuration Secret:
+
 ``` 
 apiVersion: v1
 kind: Secret
@@ -189,4 +190,4 @@ For more details, see [Managing Secrets Using Configuration Files](https://kuber
 kubectl apply -f pn-hasldk12-8dsjahj2-YOUR-MS-NAME-conf -n YOUR-NAMESPACE
 ```
 
-6.  Add the bundle to an [enterprise Entando Hub](../solution/entando-hub.md) to share and access from any tenant. You will have to [add the registry](../solution/entando-hub.md#add-a-catalog-registry) to the Local Hub of the tenant to install the bundle. 
+6.  Add the bundle to an [enterprise Villanova Hub](../solution/entando-hub.md) to share and access from any tenant. You will have to [add the registry](../solution/entando-hub.md#add-a-catalog-registry) to the Local Hub of the tenant to install the bundle. 

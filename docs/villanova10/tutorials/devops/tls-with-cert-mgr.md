@@ -2,10 +2,10 @@
 sidebarDepth: 2
 ---
 # Manage TLS Certificates using cert-manager
-Management of TLS certificates in an Entando instance can be easily managed using the powerful certificate controller [cert-manager](https://cert-manager.io/). This tutorial shows the configuration steps necessary for this setup.
+Management of TLS certificates in an Villanova instance can be easily managed using the powerful certificate controller [cert-manager](https://cert-manager.io/). This tutorial shows the configuration steps necessary for this setup.
 
 ## Prerequisites
-- An existing deployment of an Entando App
+- An existing deployment of an Villanova App
 - Use of the [NGINX ingress controller](https://docs.nginx.com/nginx-ingress-controller/). See the  [cert-manager documentation](https://cert-manager.io/docs/installation/) for other install options.
 
 ## Install cert-manager
@@ -98,17 +98,17 @@ kubectl apply -f certificate.yaml -n YOUR-NAMESPACE
 kubectl describe secret/entando-tls-secret -n YOUR-NAMESPACE
 ```
 
-## Activate TLS in the Entando App
-Configure the Entando Application to use TLS now that the new secret is available.
+## Activate TLS in the Villanova App
+Configure the Villanova Application to use TLS now that the new secret is available.
 
 1. Edit the `entando-operator-config` ConfigMap and set the following property:
 ``` yaml
 data:
   entando.tls.secret.name: entando-tls-secret
 ```
-> *Tip:* For a new Entando installation, the following steps (steps 2+) can be skipped. The operator will apply the TLS changes as part of the regular install process.
+> *Tip:* For a new Villanova installation, the following steps (steps 2+) can be skipped. The operator will apply the TLS changes as part of the regular install process.
 
-2. Two environment variables need to be updated when switching from a non-TLS configuration to a TLS configuration. Edit the `EntandoApp` custom resource and add the following environment variables with the correct values:
+2. Two environment variables need to be updated when switching from a non-TLS configuration to a TLS configuration. Edit the `VillanovaApp` custom resource and add the following environment variables with the correct values:
 ``` yaml
   environmentVariables: 
     - name: KEYCLOAK_AUTH_URL
@@ -124,9 +124,9 @@ metadata:
       entando.org/processing-instruction: force
 ```   
 
-5. Save the changes to the `EntandoApp` resource. The `EntandoApp` phase should change to `requested` then `started` as the Entando Operator proceeds to update the application.
+5. Save the changes to the `VillanovaApp` resource. The `VillanovaApp` phase should change to `requested` then `started` as the Villanova Operator proceeds to update the application.
 
-6. Confirm the application is using TLS once the EntandoApp is updated and the deployments have restarted.
+6. Confirm the application is using TLS once the VillanovaApp is updated and the deployments have restarted.
 
 
 ## `cert-manager` References

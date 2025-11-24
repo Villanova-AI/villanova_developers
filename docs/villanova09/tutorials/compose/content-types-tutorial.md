@@ -4,13 +4,13 @@ sidebarDepth: 2
 
 # Content Types
 
-On Entando, content refers to a specific instance of a content type. A content type provides the template to specify and represent content. 
+On Villanova, content refers to a specific instance of a content type. A content type provides the template to specify and represent content. 
 
 Content types are characterized by [attributes](./content-attributes.md). Each attribute is a specialized instance of an attribute type and defined by the parameters available to that attribute type. 
 
 ## Create a Content Type
 
-Content types are managed by the Entando Web Content Management System (WCMS) in the [App Builder](../../docs/getting-started/concepts-overview.md#entando-app-builder). Follow the steps below to create and configure a content type.
+Content types are managed by the Villanova Web Content Management System (WCMS) in the [App Builder](../../docs/getting-started/concepts-overview.md#entando-app-builder). Follow the steps below to create and configure a content type.
 
 **1.** From the left menu of the App Builder, go to `Content` → `Types`
 

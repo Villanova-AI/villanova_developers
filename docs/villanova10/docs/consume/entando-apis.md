@@ -1,13 +1,13 @@
 ---
 sidebarDepth: 2
 ---
-# Accessing Entando APIs
+# Accessing Villanova APIs
 
 
-Entando includes the Swagger UI for API access in a quickstart environment. This document presents an overview, and instructions on how to enable and utilize the interface.
+Villanova includes the Swagger UI for API access in a quickstart environment. This document presents an overview, and instructions on how to enable and utilize the interface.
 
 ## APIs Overview
-The Entando App Engine uses REST APIs to enact all the functionality inside the App Builder. For example, APIs are used to add widgets to a page or create components like pages and page templates. APIs can also be used to support automation, testing, and integration with external systems.
+The Villanova App Engine uses REST APIs to enact all the functionality inside the App Builder. For example, APIs are used to add widgets to a page or create components like pages and page templates. APIs can also be used to support automation, testing, and integration with external systems.
 
 ## API Structure
 All the APIs share a common top-level structure. Each response contains a top level entry for `errors`, `metadata`, and `payload`.
@@ -15,11 +15,11 @@ All the APIs share a common top-level structure. Each response contains a top le
 The `errors` contain code and a message string indicating the error condition of the request. The `metadata` section is used for paging, sorting, and filtering data not included in the body. The body of each response is included in the payload section and varies according to each API.
 
 ## Models
-All of the model classes returned by the Entando App Engine are annotated with definitions included in the Swagger documentation. They are listed at the bottom of the Swagger page.
+All of the model classes returned by the Villanova App Engine are annotated with definitions included in the Swagger documentation. They are listed at the bottom of the Swagger page.
 
 ## Enable the Swagger UI
 
-The Swagger UI can be enabled or disabled in a running Entando instance by modifying the environment variable `SPRING_PROFILES_ACTIVE` in the `entando-de-app` container. 
+The Swagger UI can be enabled or disabled in a running Villanova instance by modifying the environment variable `SPRING_PROFILES_ACTIVE` in the `entando-de-app` container. 
 
 1. (Optional) Scale the deployment `spec.replicas` to 0.  
 

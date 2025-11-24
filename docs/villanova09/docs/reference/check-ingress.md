@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # Check Ingresses 
 
- The Entando Operator and custom resource controllers manage the ingresses which allow external access to services within an Entando cluster. The following directions show you how to examine these ingresses with two different methods.
+ The Villanova Operator and custom resource controllers manage the ingresses which allow external access to services within an Villanova cluster. The following directions show you how to examine these ingresses with two different methods.
 
 ## Using the OpenShift Dashboard
 
@@ -95,5 +95,5 @@ status:
 
 **Learn More**
 
-* Learn more about [Entando ingresses and architecture](../getting-started/concepts-overview.md) 
+* Learn more about [Villanova ingresses and architecture](../getting-started/concepts-overview.md) 
 * For more details about ingress concepts in Kubernetes, please refer to the [Kubernetes Ingress documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/).

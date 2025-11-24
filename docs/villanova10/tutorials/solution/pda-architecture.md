@@ -11,7 +11,7 @@ The image below shows the high level components.
 The PDA micro frontends run on the browser, rendering the custom UI
 components the user interacts with. These components are written in React and fetch data from the PDA API, passing the Keycloak token for authentication.
 
-The MFEs also make calls to the Entando Core API to retrieve the
+The MFEs also make calls to the Villanova Core API to retrieve the
 settings required for the UI configuration. These components are available to assist with page creation after the PDA plugin bundle is installed.
 
 Source code:  
@@ -22,7 +22,7 @@ Source code:
 The PDA API is a Spring Boot application that communicates with the Business Process Management (BPM) engine, with the engine data made available through a REST API. Subject to the deployment configuration, the PDA API interacts with Keycloak to validate the token, retrieving the connection and sensitive data. Instead of calling specific engine classes directly, the application calls the abstraction defined in the PDA Core library. 
 
 The engine implementation is determined at runtime based on the connection details provided. It is important to note that the PDA API does not have a database and is therefore stateless. All data available to it are retrieved from the BPM engine. After bundle installation, it is deployed as a microservice in the Kubernetes infrastructure. An ingress is also created to
-make it available to the MFEs, as described by the Entando Plugin custom resource.
+make it available to the MFEs, as described by the Villanova Plugin custom resource.
 
 Source code:           
 <https://github.com/entando/entando-process-driven-plugin>

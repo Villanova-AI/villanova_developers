@@ -1,11 +1,11 @@
 ---
 sidebarDepth: 2
 ---
-# EntandoKeycloakServer Custom Resource Definition 
+# VillanovaKeycloakServer Custom Resource Definition 
  
-The EntandoKeycloakServer CRD instructs the Entando Operator to deploy the Keycloak Community OIDC provider, or its equivalent commercial product, Red Hat SSO. Once a Keycloak server has been deployed, subsequent EntandoApp and EntandoPlugin deployments can use it as an OIDC provider. The Entando Operator will automatically create OIDC clients for these deployments in the Keycloak server. If you already have a Keycloak instance that you want to use, skip this custom resource and use the `keycloak-admin-secret` as specified in the [Connect to External Keycloak tutorial](../../tutorials/consume/external-id-management.md).
+The VillanovaKeycloakServer CRD instructs the Villanova Operator to deploy the Keycloak Community OIDC provider, or its equivalent commercial product, Red Hat SSO. Once a Keycloak server has been deployed, subsequent VillanovaApp and VillanovaPlugin deployments can use it as an OIDC provider. The Villanova Operator will automatically create OIDC clients for these deployments in the Keycloak server. If you already have a Keycloak instance that you want to use, skip this custom resource and use the `keycloak-admin-secret` as specified in the [Connect to External Keycloak tutorial](../../tutorials/consume/external-id-management.md).
  
-## Example EntandoKeycloakServer Definition
+## Example VillanovaKeycloakServer Definition
 
 ```yaml
 kind: "EntandoKeycloakServer"
@@ -34,7 +34,7 @@ spec:
 |`spec.replicas`| The number of replicas to be made available to the deployment of this Keycloak server.|
 |`spec.resourceRequirements`| The minimum and maximum [resource allocations](custom-resources.md#general-resourcerequirements-specifications) for the Keycloak server container. |
 |`spec.serviceAccountToUse` | Optional service account used to run the Keycloak pod.|
-|`spec.standardImage`|One of the standard images for Keycloak provided by Entando. The value can be either `keycloak` or `redhat-sso`.| 
-|`spec.tlsSecretName`| A standard TLS Secret that is applied to the Keycloak ingress. Note that this property is optional and overrides the standard Kubernetes [TLS Secret](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) that will be used for the resulting ingress. This is only required if the [globally configured TLS Secret](https://github.com/entando-k8s/entando-k8s-controller-coordinator/blob/master/charts/entando-k8s-controller-coordinator/README.md#tls) for the operator is absent. |
+|`spec.standardImage`|One of the standard images for Keycloak provided by Villanova. The value can be either `keycloak` or `redhat-sso`.| 
+|`spec.tlsSecretName`| A standard TLS Secret that is applied to the Keycloak ingress. Note that this property is optional and overrides the standard Kubernetes [TLS Secret](https://github.com/Villanova-AI/villanova-k8s-controller-coordinator) for the operator is absent. |
 
  

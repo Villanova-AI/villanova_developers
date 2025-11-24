@@ -2,11 +2,11 @@
 sidebarDepth: 2
 ---
 
-# Invoking Entando Core APIs
+# Invoking Villanova Core APIs
 
-This tutorial describes how to set up an environment ready to invoke Entando Core APIs using Postman. Entando uses Swagger to automatically generate OpenAPI documentation that describes the available APIs.
+This tutorial describes how to set up an environment ready to invoke Villanova Core APIs using Postman. Villanova uses Swagger to automatically generate OpenAPI documentation that describes the available APIs.
 
-Entando core APIs are accessible from a base URL such as localhost:8080/entando-de-app/api. For example, the page controller is available under /pages at the URL localhost:8080/entando-de-app/api/pages. The page template controller is available at localhost:8080/entando-de-app/api/pageModels.
+Villanova core APIs are accessible from a base URL such as localhost:8080/entando-de-app/api. For example, the page controller is available under /pages at the URL localhost:8080/entando-de-app/api/pages. The page template controller is available at localhost:8080/entando-de-app/api/pageModels.
 
 To perform extensive testing with APIs on Postman, set up an environment and define a variable to host the access token saved with a POST request to /oauth/token. This should provide access to all API endpoints and actions for which the user is authorized. 
     
@@ -15,7 +15,7 @@ To perform extensive testing with APIs on Postman, set up an environment and def
 ## Prerequisites
 
 * Basic knowledge of Postman. You can download the Postman application or use Postman on the web. The latter requires changes to the Keycloak configuration.
-* A local running copy of the Entando App Engine. For more details, refer to the [Entando App Engine GitHub Readme](https://github.com/entando/app-engine/blob/develop/README.md).
+* A local running copy of the Villanova App Engine. For more details, refer to the [Villanova App Engine GitHub Readme](https://github.com/Villanova-AI/app-engine/blob/develop/README.md).
 * An enabled Swagger UI
     
 ## Set Up a Postman Environment 
@@ -38,7 +38,7 @@ url: #URL of your application (i.e. http://localhost:8080/entando-de-app)`
 
      * `Auth` section
          1. `Type` → Basic Auth
-         2. Enter `Username` and `Password`. Valid Entando credentials are required. They will be the same as used for the App Builder. 
+         2. Enter `Username` and `Password`. Valid Villanova credentials are required. They will be the same as used for the App Builder. 
    
      * `Headers` section \
          Create a new `Key`-`Value` pair as shown: \
@@ -47,7 +47,7 @@ url: #URL of your application (i.e. http://localhost:8080/entando-de-app)`
      * `Body` section 
          1. Select "x-www-form-urlencoded" from the drop-down menu
          2. Create `Key`-`Value` pairs for username and password.\
-              `Key`: "username", Value: #valid entando username such as `admin` \
+              `Key`: "username", Value: #valid Villanova username such as `admin` \
               `Key`: "password", Value: #password of the valid user\
                grant_type: `password`
 

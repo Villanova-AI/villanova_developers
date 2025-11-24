@@ -5,15 +5,15 @@ sidebarDepth: 2
 # Bundle Component Descriptors 
 
 
-Elements such as pages, content, simple widgets, fragments, and static resources that belong to a bundle are classified as platform components on Entando. The following paragraphs describe each of these types and how they can be used in a bundle, with an example.
+Elements such as pages, content, simple widgets, fragments, and static resources that belong to a bundle are classified as platform components on Villanova. The following paragraphs describe each of these types and how they can be used in a bundle, with an example.
 
-Currently, Entando supports the following component types: 
+Currently, Villanova supports the following component types: 
 
 ![component-types.png](./img/component-types.png)
 
-Each is defined by a descriptor YAML placed in the corresponding folder inside the bundle `platform` directory. During the pack phase of building an Entando bundle, the descriptors are included in the resulting Docker image following this pattern. 
+Each is defined by a descriptor YAML placed in the corresponding folder inside the bundle `platform` directory. During the pack phase of building an Villanova bundle, the descriptors are included in the resulting Docker image following this pattern. 
 
-Here is an example structure of the `platform` directory in an Entando Bundle project:
+Here is an example structure of the `platform` directory in an Villanova Bundle project:
 
 ```
 bundle-project/
@@ -39,7 +39,7 @@ bundle-project/
   ...
   entando.json		<= Bundle project descriptor
 ```
->Note: Older names `pageModels` and `contentModels`, for `pageTemplates` and `contentTemplates` respectively, are still supported on Entando 7 but may be phased out in future releases. 
+>Note: Older names `pageModels` and `contentModels`, for `pageTemplates` and `contentTemplates` respectively, are still supported on Villanova but may be phased out in future releases. 
 
 ## Assets
 The CMS asset descriptor contains the metadata required for uploading and updating bundle assets.
@@ -335,7 +335,7 @@ See an example of [how a page is created and managed](../../tutorials/compose/pa
         pos: 13
 
 ## Page Templates
-Here's some more details about [how page templates work on Entando](../../tutorials/compose/page-management.md#create-a-page-template).
+Here's some more details about [how page templates work on Villanova](../../tutorials/compose/page-management.md#create-a-page-template).
 
 **pageTemplate-descriptor.yaml**
 
@@ -390,7 +390,7 @@ Here's some more details about [how page templates work on Entando](../../tutori
 ## Static Resources
 The `resources` folder in the `platform` directory contains all static resources. Once the bundle is installed, they can be found inside the App Builder File Browser, with the same file structure.
 
-See which [digital formats are supported on Entando](../../tutorials/compose/digital-assets-tutorial.md).
+See which [digital formats are supported on Villanova](../../tutorials/compose/digital-assets-tutorial.md).
 ```
 platform/ 
    ...
@@ -456,10 +456,10 @@ Here are example tags to access static resources in a typical bundle:
         - <bundleid>/static/js/main.js # The resources necessary for the custom element to 
                                        # render the configUi, i.e., the code  
 
-**Note**: To configure micro frontends to access static assets, Entando provides a path with the following snippet: 
+**Note**: To configure micro frontends to access static assets, Villanova provides a path with the following snippet: 
 ``` js
 window.entando?.widgets['simple-mfe']?.basePath;
 ```
 [See the instructions for setting the path in a React MFE](../../tutorials/create/mfe/react.md#configure-the-custom-element). 
 
-For information on widgets that Entando provides out of the box, see [Default Widgets](../compose/preinstalled-widgets.md).
+For information on widgets that Villanova provides out of the box, see [Default Widgets](../compose/preinstalled-widgets.md).

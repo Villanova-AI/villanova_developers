@@ -2,7 +2,7 @@
 sidebarDepth: 2
 ---
 
-# Entando Contributor Covenant Code of Conduct
+# Villanova Contributor Covenant Code of Conduct
 
 ## Our Pledge
 
@@ -57,7 +57,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-community@entando.com.
+info@villanova.ai
 
 All complaints will be reviewed and investigated promptly and fairly.
 

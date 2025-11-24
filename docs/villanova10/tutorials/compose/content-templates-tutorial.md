@@ -6,7 +6,7 @@ Note that the terms "templates" and "models" are used interchangeably.
 
 ## Create a Content Template
 
-Content templates are managed by the Entando Web Content Management System (WCMS) in the [App Builder](../../docs/getting-started/concepts-overview.md#entando-app-builder). Follow the steps below to create and configure a content template.
+Content templates are managed by the Villanova Web Content Management System (WCMS) in the [App Builder](../../docs/getting-started/concepts-overview.md#entando-app-builder). Follow the steps below to create and configure a content template.
 
 **1.** From the left menu in the App Builder, go to `Content` → `Templates`
 

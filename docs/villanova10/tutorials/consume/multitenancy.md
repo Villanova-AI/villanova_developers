@@ -2,17 +2,17 @@
 sidebarDepth: 2
 ---
 
-# Multitenancy on Entando
+# Multitenancy on Villanova
 
-This tutorial describes how to configure Entando to serve multiple tenants. The primary tenant is configured first, then secondary tenants can be added. See [Multitenancy on Entando](../../docs/consume/multitenancy.md) for details on concepts and architecture. 
+This tutorial describes how to configure Villanova to serve multiple tenants. The primary tenant is configured first, then secondary tenants can be added. See [Multitenancy on Villanova](../../docs/consume/multitenancy.md) for details on concepts and architecture. 
 
 ## Prerequisites
-* [A working instance of Entando 7.2 or higher](../../docs/getting-started/README.md) based on the Tomcat server image. This is the default `standardServerImage` for the `EntandoApp` custom resource.
+* [A working instance of Villanova 0.9 or higher](../../docs/getting-started/README.md) based on the Tomcat server image. This is the default `standardServerImage` for the `VillanovaApp` custom resource.
 
 ## Configure the Primary Tenant 
 The primary tenant is configured with services for the content delivery server (CDS), cache management, and search capability. Follow the links below to complete the setup. 
 
-1. [Install and enable the Entando Content Delivery Server (CDS)](./cds.md) to manage static resources. 
+1. [Install and enable the Villanova Content Delivery Server (CDS)](./cds.md) to manage static resources. 
 
 2. [Install and enable Redis](./redis.md) to handle caching and clustering. 
 
@@ -20,7 +20,7 @@ The primary tenant is configured with services for the content delivery server (
 
 
 ## Configure the Secondary Tenant
-For each secondary tenant, you will need to configure Keycloak, CDS, Solr, and a database schema. Then the ingress and a shared configuration Secret is created, after which the Entando App Engine is modified to read that Secret. 
+For each secondary tenant, you will need to configure Keycloak, CDS, Solr, and a database schema. Then the ingress and a shared configuration Secret is created, after which the Villanova App Engine is modified to read that Secret. 
 
 #### Definitions
 | Placeholder | Description 
@@ -31,7 +31,7 @@ For each secondary tenant, you will need to configure Keycloak, CDS, Solr, and a
 | YOUR-NAMESPACE | The Kubernetes namespace in which your app is running
 
 ### Keycloak
-Each tenant requires its own Keycloak realm. Create the tenant-specific realm in the standard Entando-deployed Keycloak instance.
+Each tenant requires its own Keycloak realm. Create the tenant-specific realm in the standard Villanova-deployed Keycloak instance.
 
 1. [Create a Backup of the Keycloak Realm](../devops/backing-restoring-keycloak.md) 
 2. Remove the `id` attributes so Keycloak will recognize the data as new entries upon importing:
@@ -72,7 +72,7 @@ Each tenant requires its own set of CDS resources. Follow the [CDS tutorial](./c
 Each tenant requires a dedicated Solr core or collection. Follow the [Solr tutorial](./solr.md#generate-the-core) to generate the core and schema for each secondary tenant. 
 
 ### Database
-Each tenant requires a new database schema for the Entando tables related to the page structure, web content, widgets, etc. The following steps provide a way to export the schemas in a default installation using the Entando-generated PostgreSQL instance. The exact commands will differ for external databases and other DBMS.
+Each tenant requires a new database schema for the Villanova tables related to the page structure, web content, widgets, etc. The following steps provide a way to export the schemas in a default installation using the Villanova-generated PostgreSQL instance. The exact commands will differ for external databases and other DBMS.
 
 1. Determine the name of your PostgreSQL pod (YOUR-POSTGRESQL-POD):
 ``` bash
@@ -104,7 +104,7 @@ kubectl exec -it YOUR-POSTGRESQL-POD -- pg_dump -O -n YOUR-SCHEMA-1 -n YOUR-SCHE
 ``` bash
 sed -i'' 's/YOUR-SCHEMA-1/YOUR-TENANT-NAME/g; s/YOUR-SCHEMA-2/YOUR-TENANT-NAME/g; s/YOUR-SCHEMA-3/YOUR-TENANT-NAME/g' db_export.sql
 ```
-**Note:** The default Entando implementation used for the primary tenant has two schemas (portdb and servdb) but these are combined into a single schema for secondary tenants.
+**Note:** The default Villanova implementation used for the primary tenant has two schemas (portdb and servdb) but these are combined into a single schema for secondary tenants.
 
 5. Import the new schema into PostgreSQL:
 ``` bash
@@ -120,7 +120,7 @@ kubectl exec -it YOUR-POSTGRESQL-POD -- psql -d default_postgresql_dbms_in_names
 #### Tenant Ingress
 1. Download the template `entando-tenant-ingress.yaml`:
 
-<EntandoCode>curl -sLO "https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-tenant-ingress.yaml"</EntandoCode>
+<EntandoCode>curl -sLO "https://raw.githubusercontent.com/Villanova-AI/villanova-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-tenant-ingress.yaml"</EntandoCode>
 
 2. Create an ingress for your primary and each of your secondary tenants. Replace the placeholders with the appropriate values for each tenant. Remember, YOUR-TENANT-NAME will change for each ingress you create.
     * For every secondary tenant, add the following snippet with its tenant name under `metadata.labels`:
@@ -137,7 +137,7 @@ A single Secret needs to be defined with the configuration for each of the tenan
 
 1. Download the template `entando-tenants-secret.yaml`:
 
-<EntandoCode>curl -sLO "https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-tenants-secret.yaml"</EntandoCode>
+<EntandoCode>curl -sLO "https://raw.githubusercontent.com/Villanova-AI/villanova-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-tenants-secret.yaml"</EntandoCode>
 
 2. Replace the placeholders with the appropriate values for each of your tenants.
 
@@ -146,10 +146,10 @@ A single Secret needs to be defined with the configuration for each of the tenan
 kubectl apply -f entando-tenant-secret.yaml -n YOUR-NAMESPACE
 ```
 
-### Configure the EntandoApp
-The EntandoApp has to be configured just once to point to the `entando-tenants-secret.yaml`. When additional tenants are added, the EntandoApp deployment only needs to be restarted.
+### Configure the VillanovaApp
+The VillanovaApp has to be configured just once to point to the `entando-tenants-secret.yaml`. When additional tenants are added, the VillanovaApp deployment only needs to be restarted.
 
-1. Scale down the EntandoApp deployment to 0:
+1. Scale down the VillanovaApp deployment to 0:
 ```
 kubectl scale deploy/YOUR-APP-NAME-deployment --replicas=0 -n YOUR-NAMESPACE
 ```
@@ -168,24 +168,24 @@ kubectl scale deploy/YOUR-APP-NAME-deployment --replicas=0 -n YOUR-NAMESPACE
 ```
 kubectl scale deploy/YOUR-APP-NAME-deployment --replicas=1 -n YOUR-NAMESPACE
 ```
-4. Confirm that the secondary tenant is working correctly. This may include testing the EntandoApp itself (including digital assets delivered via CDS), the AppBuilder, and enterprise search for Solr. The tutorials for each service include verification steps that can be followed once the tenant configuration is fully in place.
+4. Confirm that the secondary tenant is working correctly. This may include testing the VillanovaApp itself (including digital assets delivered via CDS), the AppBuilder, and enterprise search for Solr. The tutorials for each service include verification steps that can be followed once the tenant configuration is fully in place.
 
 ## Bundles
-Once tenants are in order, [Entando Bundles](../../docs/curate/bundle-details.md) can be deployed independently to each tenant from registries added in the App Builder. Bundles can be centralized in an [enterprise Entando Hub](../solution/entando-hub.md) where all tenants can access them by [adding the registry](../solution/entando-hub.md#add-a-catalog-registry) in the Local Hub of the App Builder.
+Once tenants are in order, [Villanova Bundles](../../docs/curate/bundle-details.md) can be deployed independently to each tenant from registries added in the App Builder. Bundles can be centralized in an [enterprise Villanova Hub](../solution/entando-hub.md) where all tenants can access them by [adding the registry](../solution/entando-hub.md#add-a-catalog-registry) in the Local Hub of the App Builder.
 
 When bundles are installed to any tenant, the Component Manager injects an `ENTANDO_TENANT_CODE`, an environment variable related to the tenant domain name, into every microservice, identifying which tenant it belongs to. 
 
 To create or adapt bundles for multitenant applications, environment variables can be leveraged in the bundle descriptor to customize bundles. Microservices can be specified with an embedded or internal SQL DBMS, but if an [external database](./external-db-ms.md) is required, a plugin configuration Secret will need to be configured.  
 
 * [Create and Publish a Bundle project](../create/pb/publish-simple-bundle.md)
-* [Learn about Entando Bundles](../../docs/curate/bundle-details.md)
-* [Add an enterprise Entando Hub](../solution/entando-hub.md)
+* [Learn about Villanova Bundles](../../docs/curate/bundle-details.md)
+* [Add an enterprise Villanova Hub](../solution/entando-hub.md)
 * [Add a Registry to you Local Hub](../solution/entando-hub.md#add-a-catalog-registry)
 * [Configure External DBMS for Microservices](./external-db-ms.md)
 
 ## Appendix
 ### Liquibase Options
-Liquibase is the default for database management for multitenancy on Entando, but this process can be modified with the following methods.
+Liquibase is the default for database management for multitenancy on Villanova, but this process can be modified with the following methods.
 
 **Apply the Strategy in the App Engine Deployment**
 
@@ -200,7 +200,7 @@ For a secondary tenant, the `dbMigrationStrategy` value in the `entando-tenant-s
 * If `dbMigrationStrategy` is not present inside the tenant configuration, it looks for the value in the `db.migration.strategy` system property.
 
 ### Tenant Domains
-A tenant can have multiple fully qualified domain names (FQDNs), as long as they are defined in the `fqdns` field of the tenant configuration secret. This field determines which tenant's configuration to use when an incoming request is made to the Entando Application.
+A tenant can have multiple fully qualified domain names (FQDNs), as long as they are defined in the `fqdns` field of the tenant configuration secret. This field determines which tenant's configuration to use when an incoming request is made to the Villanova Application.
 
 Example:
 ```

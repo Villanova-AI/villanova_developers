@@ -4,9 +4,9 @@ sidebarDepth: 2
 
 # Content Attributes
 
-On Entando, content type is defined by a collection of attributes. These attributes can be further broken down into their types, each with a list of parameters that carry the information inside the content. In other words, Attributes make it easier to categorize and find content and content types.  
+On Villanova, content type is defined by a collection of attributes. These attributes can be further broken down into their types, each with a list of parameters that carry the information inside the content. In other words, Attributes make it easier to categorize and find content and content types.  
 
-This section describes the different attribute types supported by Entando.
+This section describes the different attribute types supported by Villanova.
 
 ## Attribute Types
 
@@ -88,9 +88,9 @@ Attribute types can be organized into two categories: simple and composed. A sim
 - Represents a hypertext link
 - Normally used to include a link within content
 - It is possible to define up to three different types of links:
-  1. External link: Points to a location external to the Entando instance
-  2. Page link: Points to a page within the Entando instance
-  3. Content link: Points to other content within the Entando instance
+  1. External link: Points to a location external to the Villanova instance
+  2. Page link: Points to a page within the Villanova instance
+  3. Content link: Points to other content within the Villanova instance
 - Rendered as a ***button*** called `Add`. Clicking `Add` opens a modal window from which the user can select the link type.
 
 **Longtext**
@@ -132,7 +132,7 @@ many different types of information in one attribute.
 
 Though it is functionally acceptable to build composed attributes with back-to-back types, it is not recommended as the parameters would appear unrelated and their relationship to one another could not be defined.
 
-Entando offers three types of composed attributes: List, Monolist, and Composite.
+Villanova offers three types of composed attributes: List, Monolist, and Composite.
 
 **List**
 

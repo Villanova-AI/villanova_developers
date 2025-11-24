@@ -4,16 +4,16 @@ sidebarDepth: 1
 
 # Diagnostics and Troubleshooting
 
-Diagnostic information is critical for troubleshooting and analysis, and the Entando CLI (ent) provides several methods. 
+Diagnostic information is critical for troubleshooting and analysis, and the Villanova CLI (ent) provides several methods. 
 
 | Command | Description
 | :- | :---------------------------- |
-|`ent app-info`| Display basic information about Kubernetes and Entando resources
+|`ent app-info`| Display basic information about Kubernetes and Villanova resources
 |`ent bundle info`|Show status information for the bundle project|
 |`ent --debug bundle "command"`|Enable debug mode|
-|`ent diag`| Run diagnostics on the pods in the current Entando namespace and prepare a diagnostic tar.gz
+|`ent diag`| Run diagnostics on the pods in the current Villanova namespace and prepare a diagnostic tar.gz
 |`ent pod "command"`| Display information related to a set of pods
-|`ent pod grep --all "error\|fail"`| Locate error messages within EntandoApp pods 
+|`ent pod grep --all "error\|fail"`| Locate error messages within VillanovaApp pods 
 
 ### Command Details
 * `ent diag`: Executes operations to analyze, organize and output detailed pod information. It exports custom resources, ingresses, deployments, "previous" pod logs, namespace events, etc. The command generates this diagnostics data and returns log paths like the following:

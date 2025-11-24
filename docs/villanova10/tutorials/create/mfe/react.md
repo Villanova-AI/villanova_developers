@@ -1,10 +1,10 @@
 # Create a React Micro Frontend
 
 ## Prerequisites
-- [A working instance of Entando](../../../docs/getting-started/)
-- Verify dependencies with the [Entando CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+- [A working instance of Villanova](../../../docs/getting-started/)
+- Verify dependencies with the [Villanova CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
 
-## Create a React App in an Entando Bundle
+## Create a React App in an Villanova Bundle
 
 ### Create the Bundle Project
 
@@ -40,7 +40,7 @@ The steps below wrap the app component with an HTML custom element. The `connect
 
 1. In `simple-mfe/src`, create a directory named `custom-elements`
 
-2. In `custom-elements`, create a new file named `public-path.js` with the following code. This will enable your React MFE to serve static assets when deployed in Entando. If you use a different name for your custom element, you should change it on the second line.
+2. In `custom-elements`, create a new file named `public-path.js` with the following code. This will enable your React MFE to serve static assets when deployed in Villanova. If you use a different name for your custom element, you should change it on the second line.
    ``` js
    if (process.env.NODE_ENV === 'production') {
        let publicpath = window.entando?.widgets['simple-mfe']?.basePath;
@@ -97,7 +97,7 @@ The steps below wrap the app component with an HTML custom element. The `connect
 You’re now using a custom element to display a React app.
 :::
 
-## Display the React MFE in Entando
+## Display the React MFE in Villanova
 
 1. [Publish the bundle project](../pb/publish-project-bundle.md)
 
@@ -105,7 +105,7 @@ You’re now using a custom element to display a React app.
 
 Place the React micro frontend onto a page to see it in action.
 
-1. In the `Entando App Builder`, go to `Pages` → `Management` 
+1. In the `Villanova App Builder`, go to `Pages` → `Management` 
 
 2. Choose an existing page (or [create a new one](../../compose/page-management.md#create-a-page)) and select `Design` from its Actions
 
@@ -116,9 +116,9 @@ Place the React micro frontend onto a page to see it in action.
 5. Click on `View Published Page`
 
 ::: tip Congratulations!
-You now have a React micro frontend running in Entando!
+You now have a React micro frontend running in Villanova!
 :::
 
 **Next Steps**
 * [Add a Configuration MFE in App Builder](widget-configuration.md)
-* [Create an Entando Platform Capability](epc.md) with your React bundle
+* [Create an Villanova Platform Capability](epc.md) with your React bundle

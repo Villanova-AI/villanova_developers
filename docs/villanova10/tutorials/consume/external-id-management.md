@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This tutorial details how Entando can be connected to an existing Keycloak instance.
+This tutorial details how Villanova can be connected to an existing Keycloak instance.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Retrieve the following information from the existing Keycloak instance:
 -   The admin user password, e.g. password123
 -   The base URL for the Keycloak server, including the auth value, e.g. https://YOUR-KEYCLOAK-INSTANCE.com/auth
 
-> **Note** When connecting an external Keycloak instance to Entando, it is a good practice to provide the admin credentials for a dedicated service account.
+> **Note** When connecting an external Keycloak instance to Villanova, it is a good practice to provide the admin credentials for a dedicated service account.
 ### 2. Generate the Secret
 
 Generate a Secret named *keycloak-admin-secret* with the information retrieved in Step 1. For example:
@@ -43,7 +43,7 @@ Via the named Secret, Entando supplies the Keycloak APIs with the admin credenti
 
 ### 3. Create the Secret
 
-Apply the Secret to the namespace where you want to deploy your Entando instance:
+Apply the Secret to the namespace where you want to deploy your Villanova instance:
 
     kubectl apply -f keycloak-admin-secret.yaml -n entando
 
@@ -67,20 +67,20 @@ spec:
 
 ### 5. Apply the YAML configuration file
 
-Apply the YAML configuration file to the namespace where you want to deploy your Entando instance:
+Apply the YAML configuration file to the namespace where you want to deploy your Villanova instance:
 
 ```
 kubectl apply -f YOUR-YAML-FILE.yaml -n entando
 
 ```
 
-### 6. Deploy the Entando Application
+### 6. Deploy the Villanova Application
 
-You are now ready to deploy your Entando Application. Entando will use the *keycloak-admin-secret* to populate the environment correctly. 
+You are now ready to deploy your Villanova Application. Villanova will use the *keycloak-admin-secret* to populate the environment correctly. 
 
-Refer to the [learning path tutorials](../README.md#operations) to install, configure and customize your Entando instance.
+Refer to the [learning path tutorials](../README.md#operations) to install, configure and customize your Villanova instance.
 
 ## Conclusion
 
-This should result in a working Entando instance that is connected to an external Keycloak server.
+This should result in a working Villanova instance that is connected to an external Keycloak server.
 

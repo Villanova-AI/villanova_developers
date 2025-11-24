@@ -6,8 +6,8 @@ sidebarDepth: 1
 
 ## Support
 
-### 1. Does the Entando Platform support bundle versioning?
-A bundle is a self-contained package containing one or more components such as microservices and micro frontends. As in other packaging systems, the [Entando Component Registry](../compose/local-hub-overview.md) (ECR) supports bundle versioning, allowing developers to create and release updates of their package over time.
+### 1. Does the Villanova Platform support bundle versioning?
+A bundle is a self-contained package containing one or more components such as microservices and micro frontends. As in other packaging systems, the [Villanova Component Registry](../compose/local-hub-overview.md) (ECR) supports bundle versioning, allowing developers to create and release updates of their package over time.
 
 ## How-Tos
 ### 1. How do I create a new version of a bundle?
@@ -15,7 +15,7 @@ To release new versions of your bundle after changes have been made, edit the `e
 
 Micro frontends and microservices can have their own version numbers, independent of the bundle version, and can be updated in the same way.
 
-### 2. My bundle contains a microservice generated with the Entando Component Generator; does the version of the microservice have to be the same as the bundle version?
+### 2. My bundle contains a microservice generated with the Villanova Component Generator; does the version of the microservice have to be the same as the bundle version?
 
 The version of the microservice - or the Docker image associated with the microservice - isn't bound to the version number of the bundle it is a part of. Thus, the same microservice can be used in different bundles.
 
@@ -48,7 +48,7 @@ Follow the recommended [semantic versioning 2.0.0](https://semver.org/#semantic-
 
 ### 3. Can I publish all versions of any bundle to my Local Hub for development?
 
-To make all versions for all bundles available in the Local Hub, edit the environment variable `ENTANDO_BUNDLE_TAGS_TYPES` of the Entando Component Manager (ECM) deployment to have the value, `dev,prod`. Tag types can also be set to only `dev` or `prod`.
+To make all versions for all bundles available in the Local Hub, edit the environment variable `ENTANDO_BUNDLE_TAGS_TYPES` of the Villanova Component Manager (ECM) deployment to have the value, `dev,prod`. Tag types can also be set to only `dev` or `prod`.
 
 For individual bundles, see the [Bundle Management page](../getting-started/ent-bundle.md#generate-cr) for details about how to utilize the ent CLI's bundle commands to select for development, production, or both types of bundles.
 

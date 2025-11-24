@@ -2,12 +2,12 @@
 sidebarDepth: 2
 ---
 
-# Entando Strapi
+# Villanova Strapi
 ## Overview
 
-Entando 7 offers a Strapi packaged business capability (PBC) to provide the flexibility and customization of a leading open source and headless CMS. Users are able to create and organize application content through the seamless integration of Strapi into the App Builder experience. 
+Villanova 0.9 offers a Strapi packaged business capability (PBC) to provide the flexibility and customization of a leading open source and headless CMS. Users are able to create and organize application content through the seamless integration of Strapi into the App Builder experience. 
 
-The Strapi PBC is available on the [Entando Cloud Hub](https://entando.com/composable-platform/packaged-business-capabilities/). This tutorial uses notable quotes as a content example to cover:
+The Strapi PBC is available on the [Villanova Cloud Hub](https://entando.com/composable-platform/packaged-business-capabilities/). This tutorial uses notable quotes as a content example to cover:
 
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
@@ -17,13 +17,13 @@ The Strapi PBC is available on the [Entando Cloud Hub](https://entando.com/compo
 
 ## Prerequisites
 
-- [A working instance of Entando](../../../docs/getting-started/)
-- Verify dependencies with the [Entando CLI](../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+- [A working instance of Villanova](../../../docs/getting-started/)
+- Verify dependencies with the [Villanova CLI](../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
 - An [ent profile](../../docs/getting-started/ent-profile.md#profile-management) linked to the Kubenetes context to be used in this tutorial
 
 ## Installation
 
-Entando's Strapi implementation is available from the Entando Cloud Hub via three bundles, which must be installed in the Local Hub of the App Builder. 
+Villanova's Strapi implementation is available from the Villanova Cloud Hub via three bundles, which must be installed in the Local Hub of the App Builder. 
 
 1. Create a file named `strapi-pvc.yaml` with this snippet:
 ```yaml
@@ -76,13 +76,13 @@ To add Keycloak role mapping for the `entando-strapi-config` and `entando-strapi
 
 ![Strapi Keycloak Role Mapping](./strapi-images/strapi-keycloak-settings.png)
 
-Note: To access the Strapi APIs, the App Builder user is given the Super Admin role using the existing Entando Keycloak token for authentication.
+Note: To access the Strapi APIs, the App Builder user is given the Super Admin role using the existing Villanova Keycloak token for authentication.
 
 ### Registration
 
-You must register after installation and role mapping to use Strapi within the Entando Platform. The PBC creates a new Strapi instance for your Entando Application. It does not provide a mechanism to link an existing Strapi instance. 
+You must register after installation and role mapping to use Strapi within the Villanova Platform. The PBC creates a new Strapi instance for your Villanova Application. It does not provide a mechanism to link an existing Strapi instance. 
 
-To log in to your Entando Strapi instance:
+To log in to your Villanova Strapi instance:
 
 1. Open a browser tab and enter your App Builder base URL followed by `/entando-strapi/admin/`, e.g. `http://YOUR-SERVER-URL/entando-strapi/admin/`
 
@@ -95,9 +95,9 @@ To log in to your Entando Strapi instance:
 
 ## Configuration and Content Creation
 
-To begin using Strapi on Entando, you must first create content to configure Strapi access from the App Builder. This is done through the Strapi Config Widget. Then content templates are built for each content, providing type and display specifications. 
+To begin using Strapi on Villanova, you must first create content to configure Strapi access from the App Builder. This is done through the Strapi Config Widget. Then content templates are built for each content, providing type and display specifications. 
 
-Perform the steps in the following order to properly prepare your Entando Application:
+Perform the steps in the following order to properly prepare your Villanova Application:
 1. Create content for use by the Strapi Content Template Widget
 2. Configure the Strapi Config Widget with the URL of your Strapi instance
 3. Create a content template using the Strapi Content Template Widget 
@@ -144,7 +144,7 @@ The Strapi Config Widget provides the Strapi Content Template, Strapi Content an
 
 Follow the steps below to publish the Strapi Config Widget to a page and expose the Strapi URL.
 
-1. [Create a page](../compose/page-management.md#create-a-page) in your Entando Application dedicated to the Strapi Config Widget
+1. [Create a page](../compose/page-management.md#create-a-page) in your Villanova Application dedicated to the Strapi Config Widget
 2. Go to  `App Builder` → `Pages` → `Management`
 3. Find the Strapi configuration page in the page tree and click on the three dots representing the `Actions` icon
 4. Select `Design` from the drop-down menu
@@ -164,7 +164,7 @@ Follow the steps below to publish the Strapi Config Widget to a page and expose 
 The instructions below add the Strapi Content Template Widget to a page to create, edit and delete Content Templates directly from the App Builder. 
 
 ### Create a Content Template
-1. [Create a page](../compose/page-management.md#create-a-page) in your Entando Application dedicated to the Strapi Content Template Widget
+1. [Create a page](../compose/page-management.md#create-a-page) in your Villanova Application dedicated to the Strapi Content Template Widget
 2. Go to  `App Builder` → `Pages` → `Management`
 3. Find the Strapi template page in the page tree and click on the `Actions` icon 
 4. Select `Design` from the drop-down
@@ -227,7 +227,7 @@ the `HTML Model` as shown below. The `Attributes` are automatically populated fr
 
 ## Next `Steps`
 
-You are now able to develop your Entando Application using Strapi! To learn how to apply and manage content, check out the following tutorials:
+You are now able to develop your Villanova Application using Strapi! To learn how to apply and manage content, check out the following tutorials:
 
 - [Display and List Strapi Content](../create/strapi-content.md)
 - TODO: Strapi Content Tutorial

@@ -1,11 +1,11 @@
 ---
 sidebarDepth: 2
 ---
-# Entando Blueprint Features
+# Villanova Blueprint Features
 
-The Entando Blueprint leverages JHipster technology to quickly and easily create components for an Entando Application, including a Spring Boot microservice and React micro frontends. Through a series of questions, the user specifies parameters to autogenerate the project files via Embedded JavaScript (EJS), a templating language that provides powerful constructs for large-scale file generation. The following examines the details of the Entando Blueprint.
+The Villanova Blueprint leverages JHipster technology to quickly and easily create components for an Villanova Application, including a Spring Boot microservice and React micro frontends. Through a series of questions, the user specifies parameters to autogenerate the project files via Embedded JavaScript (EJS), a templating language that provides powerful constructs for large-scale file generation. The following examines the details of the Villanova Blueprint.
 
-[Follow the Entando Blueprint tutorial](../../tutorials/create/ms/generate-microservices-and-micro-frontends.md).
+[Follow the Villanova Blueprint tutorial](../../tutorials/create/ms/generate-microservices-and-micro-frontends.md).
 
 ## Feature List
 * Backend with Spring Boot:
@@ -22,7 +22,7 @@ The Entando Blueprint leverages JHipster technology to quickly and easily create
   * Keycloak integration
 
 ## Preconfigured Micro Frontends
-The creation of an entity using the Entando Blueprint generates the following preconfigured micro frontends. Additional specifications follow. 
+The creation of an entity using the Villanova Blueprint generates the following preconfigured micro frontends. Additional specifications follow. 
 * [Authentication](#authentication)
 * [Custom Events](#custom-events)
 * [Tests and Mocks](#tests-and-mocks)
@@ -48,8 +48,8 @@ For more information about web components, custom elements and MFEs, refer to [C
 
 ### Authentication
 
-- If a widget requires authentication, the component is wrapped in `KeycloakContext.Provider` and the Keycloak object is fetched from the `window.entando.keycloak` variable. 
-- Entando allows Keycloak to be replaced with another authentication provider as needed.
+- If a widget requires authentication, the component is wrapped in `KeycloakContext.Provider` and the Keycloak object is fetched from the `window.Villanova.keycloak` variable. 
+- Villanova allows Keycloak to be replaced with another authentication provider as needed.
     ``` js
     ReactDOM.render(
       <KeycloakContext.Provider value={this.keycloak}>
@@ -61,7 +61,7 @@ For more information about web components, custom elements and MFEs, refer to [C
     );
     ```
 
-For more information on Keycloak and authentication with Entando, refer to the [Entando Identity Management System](../consume/identity-management.md#authentication).
+For more information on Keycloak and authentication with Villanova, refer to the [Villanova Identity Management System](../consume/identity-management.md#authentication).
 
 ### Custom Events
 

@@ -1,5 +1,5 @@
 
-# Building a Docker Image for the Entando Core
+# Building a Docker Image for the Villanova Core
 
 ## Prerequisites
 
@@ -15,17 +15,17 @@
 ## Introduction
 
 This tutorial will take you through the basic steps to create a docker
-image from an Entando core application. A more detailed guide with
+image from an Villanova core application. A more detailed guide with
 additional commands and configuration can be found here:
 
-<https://github.com/entando/app-engine>
+<https://github.com/Villanova-AI/app-engine>
 
 ## Setup
 
 1.  Clone the application at:
-    <https://github.com/entando/app-engine> using
+    <https://github.com/Villanova-AI/app-engine> using
 
-        git clone https://github.com/entando/app-engine
+        git clone https://github.com/Villanova-AI/app-engine
 
 2.  On a command line, cd into the app-engine repository you just cloned:
 

@@ -4,16 +4,16 @@ sidebarDepth: 2
 
 # Installation on Amazon Elastic Kubernetes Service (EKS)
 
-This tutorial walks you through installing the Entando Platform in an EKS cluster. The steps are:
+This tutorial walks you through installing the Villanova Platform in an EKS cluster. The steps are:
 
 - [Configure an IAM Role](#configure-an-identity-and-access-management-iam-role) to allow Kubernetes to manage the cluster
 - [Create the EKS cluster](#create-the-eks-cluster)
 - [Install NGINX](#install-the-nginx-ingress-controller) as an ingress controller 
-- [Install the Entando Custom Resources](#install-the-entando-custom-resources)
-- [Configure the Entando Application](#configure-the-entando-application)
-- [Deploy the Entando Application](#deploy-your-entando-application)
+- [Install the Villanova Custom Resources](#install-the-entando-custom-resources)
+- [Configure the Villanova Application](#configure-the-entando-application)
+- [Deploy the Villanova Application](#deploy-your-entando-application)
 
-If you're already comfortable setting up an EKS cluster and installing NGINX, then you may be able to skip to [setting up Entando](#install-the-entando-custom-resources).
+If you're already comfortable setting up an EKS cluster and installing NGINX, then you may be able to skip to [setting up Villanova](#install-the-entando-custom-resources).
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ Go to [Identity Management and Access on EKS](https://docs.aws.amazon.com/eks/la
 1. Go to `Services` and select `Elastic Kubernetes Service`
 2. Click `Add cluster` → `Create`
 3. Set a unique name for the cluster, e.g. YOUR-CLUSTER-NAME
-4. Select an [Entando-compatible Kubernetes version](https://www.entando.com/page/en/compatibility-guide), e.g. `1.23`
+4. Select an [Villanova-compatible Kubernetes version](https://www.entando.com/page/en/compatibility-guide), e.g. `1.23`
 5. For `Cluster Service Role`, select the role you created above, e.g. YOUR-EKS-ROLE
 6. Click `Next`
 7. Use the defaults for the following steps (networking, logging, add-ons, etc.) and click `Next` for each.
@@ -105,7 +105,7 @@ https://oidc.eks.us-east-1.amazonaws.com/id/1C39B525EC0971750179719649SAMPLE
 4. Select `Amazon EBS CSI Driver`
 5. For `Service Account Role`, use `inherit from node`
 6. Click `Next` and then `Create`
-7. (Optional) The [EBS CSI guide](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) includes instructions for deploying a sample app to make sure the add-on is able to manage persistent volumes. This can be a useful check if storage timeouts occur when the Entando deployments start up.  
+7. (Optional) The [EBS CSI guide](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) includes instructions for deploying a sample app to make sure the add-on is able to manage persistent volumes. This can be a useful check if storage timeouts occur when the Villanova deployments start up.  
 
 ### Connect to the Cluster
 1. *Note:* If this is a brand new setup, you will need to configure the AWS CLI using your user account. You'll need to provide your Access Key ID, Secret Key, and Region.
@@ -144,23 +144,23 @@ ingress-nginx-controller             LoadBalancer   10.100.102.83    ad234bd11a1
 The value of the external URL (EXTERNAL-IP) should be available within a few minutes. You'll use this address for YOUR-HOST-NAME in the steps below.
 
 ::: tip
-NGINX is working correctly if a `404 Not Found` NGINX error page is generated when accessing `http://YOUR-HOST-NAME` from your browser. For a more complete test, you can [set up a simple test application](../devops/manage-nginx.md#verify-the-nginx-ingress-install) using your local `kubectl`. You can also [customize the NGINX ingress](../devops/manage-nginx.md#customize-the-nginx-configuration) to optimize the configuration for Entando.
+NGINX is working correctly if a `404 Not Found` NGINX error page is generated when accessing `http://YOUR-HOST-NAME` from your browser. For a more complete test, you can [set up a simple test application](../devops/manage-nginx.md#verify-the-nginx-ingress-install) using your local `kubectl`. You can also [customize the NGINX ingress](../devops/manage-nginx.md#customize-the-nginx-configuration) to optimize the configuration for Villanova.
 :::
 
 See the [NGINX AWS Guide](https://kubernetes.github.io/ingress-nginx/deploy/#aws) and [NGINX EKS Guide](https://docs.nginx.com/nginx/deployment-guides/amazon-web-services/ingress-controller-elastic-kubernetes-services/) for more details.
 
-### Install the Entando Custom Resources
+### Install the Villanova Custom Resources
 
 1. Apply the cluster-scoped custom resource definitions (CRDs). This is required only once per cluster.
 
 <EntandoCode>kubectl apply -f https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/namespace-scoped-deployment/cluster-resources.yaml
 </EntandoCode>
 
-2. Create the namespace for the Entando Application
+2. Create the namespace for the Villanova Application
 ```sh
 kubectl create namespace entando
 ```
-3. Download the `entando-operator-config` template so you can configure the [Entando Operator](../consume/entando-operator.md). 
+3. Download the `entando-operator-config` template so you can configure the [Villanova Operator](../consume/entando-operator.md). 
 
 <EntandoCode>curl -sLO "https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-operator-config.yaml"</EntandoCode>
 
@@ -188,7 +188,7 @@ entando-k8s-service-86f8954d56-mphpr   1/1     Running   0          5m53s
 entando-operator-5b5465788b-ghb25      1/1     Running   0          5m53s
 ```
 
-### Configure the Entando Application
+### Configure the Villanova Application
 1. Download the `entando-app.yaml` template
 
 <EntandoCode>curl -sLO "https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-app.yaml"</EntandoCode>
@@ -199,7 +199,7 @@ spec:
   ingressHostName: YOUR-HOST-NAME
 ```
 
-## Deploy your Entando Application
+## Deploy your Villanova Application
 1. You can now deploy your application to your EKS cluster
 ```
 kubectl apply -n entando -f entando-app.yaml
@@ -210,11 +210,11 @@ kubectl get pods -n entando --watch
 ```
 Use `Ctrl+C` to exit the command.
 
-3. Once all the pods are in a running state, access the Entando App Builder at the following address:
+3. Once all the pods are in a running state, access the Villanova App Builder at the following address:
 ```
 http://YOUR-HOST-NAME/app-builder/
 ```
-Congratulations! To continue your journey with Entando, see the [Getting Started guide](../../docs/getting-started/#log-in-to-entando) for helpful login instructions and next steps.
+Congratulations! To continue your journey with Villanova, see the [Getting Started guide](../../docs/getting-started/#log-in-to-entando) for helpful login instructions and next steps.
 
 ## Appendix A - Troubleshooting
 IAM and Roles

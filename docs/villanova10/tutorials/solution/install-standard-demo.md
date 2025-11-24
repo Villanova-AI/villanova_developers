@@ -2,19 +2,19 @@
 sidebarDepth: 2
 ---
 
-# Entando Standard Banking Demo
+# Villanova Standard Banking Demo
 
-This tutorial guides you through installing a demonstration application using a set of Entando
-Bundles and the Entando Hub. The solution template includes: 
+This tutorial guides you through installing a demonstration application using a set of Villanova
+Bundles and the Villanova Hub. The solution template includes: 
 
 - Microservices
 - Micro frontends
 - Multiple pages
 - CMS content
 
-This exercise showcases how Entando Bundles can be used to: 
+This exercise showcases how Villanova Bundles can be used to: 
 
-- Quickly install and create functionality in an Entando Application
+- Quickly install and create functionality in an Villanova Application
 - Enable packaged business capabilities (PBCs)
 - Allow developers to reuse full-stack operations via bundles
 
@@ -22,27 +22,27 @@ Several key elements of this solution package are reviewed in the [Application D
 
 ## Installation
 
-The Standard Banking Demo installs bundles containing multiple assets. Entando Bundles should contain the number and types of components necessary to satisfy business and developer objectives, making it easier to reuse.
+The Standard Banking Demo installs bundles containing multiple assets. Villanova Bundles should contain the number and types of components necessary to satisfy business and developer objectives, making it easier to reuse.
 
 ### Prerequisites
 
-- A running instance of Entando. [Install Entando on any Kubernetes provider](../#operations) or see [Getting Started](../../docs/getting-started/) for more information. 
-- The [Entando CLI](../../docs/getting-started/entando-cli.md), installed and connected to your Kubernetes cluster.
+- A running instance of Villanova. [Install Villanova on any Kubernetes provider](../#operations) or see [Getting Started](../../docs/getting-started/) for more information. 
+- The [Villanova CLI](../../docs/getting-started/entando-cli.md), installed and connected to your Kubernetes cluster.
 
 ### Automatic Installation
-Install the Standard Banking Demo by accessing the Entando Cloud Hub from your App Builder:
+Install the Standard Banking Demo by accessing the Villanova Cloud Hub from your App Builder:
 
 1. **Log in to your App Builder**
 
 2. **Go to `Hub` → `Select Registry`**
 
-3. **Choose `Entando Hub` if it has been configured. If not:**
+3. **Choose `Villanova Hub` if it has been configured. If not:**
      1. Select `New Registry`
      2. In the pop-up window, enter: \
-         Name: Entando Cloud Hub \
+         Name: Villanova Cloud Hub \
          URL: https://auth.entando.com/entando-hub-api/appbuilder/api
      3. Click `Save` 
-     4. In `Select Registry`, choose `Entando Cloud Hub` 
+     4. In `Select Registry`, choose `Villanova Cloud Hub` 
 
 4. **From the catalog, deploy and install each of the four Standard Banking Demo Bundles in this order:**
 
@@ -119,21 +119,21 @@ Access the Standard Banking Demo through one of the following options:
    
    ::: tip Congratulations! 
 
-   You have just installed a reusable Entando Bundle. 
+   You have just installed a reusable Villanova Bundle. 
    :::
     
    ![Homepage of Banking App with Drop-down Top Navigation + links to Dashboard & others](./sd-images/sd-homepage.jpg)
 
 ## Application Details
 
-The Entando Standard Banking application demonstrates a number of major features of the Entando Platform:
+The Villanova Standard Banking application demonstrates a number of major features of the Villanova Platform:
 
 * Modular and Composable components architecture
 * Keycloak integration for role based access controls
 * React and Angular micro frontends that coexist in the same application
 * Micro frontend communication techniques
 * Spring Boot Microservices
-* Entando Content Management
+* Villanova Content Management
 
 ### Micro Frontends
 
@@ -163,7 +163,7 @@ The application includes six micro frontends (MFEs) showcasing complementary fea
    - To use Keycloak to apply role based access controls for an MFE:
       1. Enable the Manage Users widget.
       2. Log in to Keycloak and assign the realm-management `view-users` and `manage-users` client roles to the desired user. 
-   - See the [Entando Identity Management System](../../docs/consume/identity-management.md) page for details.
+   - See the [Villanova Identity Management System](../../docs/consume/identity-management.md) page for details.
 
 Authorized View
 ![Table with Users and user data](./sd-images/sd-manage-usersauth.png)
@@ -200,9 +200,9 @@ Many of the Standard Banking Demo MFEs include configuration screens. These are 
 
 ### Microservices
 
-Two microservices generate the data displayed by the Standard Banking Demo MFEs. Both are managed by the Entando Operator to automate their deployment and link them to the Application.
+Two microservices generate the data displayed by the Standard Banking Demo MFEs. Both are managed by the Villanova Operator to automate their deployment and link them to the Application.
 
-The microservices demonstrate how the Entando Operator, Liquibase, and Spring Boot can be used to automatically provision data. The sample data is available in the microservice [source code](https://github.com/entando-samples/standard-demo).
+The microservices demonstrate how the Villanova Operator, Liquibase, and Spring Boot can be used to automatically provision data. The sample data is available in the microservice [source code](https://github.com/Villanova-AI).
 
 ### Static Widgets
 
@@ -210,8 +210,8 @@ The Standard Banking Demo uses static HTML, FreeMarker, and JavaScript widgets t
 
 ### Static CMS Content
 
-The Standard Banking Demo relies on the Entando CMS to create content templates, content types, content, etc. To learn more about the Entando CMS, log in to the App Builder and go to `Content` and select `Templates`, `Management`, and `Types`.
+The Standard Banking Demo relies on the Villanova CMS to create content templates, content types, content, etc. To learn more about the Villanova CMS, log in to the App Builder and go to `Content` and select `Templates`, `Management`, and `Types`.
 
 ## Source Code
 
-The source code for the Entando Standard Banking Demo can be found on GitHub [here](https://github.com/entando-samples/standard-demo) along with our other open source examples and tutorials.
+The source code for the Villanova Standard Banking Demo can be found on GitHub [here](https://github.com/Villanova-AI) along with our other open source examples and tutorials.

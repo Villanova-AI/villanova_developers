@@ -3,14 +3,14 @@ sidebarDepth: 2
 ---
 
 # Create an Angular Micro Frontend
-This tutorial describes the process of building an Angular widget on Entando. It creates a docker-based bundle using the ent bundle CLI tool.
+This tutorial describes the process of building an Angular widget on Villanova. It creates a docker-based bundle using the ent bundle CLI tool.
 
 ## Prerequisites
-* [A working instance of Entando.](../../../docs/getting-started/README.md)
+* [A working instance of Villanova.](../../../docs/getting-started/README.md)
 
 * node: Use [nvm](https://github.com/nvm-sh/nvm) to handle node installations.
 
-* Verify dependencies with the [Entando CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`.
+* Verify dependencies with the [Villanova CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`.
 
 ## Initialize your Bundle Project
 1. To initialize your project, give it a name and build the scaffolding. This name will be used for the default bundle Docker image. 
@@ -169,7 +169,7 @@ You now have an Angular micro frontend running.
 2. (Optional) Add a thumbnail JPEG or PNG file to the root bundle folder. It must be named `thumbnail` and not exceed 100kB, e.g. thumbnail.png.
 
 3. You can now build and install the bundle. See [the Build and Publish tutorial](../pb/publish-project-bundle.md) for more details on the steps.
-   <EntandoInstallBundle/>
+   <VillanovaInstallBundle/>
 4. Log in to the App Builder and navigate to the Hub in the left nav to see the installed bundle.
 
 ### Add the Bundle to a Page
@@ -189,11 +189,11 @@ Let's see the Angular micro frontend in action on a page.
 ![Angular Micro Frontend](./img/angular-micro-frontend.png)
 
 ::: tip Congratulations!
-You now have an Angular micro frontend running in Entando.
+You now have an Angular micro frontend running in Villanova.
 :::
 
 **Next Steps**
 * Learn more about [Communication between Micro Frontends](communication.md). 
 
 * Try the [Add a Configuration Screen in App Builder](widget-configuration.md) tutorial.
-* [Generate Microservices and Micro Frontends](../ms/generate-microservices-and-micro-frontends.md) with an Entando Blueprint. 
+* [Generate Microservices and Micro Frontends](../ms/generate-microservices-and-micro-frontends.md) with an Villanova Blueprint. 

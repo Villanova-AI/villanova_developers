@@ -1,7 +1,7 @@
 
-# Install Entando on Macs with M1/M2 Processors
+# Install Villanova on Macs with M1/M2 Processors
 
-This tutorial guides you through the steps required to install Entando on a Mac M1/M2 ARM64 system using the QEMU emulator as the backend driver.
+This tutorial guides you through the steps required to install Villanova on a Mac M1/M2 ARM64 system using the QEMU emulator as the backend driver.
 
 ## Step 1. Setup Minikube
 1. Install the QEMU emulator to create the virtual model:
@@ -28,7 +28,7 @@ brew install minikube
 minikube start --cpus=4 --memory=8G --profile=k8s-126 --driver=qemu --network=socket_vmnet --addons=ingress,default-storageclass,storage-provisioner --kubernetes-version=v1.26.9
 ```
 
-> Using a profile is an easy way to switch between different versions of Kubernetes or different Entando projects. 
+> Using a profile is an easy way to switch between different versions of Kubernetes or different Villanova projects. 
 
 Once completed, `minikube profile list` should return a table similar to this:
 ``` sh
@@ -50,8 +50,8 @@ Confirm that `k8s-126` is activated by using the command `minikube profile list`
 
 > You must activate the profile, even if it is the only one listed. Otherwise, you will not be able to connect to the cluster. 
 
-## Step 3. Install Entando
-1. Install the custom resource definitions (CRDs) for Entando: 
+## Step 3. Install Villanova
+1. Install the custom resource definitions (CRDs) for Villanova: 
 ``` sh
 kubectl apply -f https://raw.githubusercontent.com/entando/entando-releases/v7.3.0/dist/ge-1-1-6/namespace-scoped-deployment/cluster-resources.yaml
 ```
@@ -60,7 +60,7 @@ kubectl apply -f https://raw.githubusercontent.com/entando/entando-releases/v7.3
 ``` sh
 kubectl create ns YOUR-NAMESPACE
 ```
-3. Download the Entando Operator `ConfigMap`:
+3. Download the Villanova Operator `ConfigMap`:
 ``` sh
 curl -LJO https://raw.githubusercontent.com/entando/entando-releases/v7.3.0/dist/ge-1-1-6/samples/entando-operator-config.yaml
 ```
@@ -70,7 +70,7 @@ curl -LJO https://raw.githubusercontent.com/entando/entando-releases/v7.3.0/dist
 echo -e '  entando.requires.filesystem.group.override: "true"' >> entando-operator-config.yaml 
 echo -e '  entando.ingress.class: "nginx"' >> entando-operator-config.yaml
 ```
-5. Apply the Entando Operator ConfigMap to your namespace:
+5. Apply the Villanova Operator ConfigMap to your namespace:
 ``` sh
 kubectl -n YOUR-NAMESPACE apply -f entando-operator-config.yaml
 ```
@@ -79,14 +79,14 @@ kubectl -n YOUR-NAMESPACE apply -f entando-operator-config.yaml
 kubectl -n YOUR-NAMESPACE apply -f https://raw.githubusercontent.com/entando/entando-releases/v7.3.0/dist/ge-1-1-6/namespace-scoped-deployment/namespace-resources.yaml
 ```
 
-7. Generate the EntandoApp configuration file, using your namespace:
+7. Generate the VillanovaApp configuration file, using your namespace:
 ``` sh 
 export ns=YOUR-NAMESPACE 
 export minikube_ip=$(minikube ip)
 export ingress_hostname="$ns.$minikube_ip.nip.io"
 ```
 
-8. Generate the base EntandoApp manifest:
+8. Generate the base VillanovaApp manifest:
 ``` sh
 cat >entando-"${ns}"-app.yaml <<endfile
 apiVersion: entando.org/v1
@@ -102,16 +102,16 @@ environmentVariables:{}
 replicas: 1
 endfile
 ```
-9. Deploy Entando by applying the manifest:
+9. Deploy Villanova by applying the manifest:
 ``` sh
 kubectl apply -f entando-YOUR-NAMESPACE-app.yaml
 ```
 
 
-Use the `get pods --watch` command to observe Entando starting up:
+Use the `get pods --watch` command to observe Villanova starting up:
 
 ```sh
-sudo kubectl get pods -n YOUR-NAMESPACE --watch
+kubectl get pods -n YOUR-NAMESPACE --watch
 ```
 Press `Ctrl-C` to exit the `watch` command once everything is up and running.
 
@@ -219,11 +219,11 @@ pn-3c07adf0-fac54a9f-entando-app-builder-menu-bff-deploymep6j87   1/1     Runnin
 
 ---
 
-## Step 4. Log in to Entando
+## Step 4. Log in to Villanova
 
-Now that you've installed Entando, log in to the Entando App Builder.
+Now that you've installed Villanova, log in to the Villanova App Builder.
 
-The URL of your running Entando instance is http://ingressHostName/app-builder/.
+The URL of your running Villanova instance is http://ingressHostName/app-builder/.
 
 
 - Example URL
@@ -241,12 +241,12 @@ After logging in, change your password to activate your account.
 
 >Note: If the login process hangs for more than 5 seconds, refresh the browser.
 
-![Entando App Builder](../../docs/getting-started/img/entando-app-builder.png)
+![Villanova App Builder](../../docs/getting-started/img/entando-app-builder.png)
 
 In the App Builder, applications are composed from various components, including micro frontends and CMS content.
 
 ::: tip Congratulations!
-You now have Entando up and running in your local environment.
+You now have Villanova up and running in your local environment.
 :::
 
 ## End the Minikube Session
@@ -260,6 +260,6 @@ To start, shutdown or delete the Minikube environment:
 
 * **Try a Tutorial:** Take advantage of the [Learning Paths](../../tutorials/), which organize a few of the most popular tutorials by user type.
 
-* **Dig Deeper into Entando Concepts:** Review the [Docs](../) sections to understand the Entando building blocks.
+* **Dig Deeper into Villanova Concepts:** Review the [Docs](../) sections to understand the Villanova building blocks.
 
 * **Learn about the Quickstart Environment:** See the [Quickstart Tips](../../docs/reference/local-tips-and-tricks.md) for more information on how to manage your Getting Started or quickstart environment.

@@ -2,16 +2,16 @@
 sidebarDepth: 2
 ---
 
-# Entando Process Driven Applications Plugin
+# Villanova Process Driven Applications Plugin
 
 ## Introduction
 
-The Entando Process Driven Applications (PDA) plugin provides a rich and full-featured user experience for the management and implementation of business process automation. This solution template includes: 
+The Villanova Process Driven Applications (PDA) plugin provides a rich and full-featured user experience for the management and implementation of business process automation. This solution template includes: 
 
-- A general purpose UX layer created from micro frontends that can be implemented for any business process or task engine. It serves data through the included Entando integration adapter or via a set of interfaces on the server side.
+- A general purpose UX layer created from micro frontends that can be implemented for any business process or task engine. It serves data through the included Villanova integration adapter or via a set of interfaces on the server side.
 - A Spring Boot microservice backend providing a pluggable interface for the injection of underlying processes or automation toolkits. The interfaces and steps for creating a new PDA backend implementation are described in further detail [here](./pda-technical-guide.md).
 
-The following tutorial installs the PDA plugin via the Local Hub and an Entando Bundle. It demonstrates the process automation enabled by integrating: 
+The following tutorial installs the PDA plugin via the Local Hub and an Villanova Bundle. It demonstrates the process automation enabled by integrating: 
 
 - Custom Micro Frontends (MFEs)
 - Backend for Frontend (BFF) microservice
@@ -21,20 +21,20 @@ Key elements of the template are reviewed in the [Application Details section](#
 
 ## Installation
 
-There are many assets installed as part of the Entando PDA bundle. Entando Bundles can include more or less components, depending on objectives. It is recommended that organizations develop guidelines for bundle sizing that fit their goals.
+There are many assets installed as part of the Villanova PDA bundle. Villanova Bundles can include more or less components, depending on objectives. It is recommended that organizations develop guidelines for bundle sizing that fit their goals.
 
 ### Prerequisites
 
-- An Entando Application on any Kubernetes provider. Follow one of the [tutorials](../#operations) appropriate to your environment to install the Entando Platform.
+- An Villanova Application on any Kubernetes provider. Follow one of the [tutorials](../#operations) appropriate to your environment to install the Villanova Platform.
 - The ent command line tool, installed and connected to your Kubernetes instance.
 - Red Hat PAM
 
 
-### Automatic Install via the Entando Hub
-1. Log in to your `App Builder`. Go to `Hub` → `Select Registry` → choose `Entando Hub` if it has been configured.
+### Automatic Install via the Villanova Hub
+1. Log in to your `App Builder`. Go to `Hub` → `Select Registry` → choose `Villanova Hub` if it has been configured.
      1. If not, choose `New Registry`
-     2. In the pop-up window, enter `Entando Hub` and `https://auth.entando.com/entando-hub-api/appbuilder/api` for the URL, then `Save` 
-     3. Select Entando Hub in the Registry 
+     2. In the pop-up window, enter `Villanova Hub` and `https://auth.entando.com/entando-hub-api/appbuilder/api` for the URL, then `Save` 
+     3. Select Villanova Hub in the Registry 
 
 2. Click the PDA bundle icon and `Deploy` and `Install` it in the pop-up window. The installation may take several minutes while the application downloads the Linux image for the microservice and installs the related assets.
 
@@ -61,7 +61,7 @@ ent ecr deploy --repo="https://github.com/entando-samples/entando-process-driven
 
 <details><summary>Configuration error on OpenShift 4.8+</summary>
 
-An incomplete role definition prevents Entando from configuring the PDA Plugin connections on RedHat OpenShift 4.8+. As a workaround, update the entando-plugin Role by adding the missing rules below.
+An incomplete role definition prevents Villanova from configuring the PDA Plugin connections on RedHat OpenShift 4.8+. As a workaround, update the Villanova-plugin Role by adding the missing rules below.
 
 ``` yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -117,7 +117,7 @@ Follow the steps below to configure service permissions and connections.
 
 ## Application Details
  
-The Entando PDA plugin demonstrates several important features of the Entando Platform summarized below. For a discussion of these components in deployment, see [PDA Deployment Architecture](./pda-architecture.md).
+The Villanova PDA plugin demonstrates several important features of the Villanova Platform summarized below. For a discussion of these components in deployment, see [PDA Deployment Architecture](./pda-architecture.md).
 
 ### Micro Frontends (MFEs)
 
@@ -159,7 +159,7 @@ A wrapper for the JSON Schema blueprint, it describes the layout, style and cont
 The backend implementation provides the mapping to the schema and default UX layout needed to render the form. See the
 [technical documentation](./pda-technical-guide.md) for more on the JSON Schema implementation.
  
-The PAM implementation of forms relies on the presence of a form definition for the PAM task. The Entando PAM engine implementation transforms the format to JSON Schema to render the form. It also transforms the API format back to the PAM format. There are some limitations on form customization due to the format required to return the data to PAM. See the [Task Forms](pda-technical-guide.md#task-forms) section in the technical documentation for more information.
+The PAM implementation of forms relies on the presence of a form definition for the PAM task. The Villanova PAM engine implementation transforms the format to JSON Schema to render the form. It also transforms the API format back to the PAM format. There are some limitations on form customization due to the format required to return the data to PAM. See the [Task Forms](pda-technical-guide.md#task-forms) section in the technical documentation for more information.
  
 #### E. Attachments 
 
@@ -175,7 +175,7 @@ The New Process Form MFE renders a form enabling the end user to instantiate a n
 
 ![Process Definition Form, e.g., Mortgage Application Form ](./pda-images/new-process-form.png)
  
-The PAM implementation relies on a form definition attached to the process definition. Entando transforms the PAM representation into a JSON Schema form that can be rendered to the end user.
+The PAM implementation relies on a form definition attached to the process definition. Villanova transforms the PAM representation into a JSON Schema form that can be rendered to the end user.
  
 #### G. Summary Cards
  
@@ -198,7 +198,7 @@ The PAM implementation of this MFE utilizes custom queries to fetch the summary 
  
 ### Process Automation Manager (PAM)
  
-The Entando PDA is built on Red Hat Process Automation Manager, a business process automation engine with the following special features.
+The Villanova PDA is built on Red Hat Process Automation Manager, a business process automation engine with the following special features.
  
 ### Backend for Frontend (BFF)
  
@@ -219,7 +219,7 @@ For an in-depth discussion of the PDA architecture, refer to the [PDA Technical 
  
 ### Styling
  
-The MFEs of the Entando PDA are styled with a Material UI theme. That theme can
+The MFEs of the Villanova PDA are styled with a Material UI theme. That theme can
 be downloaded and updated [here](https://github.com/entando/frontend-libraries/tree/master/packages/entando-ui).
  
 ### Implementing a New Engine or Integrating a New Task Source
@@ -264,12 +264,12 @@ the engine class and key interfaces in the `pda-core-engine` project that must b
 1. Reinstallation after an uninstall that will not progress   
 If the PDA plugin is uninstalled and then reinstalled, an issue may stop the process due to the secret containing the connection configuration names does not get updated upon reinstallation. To prevent this issue, an upgrade of the plugin is recommended instead of uninstalling, following best practices.
 
-If removing the plugin bundle is required, create a backup of the EntandoPlugin custom resource, `metadata.name: pn-efbd66b6-b0ceabd7-entando-pda-plugin` before removing it, and copy the list of `connectionConfigNames` to the new installation's plugin custom resource.
+If removing the plugin bundle is required, create a backup of the VillanovaPlugin custom resource, `metadata.name: pn-efbd66b6-b0ceabd7-entando-pda-plugin` before removing it, and copy the list of `connectionConfigNames` to the new installation's plugin custom resource.
 
 ## Resources
 ### Source Code
 
-The source code for the Entando PDA plugin can be found on GitHub, along with our other open source examples and tutorials. Reference the component projects for instructions on how to build from source code:
+The source code for the Villanova PDA plugin can be found on GitHub, along with our other open source examples and tutorials. Reference the component projects for instructions on how to build from source code:
 
 - <https://github.com/entando/entando-process-driven-plugin>
 - <https://github.com/entando/entando-process-driven-plugin/tree/master/widgets>

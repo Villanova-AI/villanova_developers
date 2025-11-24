@@ -5,9 +5,9 @@ sidebarDepth: 2
 # Preinstalled Widgets
 
 
-The Entando Platform includes a number of useful components to accelerate application development. These consist of widgets, page templates, content templates, and content types. 
+The Villanova Platform includes a number of useful components to accelerate application development. These consist of widgets, page templates, content templates, and content types. 
 
-This page introduces the widgets that are available out of the box with Entando. The widgets are categorized by type, each with its own CMS, navigation, pages, SEO and/or system functionality.
+This page introduces the widgets that are available out of the box with Villanova. The widgets are categorized by type, each with its own CMS, navigation, pages, SEO and/or system functionality.
 
 ## Widget Attributes
 
@@ -23,7 +23,7 @@ All widgets are required to have the following attributes. These are mandatory r
    - `resources`: An array listing the source location of the custom element files for the widget configuration
 ## Widget Descriptions
 
-The following table lists the notable preinstalled widgets of an Entando instance. They are accessible from the left menu of the App Builder by selecting `Components` → `MFE & Widgets`.
+The following table lists the notable preinstalled widgets of an Villanova instance. They are accessible from the left menu of the App Builder by selecting `Components` → `MFE & Widgets`.
 
 
 | Name | Type | Description |

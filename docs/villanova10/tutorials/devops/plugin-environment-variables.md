@@ -13,7 +13,7 @@ The `entando.json` file makes environment variables available to a microservice 
 This tutorial will demonstrate both of these options. The microservice will receive one environment value directly as plain text in the pod YAML and the other indirectly through a referenced Secret.
 
 ## Prerequisites
-* [A bundle project using the latest Entando Blueprint](../create/ms/generate-microservices-and-micro-frontends.md) 
+* [A bundle project using the latest Villanova Blueprint](../create/ms/generate-microservices-and-micro-frontends.md) 
 
 ## Add Environment Variables to the Microservice
 1. To determine YOUR-BUNDLE-ID, run the following command. Supply the full bundle URL, remembering to update the placeholders with your Docker organization and your bundle name.
@@ -64,7 +64,7 @@ SIMPLE_VAR=mySimpleValue, SECRET_VAR=mySecretValue
 ```
 
 ::: tip Congratulations!
-You have learned how to use environment variables with microsevices on the Entando Platform!
+You have learned how to use environment variables with microsevices on the Villanova Platform!
 :::
 
 

@@ -3,16 +3,16 @@ sidebarDepth: 2
 ---
 # Connecting to an External Database
 
-This document provides a guide to connecting an application to an external database auto-provisioned by the Entando Operator. In many production configurations, it is recommended to use a DBMS outside of the cluster where your Entando Application is running to
+This document provides a guide to connecting an application to an external database auto-provisioned by the Villanova Operator. In many production configurations, it is recommended to use a DBMS outside of the cluster where your Villanova Application is running to
 simplify maintenance, minimize duplication of resources, and establish a backup workflow to scale with your application.
 
 There are also two optional configurations to customize your setup. Note the first section applies to [PostgreSQL or MySQL DBMS](#a-customize-with-the-providedcapability-crd), while the second option is to autoprovision an [external Oracle DBMS](#b-configure-an-external-oracle-dbms).
 
-For more information about how Entando manages external databases, see [Existing External DB](../../docs/reference/databases.md#existing-external-databases).
+For more information about how Villanova manages external databases, see [Existing External DB](../../docs/reference/databases.md#existing-external-databases).
 
 ## Prerequisites
 
--   An environment to install your Entando Application
+-   An environment to install your Villanova Application
 
 -   A running PostgreSQL, MySQL, or Oracle environment
 
@@ -22,9 +22,9 @@ For more information about how Entando manages external databases, see [Existing
 
 ## Tutorial
 
-1. Edit the [EntandoApp](../../docs/reference/entandoapp-cr.md) custom resource definition (CRD). 
+1. Edit the [VillanovaApp](../../docs/reference/entandoapp-cr.md) custom resource definition (CRD). 
     * Set the value for `dbms` to `none`.
-    * Under `environmentVariables`, provide the database connection information for two Entando server databases and one connection for the Entando Component Repository (ECR). Sample connection information for each of the databases is provided [below](#ecr).
+    * Under `environmentVariables`, provide the database connection information for two Villanova server databases and one connection for the Villanova Component Repository (ECR). Sample connection information for each of the databases is provided [below](#ecr).
     * Note that Kubernetes Secrets are auto-provisioned when specified in the `environmentVariables` section, to pass on the DB credentials. Secrets can also be created manually.
 
 This is an `EntandoApp` CRD example for a PostgreSQL DBMS:
@@ -94,7 +94,7 @@ spec:
   replicas: 1
 ```
 2. Create the YOUR-POSTGRESQL-SECRET with the admin credentials for the DB. You can skip this step if you include the credentials as an environmentVariable under the spec section.
-3. Edit the [EntandoDatabaseService CRD](../../docs/reference/database-cr.md) for your namespace and external DB requirements. 
+3. Edit the [VillanovaDatabaseService CRD](../../docs/reference/database-cr.md) for your namespace and external DB requirements. 
     
 ``` yaml
 apiVersion: entando.org/v1
@@ -211,7 +211,7 @@ XXX_EXCEPTION_SORTER:         org.jboss.jca.adapters.jdbc.extensions.oracle.Orac
 SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.OracleDialect 
 ```
 
->See additional details about an [Oracle implementation](../../docs/reference/databases.md#oracle).
+> See additional details about an [Oracle implementation](../../docs/reference/databases.md#oracle).
 
 
 ## Options 
@@ -219,8 +219,8 @@ SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.OracleDialect
 The `ProvidedCapability` custom resource definition can be utilized to automate the deployment of the DBMS and provide more controls. This approach can be used for PostgreSQL or MySQL DBMS. 
 #### Steps: 
 1. Customize the templates with your namespace, preferred DB name, and schema. Also add your FQDN in the SSO template.
-2. Apply the templates before starting the Entando installation.
-3. Install Entando the usual way.
+2. Apply the templates before starting the Villanova installation.
+3. Install Villanova the usual way.
 
 #### ProvidedCapability Templates for DBMS and SSO
 * Main DB ProvidedCapability Template
@@ -256,12 +256,12 @@ spec:
   - Cluster
 ```
 ### B. Configure an External Oracle DBMS
-This section describes the steps for the Entando Operator to auto-provision external Oracle databases for all of its needs, including Keycloak, two server DB, and another for the Component Repository as required in a typical Entando installation. 
+This section describes the steps for the Villanova Operator to auto-provision external Oracle databases for all of its needs, including Keycloak, two server DB, and another for the Component Repository as required in a typical Villanova installation. 
 
 #### Steps
-The process requires the reformulation of the custom resources for the App Engine, Keycloak server and database service prior your Entando installation. Replace the variables below as required by your application, paying special attention to those with the prefix `YOUR-`.
+The process requires the reformulation of the custom resources for the App Engine, Keycloak server and database service prior your Villanova installation. Replace the variables below as required by your application, paying special attention to those with the prefix `YOUR-`.
 
-1. Edit the EntandoApp custom resource definition, using your namespace and application name: 
+1. Edit the VillanovaApp custom resource definition, using your namespace and application name: 
 ``` yaml
 apiVersion: entando.org/v1
 kind: EntandoApp
@@ -328,7 +328,7 @@ spec:
   replicas: 1
 ```
 
-Find more information on [`EntandoApp` Custom Resource definitions](../../docs/reference/entandoapp-cr.md)
+Find more information on [`VillanovaApp` Custom Resource definitions](../../docs/reference/entandoapp-cr.md)
 
 2. Edit the `EntandoDatabaseService` custom resource definition:
 
@@ -352,7 +352,7 @@ spec:
   providedCapabilityScope: YOUR-NAMESPACE
   replicas: 1
 ```
-Find more information on [`EntandoDatabaseService` Custom Resource definitions](../../docs/reference/database-cr.md)
+Find more information on [`VillanovaDatabaseService` Custom Resource definitions](../../docs/reference/database-cr.md)
 
 3. Edit the EntandoKeycloakServer custom resource definition:
 
@@ -394,6 +394,8 @@ spec:
   replicas: 1
   standardImage: keycloak
 ```
- Find more information on [`EntandoKeycloakServer` custom resource definitions](../../docs/reference/keycloak-cr.md)
+ Find more information on [`VillanovaKeycloakServer` custom resource definitions](../../docs/reference/keycloak-cr.md)
 
-4. Apply the custom resources to the cluster using `kubectl apply` and then install Entando the usual way.
+4. Apply the custom resources to the cluster using `kubectl apply` and then install Villanova the usual way.
+
+

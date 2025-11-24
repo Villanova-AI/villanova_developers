@@ -23,7 +23,7 @@ These steps only need to be completed once per cluster.
 
 7. In the left menu, select `default-pool` → `Nodes`
 
-8. Select "e2-standard-2" as the `Machine Type` if you are setting up a basic test cluster for a single Entando Application. Additional CPU and memory may be required for a shared cluster containing multiple Entando Applications or to improve performance. Refer to [Appendix A](#appendix-configuring-clustered-storage) for details on clustered storage.
+8. Select "e2-standard-2" as the `Machine Type` if you are setting up a basic test cluster for a single Villanova Application. Additional CPU and memory may be required for a shared cluster containing multiple Villanova Applications or to improve performance. Refer to [Appendix A](#appendix-configuring-clustered-storage) for details on clustered storage.
 
 9. Click `Create`. It may take a few minutes for the cluster to initialize. 
 
@@ -35,9 +35,9 @@ These steps only need to be completed once per cluster.
 
 ### Install the NGINX Ingress Controller
 
-The following steps install the NGINX Ingress Controller to manage the ingresses for Entando services deployed by the operator. These are the minimum instructions to prepare the NGINX ingress using the Google Cloud Shell, which is a simple and adaptable configuration for most users and environments. 
+The following steps install the NGINX Ingress Controller to manage the ingresses for Villanova services deployed by the operator. These are the minimum instructions to prepare the NGINX ingress using the Google Cloud Shell, which is a simple and adaptable configuration for most users and environments. 
 
-Users who require the GKE Ingress controller (this is rare) can follow [the integration instructions provided by GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress) and then customize the service definition created by the Entando Operator.
+Users who require the GKE Ingress controller (this is rare) can follow [the integration instructions provided by GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress) and then customize the service definition created by the Villanova Operator.
 
 For installation using your local `kubectl` or to vary other settings, refer to the [NGINX Ingress Controller documentation](https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke) or the [GCE-GKE tutorial](https://cloud.google.com/community/tutorials/nginx-ingress-gke).
 
@@ -63,21 +63,21 @@ kubectl get service -n ingress-nginx --watch
 ```
 
 ::: tip
-NGINX is working correctly if a `404 Not Found` NGINX error page is generated when accessing the EXTERNAL-IP from your browser. For a more complete test, you can [set up a simple test application](../devops/manage-nginx.md#verify-the-nginx-ingress-install) using your local `kubectl`. You can also [customize the NGINX ingress](../devops/manage-nginx.md#customize-the-nginx-configuration) to optimize the configuration for Entando.
+NGINX is working correctly if a `404 Not Found` NGINX error page is generated when accessing the EXTERNAL-IP from your browser. For a more complete test, you can [set up a simple test application](../devops/manage-nginx.md#verify-the-nginx-ingress-install) using your local `kubectl`. You can also [customize the NGINX ingress](../devops/manage-nginx.md#customize-the-nginx-configuration) to optimize the configuration for Villanova.
 :::
 
-### Install the Entando Custom Resources
+### Install the Villanova Custom Resources
 
 1. Download and apply the custom resource definitions (CRDs) to the cluster. This must be done once per cluster.
 
 <EntandoCode>kubectl apply -f https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/namespace-scoped-deployment/cluster-resources.yaml
 </EntandoCode>
 
-2. Create a namespace for the Entando Application. If you choose a name other than "entando," update the following commands wherever a namespace is provided.
+2. Create a namespace for the Villanova Application. If you choose a name other than "Villanova," update the following commands wherever a namespace is provided.
 ```sh
 kubectl create namespace entando
 ```
-3. Download the `entando-operator-config` template to configure the [Entando Operator](../consume/entando-operator.md):
+3. Download the `entando-operator-config` template to configure the [Villanova Operator](../consume/entando-operator.md):
 
 <EntandoCode>curl -sLO "https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-operator-config.yaml"</EntandoCode>
 
@@ -103,22 +103,22 @@ entando-k8s-service-86f8954d56-mphpr   1/1     Running   0          95s
 entando-operator-5b5465788b-ghb25      1/1     Running   0          95s
 ```
 
-### Configure the Entando Application
+### Configure the Villanova Application
 1. Download the `entando-app.yaml` template:
 
 <EntandoCode>curl -sLO "https://raw.githubusercontent.com/entando/entando-releases/{{ $site.themeConfig.entando.fixpack.v73 }}/dist/ge-1-1-6/samples/entando-app.yaml"</EntandoCode>
 
-2. Edit `entando-app.yaml`. Replace `YOUR-HOST-NAME` with `EXTERNAL-IP` + `.nip.io`. See [the EntandoApp custom resource overview](../../docs/reference/entandoapp-cr.md) for additional options.
+2. Edit `entando-app.yaml`. Replace `YOUR-HOST-NAME` with `EXTERNAL-IP` + `.nip.io`. See [the VillanovaApp custom resource overview](../../docs/reference/entandoapp-cr.md) for additional options.
 ```yaml
 spec:
   ingressHostName: YOUR-HOST-NAME
 ```
 e.g. _ingressHostName: 20.120.54.243.nip.io_
 
-## Deploy Your Entando Application
+## Deploy Your Villanova Application
 You can now deploy your application to your GKE cluster.
 
-1. Deploy the Entando Application: 
+1. Deploy the Villanova Application: 
 ```sh
 kubectl apply -n entando -f entando-app.yaml
 ```
@@ -127,7 +127,7 @@ kubectl apply -n entando -f entando-app.yaml
 kubectl get pods -n entando --watch
 ```
 
-3. Once all the pods are in a running state, access the Entando App Builder at the following address:
+3. Once all the pods are in a running state, access the Villanova App Builder at the following address:
 ```
 http://YOUR-HOST-NAME/app-builder/
 ```
@@ -136,13 +136,13 @@ See the [Getting Started guide](../../docs/getting-started/README.md#log-in-to-e
 
 ## Appendix: Configuring Clustered Storage
 
-In order to scale an Entando Application across multiple nodes, you must provide a storage class that supports
+In order to scale an Villanova Application across multiple nodes, you must provide a storage class that supports
 a `ReadWriteMany` access policy, e.g. by using a dedicated storage provider like GlusterFS.
 
 The example below provides clustered storage via GCP Cloud Filestore. However, it is best practice to expose an existing clustered file solution as a StorageClass.
 
 ::: tip
-You do not need clustered storage to scale an Entando Application if you schedule all instances to the same node via taints on other nodes and a `ReadWriteOnce (RWO)` policy. Be aware of the impact to node resource allocation and to recovery, should your application fail or become unreachable. Note that if the node fails or is shutdown, your application will be unresponsive while Kubernetes reschedules the pods to a different node.
+You do not need clustered storage to scale an Villanova Application if you schedule all instances to the same node via taints on other nodes and a `ReadWriteOnce (RWO)` policy. Be aware of the impact to node resource allocation and to recovery, should your application fail or become unreachable. Note that if the node fails or is shutdown, your application will be unresponsive while Kubernetes reschedules the pods to a different node.
 :::
 
 ### Clustered Storage Using GCP Cloud Filestore
@@ -177,4 +177,4 @@ entando.k8s.operator.default.clustered.storage.class: "standard-rwx"
 entando.k8s.operator.default.non.clustered.storage.class: "standard"
 ```
 
-6. Deploy your Entando Application using the [instructions above](#deploy-your-entando-application). The server instances will automatically use the clustered storage.
+6. Deploy your Villanova Application using the [instructions above](#deploy-your-entando-application). The server instances will automatically use the clustered storage.

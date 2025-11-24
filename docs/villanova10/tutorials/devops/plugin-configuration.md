@@ -4,13 +4,13 @@ sidebarDepth: 2
 
 # Microservice Configuration Profiles
 
-This tutorial describes three methods to utilize configuration profiles to specify resource allocation for Entando microservices. These provide a simple way to customize microservice deployment parameters for improved efficiency.
+This tutorial describes three methods to utilize configuration profiles to specify resource allocation for Villanova microservices. These provide a simple way to customize microservice deployment parameters for improved efficiency.
 
 ## Prerequisites
-* [A working instance of Entando](../../docs/getting-started/)
-* Verify dependencies with the [Entando CLI](../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
-* [Add an Entando Operator ConfigMap](../consume/entando-operator.md) if needed, then
-  * Enable this property under the `data` section so the Entando Operator can manage the resource settings:
+* [A working instance of Villanova](../../docs/getting-started/)
+* Verify dependencies with the [Villanova CLI](../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+* [Add an Villanova Operator ConfigMap](../consume/entando-operator.md) if needed, then
+  * Enable this property under the `data` section so the Villanova Operator can manage the resource settings:
    ```yaml
     entando.k8s.operator.impose.limits: "true"
    ```
@@ -34,7 +34,7 @@ resources.limits.memory:    integer, mebibytes
 The examples below use `YOUR-PLUGIN`, `YOUR-PLUGIN-CODE`, `YOUR-ORG`, `YOUR-BUNDLE` and `YOUR-PROFILE-NAME` as placeholders. Also note the use of `|-` to designate a new line in the code.
 
 ### Retrieve the Plugin Code
-You will need to [retrieve the plugin code](../../docs/getting-started/entando-cli.md), which is calculated during installation and written to the EntandoPlugin custom resource as part of the deployment of the microservice. 
+You will need to [retrieve the plugin code](../../docs/getting-started/entando-cli.md), which is calculated during installation and written to the VillanovaPlugin custom resource as part of the deployment of the microservice. 
 
 Use the following command from the root bundle project directory, where `YOUR-ORG` is your Docker organization and `YOUR-BUNDLE` contains the microservice:
 ```sh

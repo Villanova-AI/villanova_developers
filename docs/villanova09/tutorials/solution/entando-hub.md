@@ -2,11 +2,11 @@
 sidebarDepth: 2
 ---
 
-# Entando Hub Installation and User Guide
+# Villanova Hub Installation and User Guide
 
-An Entando Hub enables teams to share components across their organization to build composable applications with ease and speed. This catalog management software bundle can be installed in any Entando 7+ instance and includes API-level integration with the App Builder.
+An Villanova Hub enables teams to share components across their organization to build composable applications with ease and speed. This catalog management software bundle can be installed in any Villanova 7+ instance and includes API-level integration with the App Builder.
 
-The Entando Platform comes built in with a local Hub for independent development, but additional registries can be connected, including an enterprise Hub where you can share and collaborate on modular components, through a private or public catalog. This tutorial describes the steps to install and access the enterprise version of the Entando Hub.
+The Villanova Platform comes built in with a local Hub for independent development, but additional registries can be connected, including an enterprise Hub where you can share and collaborate on modular components, through a private or public catalog. This tutorial describes the steps to install and access the enterprise version of the Villanova Hub.
 
 
 1. [Installation](#installation)
@@ -14,30 +14,30 @@ The Entando Platform comes built in with a local Hub for independent development
 3. [Using an Enterprise Hub](#using-the-enterprise-hub)
 4. [Resources](#resources)
 
-For details on Hub features, definitions, and other details, see the [Entando Hub information page](../../docs/curate/hub-details.md). 
+For details on Hub features, definitions, and other details, see the [Villanova Hub information page](../../docs/curate/hub-details.md). 
 
 ## Installation
 
-An enterprise Entando Hub is installed with two Entando Bundles. One bundle contains the micro frontends and microservices, and should be installed first, while the second sets up the UI content and pages.
+An enterprise Villanova Hub is installed with two Villanova Bundles. One bundle contains the micro frontends and microservices, and should be installed first, while the second sets up the UI content and pages.
 
 ### Prerequisites
 
-- An Entando Application on any Kubernetes provider. Follow the [tutorial](../#operations) appropriate for your environment to install the Platform.
+- An Villanova Application on any Kubernetes provider. Follow the [tutorial](../#operations) appropriate for your environment to install the Platform.
 - The [ent command line tool](../../docs/getting-started/entando-cli.md), installed and connected to your Kubernetes instance.
 
-### Install the Hub from the Entando Cloud Hub 
-Connect the Entando Cloud Hub to your Local Hub so you can access the Hub bundles directly from your App Builder:
+### Install the Hub from the Villanova Cloud Hub 
+Connect the Villanova Cloud Hub to your Local Hub so you can access the Hub bundles directly from your App Builder:
 1. Log in to your App Builder
 2. Go to `Hub` from the sidebar and click `Select Registry`  
 3. Choose `New Registry`
 4. In the pop-up window, enter the following:
   ``` bash
-  Name: Entando Cloud Hub
+  Name: Villanova Cloud Hub
   URL: https://auth.entando.com/entando-hub-api/appbuilder/api
   ``` 
 The API Key is required only for private enterprise Hubs. Click `Save. 
 
-5. Select the Cloud Hub in the Registry drop-down and find the Entando Hub bundles 
+5. Select the Cloud Hub in the Registry drop-down and find the Villanova Hub bundles 
 6. Deploy and install `entando-hub-application` bundle by clicking it and following the instructions in the pop-up window. Note that you can choose the version by clicking the down arrow in the install button. The `application` bundle must be installed first because it sets up the necessary frontend components for the `entando-hub-content` bundle.
 7. Repeat the steps for `entando-hub-content`. They should now appear in your Local Hub. Continue with the [Configuration steps](#configuration) below.
 
@@ -72,11 +72,11 @@ ent bundle generate-cr -t prod --image=docker://registry.hub.docker.com/entando/
     
 2. To access your enterprise Hub: 
    - Navigate to `Pages` → `Management` in the App Builder
-   - Find `Entando Hub` in the page tree, and click `View Published Page` from its `Actions` drop-down options
+   - Find `Villanova Hub` in the page tree, and click `View Published Page` from its `Actions` drop-down options
 
 ## Using the Enterprise Hub
 ### The Hub UI
-The enterprise Entando Hub provides a UI where users, entries, and catalogs are managed. Private and public catalogs are also configured there. 
+The enterprise Villanova Hub provides a UI where users, entries, and catalogs are managed. Private and public catalogs are also configured there. 
 * Administrators create and manage users, categories, and organizations. 
 * Authors and managers create and manage the components organized there called Bundle Groups. They are assigned varying [levels of access](../../docs/curate/hub-details.md#roles) to perform their tasks.
 * Public or private catalogs can be configured, both [directly accessible from the App Builder](#add-a-catalog-registry).
@@ -96,7 +96,7 @@ Only a Hub administrator has the authorization to create and manage users.
 6. Choose the desired user and select an organization from the drop-down list. If the organization is not available, go to Organization Management to add it. **Note:** the administrator needs to belong to the same organization(s) as well, especially for private catalogs that require an API key. 
 
 ### Create New Entries/Bundle Groups
-At the top of the Hub UI, click the `Add +` button to create a new [Bundle Group](../../docs/curate/hub-details.md#bundle-group-definitions). This is what a component entry is called on Entando. In the pop-up window, enter the details for the entry.
+At the top of the Hub UI, click the `Add +` button to create a new [Bundle Group](../../docs/curate/hub-details.md#bundle-group-definitions). This is what a component entry is called on Villanova. In the pop-up window, enter the details for the entry.
 
 ![Pop-up Window to Add New Component Entry](./hub-images/hub-add.png)
 
@@ -122,15 +122,15 @@ API access to private catalogs requires the use of an API key instead of user cr
 2. From the Hub UI homepage, click on the gear icon at the top and select `API Key Management`.
 3. Click `Generate API Key`, enter a name and confirm with the blue generate button. Save the key for future reference.
 
-The API key is required to share the bundles and PBCs in a private Entando Hub catalog. Bundles can be initialized directly from the catalog by using the [ent bundle init command](../../docs/getting-started/ent-bundle.md#initialization) or by adding the registry in your App Builder and deploying it from that catalog as described below. 
+The API key is required to share the bundles and PBCs in a private Villanova Hub catalog. Bundles can be initialized directly from the catalog by using the [ent bundle init command](../../docs/getting-started/ent-bundle.md#initialization) or by adding the registry in your App Builder and deploying it from that catalog as described below. 
 
 ### Add a Catalog Registry
-Any enterprise Hub instance can be accessed from the Entando App Builder, with the right credentials. 
+Any enterprise Hub instance can be accessed from the Villanova App Builder, with the right credentials. 
 
 1. In the App Builder, go to the Hub from the left navigation bar and click `Select Registry`
 2. Choose `New Registry` from the drop-down menu
 3. Enter the Hub name and the API endpoint for the catalog:  
-  * The API endpoint is `https://YOUR-BASEURL/entando-hub-application-152edaba/entando-hub-catalog-ms/appbuilder/api` where `YOUR-BASEURL` is the hostname of your Entando instance.      
+  * The API endpoint is `https://YOUR-BASEURL/entando-hub-application-152edaba/entando-hub-catalog-ms/appbuilder/api` where `YOUR-BASEURL` is the hostname of your Villanova instance.      
       
   * **Private Catalog**  
      For a private Hub, the URL has an added catalog ID number from its HTTP address. Go to the published Hub page from the App Builder and find the address in the browser. The number after `/catalog/` is `YOUR-CATALOG-ID#`.  
@@ -144,7 +144,7 @@ Any enterprise Hub instance can be accessed from the Entando App Builder, with t
 
 ## Resources
 
-* [Enterprise Entando Hub Features and Definitions](../../docs/curate/hub-details.md)
+* [Enterprise Villanova Hub Features and Definitions](../../docs/curate/hub-details.md)
 * Source Code  
-Entando open source examples and tutorials are available on GitHub. Reference the Hub sample project for instructions to build the project from source code:   
-<https://github.com/entando-samples/entando-hub>
+Villanova open source examples and tutorials are available on GitHub. Reference the Hub sample project for instructions to build the project from source code:   
+<https://github.com/Villanova-AI>

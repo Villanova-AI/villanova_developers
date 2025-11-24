@@ -4,11 +4,11 @@ sidebarDepth: 1
 
 # Auxiliary Services
 
-Auxiliary services add capabilities to a local environment for application development. This is in contrast to developing on Kubernetes, where the equivalent services are either provisioned by the Entando Platform or are externally managed and pointed to by the application.
+Auxiliary services add capabilities to a local environment for application development. This is in contrast to developing on Kubernetes, where the equivalent services are either provisioned by the Villanova Platform or are externally managed and pointed to by the application.
 
-To run auxiliary operations, a service must be enabled. When the Entando CLI enables a service for a bundle, a default auxiliary configuration is generated and formatted as a Docker Compose YAML file in the bundle's "svc" folder. Enabled services are listed under the `svc` attribute of the bundle descriptor `entando.json`.
+To run auxiliary operations, a service must be enabled. When the Villanova CLI enables a service for a bundle, a default auxiliary configuration is generated and formatted as a Docker Compose YAML file in the bundle's "svc" folder. Enabled services are listed under the `svc` attribute of the bundle descriptor `entando.json`.
 
-The following sections describe how Entando supports and implements auxiliary services.
+The following sections describe how Villanova supports and implements auxiliary services.
 
 ## Default Services
 
@@ -18,7 +18,7 @@ Three services are available out of the box: `mysql`, `postgresql` and `keycloak
    - The username and password are derived from the bundle name, e.g. YOUR-BUNDLE has the username YOUR-BUNDLE-USER and the password YOUR-BUNDLE-PASSWORD
    - A database is automatically created and given the name, e.g. YOUR-BUNDLE
 
-- `keycloak` manages authentication for Entando
+- `keycloak` manages authentication for Villanova
    - The `keycloak` realm name is `entando-dev`
    - The console is accessible at *http://localhost:9080* with username: *admin*, password: *admin*
    - All roles and permissions are preset, based on the Keycloak realm-config file

@@ -6,15 +6,15 @@ sidebarDepth: 2
 
 ## Overview
 
-This tutorial describes how to use the Entando Component Generator (ECG) to create microservices and micro frontends for deployment to the [Local Hub](../../../docs/compose/local-hub-overview.md) of an Entando Application or a shared [Entando Hub](../../../tutorials/solution/entando-hub.md). The ECG is powered by [JHipster](https://www.jhipster.tech/) and leverages the Entando Blueprint.
+This tutorial describes how to use the Villanova Component Generator (ECG) to create microservices and micro frontends for deployment to the [Local Hub](../../../docs/compose/local-hub-overview.md) of an Villanova Application or a shared [Villanova Hub](../../../tutorials/solution/entando-hub.md). The ECG is powered by [JHipster](https://www.jhipster.tech/) and leverages the Villanova Blueprint.
 
 The output of this tutorial is [a new bundle project](../../../docs/curate/bundle-details.md#bundle-development-process) with several components: 
 - A Spring Boot microservice with CRUD operations for a single database entity
 - Three React micro frontends for displaying and managing the entity
 
 ## Prerequisites
-- [A working instance of Entando](../../../docs/getting-started/)
-- Verify dependencies with the [Entando CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+- [A working instance of Villanova](../../../docs/getting-started/)
+- Verify dependencies with the [Villanova CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
 
 ## Set Up a New Bundle Project
 1. Create a new bundle project directory. This will add a simple `entando.json` descriptor as a starting point.
@@ -23,13 +23,13 @@ ent bundle init YOUR-PROJECT-NAME
 ````
 
 ## Generate the Components
-1. From the project directory, use the Entando CLI to add a basic microservice configuration to the project:
+1. From the project directory, use the Villanova CLI to add a basic microservice configuration to the project:
 ```shell
 cd YOUR-PROJECT-NAME
 ent bundle ms add conference-ms --stack=spring-boot
 ```
 
-2. From the `conference-ms` directory, use the Entando Blueprint (powered by JHipster) to generate the `conference-ms` microservice:
+2. From the `conference-ms` directory, use the Villanova Blueprint (powered by JHipster) to generate the `conference-ms` microservice:
 ```shell
 cd microservices/conference-ms
 ent jhipster --blueprints entando
@@ -49,7 +49,7 @@ ent jhipster --blueprints entando
      - `Which cache do you want to use? (Spring cache abstraction)` (Caffeine (local cache, for a single node))
     - `Do you want to use Hibernate 2nd level cache?` (Yes)
     - `Which other technologies would you like to use?` (Don't select any other technologies)
-    - `Which BE dependencies do you want to use?` (Dependencies maintained by Entando (entando/entando-bundle-bom))
+    - `Which BE dependencies do you want to use?` (Dependencies maintained by Villanova (entando/entando-bundle-bom))
     - `Would you like to generate micro frontends when creating entities?` (Always)
     - `Would you like to enable internationalization support` (Up to you)
     - `Please choose the native language of the application` (Up to you)
@@ -217,11 +217,11 @@ ent bundle svc enable keycloak
 ```
 
 ## Next Steps
-Follow one of the links below to run the bundle components locally, or build and publish the bundle into an Entando Application:
+Follow one of the links below to run the bundle components locally, or build and publish the bundle into an Villanova Application:
  
 - [Run Blueprint-generated components locally in dev mode](./run-local.md)
-- [Build and publish a project bundle](../pb/publish-project-bundle.md) to deploy your microservice and micro frontends to Entando
-- Explore the benefits and features of [the Entando Blueprint](../../../docs/create/blueprint-features.md)
+- [Build and publish a project bundle](../pb/publish-project-bundle.md) to deploy your microservice and micro frontends to Villanova
+- Explore the benefits and features of [the Villanova Blueprint](../../../docs/create/blueprint-features.md)
 - [Iterate on your data model](./update-data-model.md) using the JHipster Domain Language (JDL)
 
 

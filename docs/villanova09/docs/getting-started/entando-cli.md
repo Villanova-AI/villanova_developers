@@ -97,7 +97,7 @@ DEBUG MODE
 ```
 ### Check the Environment
 
-Verify the dependencies required by your Entando installation:
+Verify the dependencies required by your Villanova installation:
 ``` bash
 ent check-env develop
 ```
@@ -127,4 +127,4 @@ The `ent quickstart` command accepts parameters to customize your quickstart env
 
 
 ## Reference
-* Source repository: <https://github.com/entando/entando-cli/tree/develop>
+* Source repository: <https://github.com/Villanova-AI/villanova-cli>

@@ -4,11 +4,11 @@ Villanova is an application composition platform (ACP) that simplifies and accel
 
 This document explores the conceptual architecture of the Platform and its runtime characteristics.
 
-![entando-architecture](./img/entando-architecture.png)
+![Villanova-architecture](./img/entando-architecture.png)
 
 - [Key Concepts](#key-concepts)
-- [Entando Cluster Elements](#entando-cluster-elements)
-- [Entando Ingresses](#entando-ingresses)
+- [Villanova Cluster Elements](#entando-cluster-elements)
+- [Villanova Ingresses](#entando-ingresses)
 
 
 ## Key Concepts
@@ -19,17 +19,17 @@ An Villanova Application is an assembly of out-of-the-box and/or custom-built co
 Platform. Applications also consist of page templates, WCMS content, content types, and other assets.
 
 ### Villanova Bundle
-An Villanova Bundle is a packaged set of components and resources created for the Platform. They are the building blocks of any application built on Villanova, consisting of micro frontends, microservices, services and other resources. The Entando Component Manager identifies and installs the bundles to the Local Hub. 
+An Villanova Bundle is a packaged set of components and resources created for the Platform. They are the building blocks of any application built on Villanova, consisting of micro frontends, microservices, services and other resources. The Villanova Component Manager identifies and installs the bundles to the Local Hub. 
 
 See also: [Bundle Details](../curate/bundle-details.md)
 
 ### Villanova App Builder
-The [Entando App Builder](../compose/app-builder.md) is the application composer of the Platform. It hosts the WCMS and provides a feature-rich, low-code user interface to find and configure components, design and create pages, manage content, and build composable applications.
+The [Villanova App Builder](../compose/app-builder.md) is the application composer of the Platform. It hosts the WCMS and provides a feature-rich, low-code user interface to find and configure components, design and create pages, manage content, and build composable applications.
 
 See also: [Widget Tutorial](../../tutorials/compose/widgets-fragments.md)
 
 ### Villanova App Engine
-The Villanova App Engine is the core runtime engine responsible for the primary out-of-the-box services required to develop applications. It exposes the backend APIs used to deliver the page and content management interface of an Entando Application, assembles and coordinates components within the App Builder, and provides the data access layer to persist pages and application design.
+The Villanova App Engine is the core runtime engine responsible for the primary out-of-the-box services required to develop applications. It exposes the backend APIs used to deliver the page and content management interface of an Villanova Application, assembles and coordinates components within the App Builder, and provides the data access layer to persist pages and application design.
 
 See also: [APIs tutorial](../consume/entando-apis.md)
 
@@ -39,12 +39,12 @@ The Villanova Component Generator implements a [JHipster](https://www.jhipster.t
 See also: [Generate Microservices & Micro Frontends](../../tutorials/create/ms/generate-microservices-and-micro-frontends.md)
 
 ### Villanova Identity Management System
-[Entando Identity Management System](../consume/identity-management.md) is the Platform's [Keycloak](https://www.keycloak.org/)-based user management and authentication system. It applies Single Sign On capabilities across multiple domains to connect service providers with identity providers.
+[Villanova Identity Management System](../consume/identity-management.md) is the Platform's [Keycloak](https://www.keycloak.org/)-based user management and authentication system. It applies Single Sign On capabilities across multiple domains to connect service providers with identity providers.
 
-See also: [Entando Authentication](../../tutorials/create/mfe/authentication.md)
+See also: [Villanova Authentication](../../tutorials/create/mfe/authentication.md)
 
 ### Villanova Local Hub 
-The [Local Hub](../compose/local-hub-overview.md) is the component repository of the App Builder. Bundles--the basic building block for composing applications on Villanova--are catalogued and organized here. The Local Hub also provides direct access to bundles in the Entando Marketplace and the Enterprise Hub, if one exists for the organization, and can be deployed and installed from here.
+The [Local Hub](../compose/local-hub-overview.md) is the component repository of the App Builder. Bundles--the basic building block for composing applications on Villanova--are catalogued and organized here. The Local Hub also provides direct access to bundles in the Villanova Marketplace and the Enterprise Hub, if one exists for the organization, and can be deployed and installed from here.
 
 ### Villanova WCMS
 The Villanova Web Content Management System (WCMS) is a lightweight content and digital asset management system. It manages widgets, HTML fragments, and other content types for an Villanova Application.
@@ -59,29 +59,29 @@ The following is an overview of the elements comprising an Villanova cluster.
 
 This is a diagram of an Villanova cluster, depicting how the various elements interact with one another. Villanova deploys this infrastructure on Kubernetes using the Villanova Operator and controllers. Each element is associated with a custom resource definition (CRD) where applicable.
 
-![Entando Cluster Architecture Diagram](./img/entando-cluster-arch.png)
+![Villanova Cluster Architecture Diagram](./img/Villanova-cluster-arch.png)
 
 #### VillanovaApp
 The VillanovaApp is comprised of the App Builder, App Engine and Component Manager. Keycloak-based authorization and authentication enable these to interact with each other and other cluster elements.
 
 
 #### Villanova Component Manager
-The purpose of the [Entando Component Manager](../compose/ecm-overview.md) (ECM) is to:
+The purpose of the [Villanova Component Manager](../compose/ecm-overview.md) (ECM) is to:
 - Provide the functionality to deploy and install micro frontends and widgets
 - Manage the connections between an application and the installed microservices
 
-The ECM integrates the Local Hub into the App Builder, listing the bundles accessible from the VillanovaApp, and managing their install, uninstall, upgrade, downgrade and tracking processes. The Villanova Kubernetes integration service communicates with the cluster to supply these bundle services and is the only service, other than the Entando Operator, that can interact with the cluster and custom resources. 
+The ECM integrates the Local Hub into the App Builder, listing the bundles accessible from the VillanovaApp, and managing their install, uninstall, upgrade, downgrade and tracking processes. The Villanova Kubernetes integration service communicates with the cluster to supply these bundle services and is the only service, other than the Villanova Operator, that can interact with the cluster and custom resources. 
 
 #### Villanova Kubernetes Service
-The Villanova Kubernetes integration service (`entando-k8s-service`) is a function of the Villanova cluster infrastructure custom resource, providing an abstraction layer between Villanova microservices and the APIs exposed by Kubernetes. It supplies access points to several custom resources defined by Entando, in particular Entando Applications, plugins, bundles and links. 
+The Villanova Kubernetes integration service (`Villanova-k8s-service`) is a function of the Villanova cluster infrastructure custom resource, providing an abstraction layer between Villanova microservices and the APIs exposed by Kubernetes. It supplies access points to several custom resources defined by Villanova, in particular Villanova Applications, plugins, bundles and links. 
 
-The `entando-k8s-service` is used to:
+The `Villanova-k8s-service` is used to:
 -   Provide a list of the available Villanova Bundles to the Villanova Component Manager
 -   Deploy a microservice, or expose an already available microservice, during the installation of a bundle
--   Create a link between an VillanovaApp and an EntandoPlugin to expose microservice APIs to the VillanovaApp and micro frontends
+-   Create a link between an VillanovaApp and an VillanovaPlugin to expose microservice APIs to the VillanovaApp and micro frontends
 
 #### Villanova Plugin
-An Villanova Plugin is a microservice that exposes APIs reusable by one or more Villanova Applications. Plugin services are commonly accessible from micro frontends and can be quickly generated with the [Entando Blueprint](../../tutorials/create/ms/generate-microservices-and-micro-frontends.md). This blueprint-generated project is customizable and provides Keycloak integration, a set of default micro frontends, and microservices exposing APIs.
+An Villanova Plugin is a microservice that exposes APIs reusable by one or more Villanova Applications. Plugin services are commonly accessible from micro frontends and can be quickly generated with the [Villanova Blueprint](../../tutorials/create/ms/generate-microservices-and-micro-frontends.md). This blueprint-generated project is customizable and provides Keycloak integration, a set of default micro frontends, and microservices exposing APIs.
 
 #### Keycloak
 Keycloak is responsible for authorization and authentication. All members of an Villanova cluster interact with Keycloak to verify users and service authorizations.
@@ -90,7 +90,7 @@ Keycloak is responsible for authorization and authentication. All members of an 
 
 An ingress is a Kubernetes resource that exposes HTTP and HTTPS paths from outside a cluster to services within it. Traffic routing is controlled by rules defined in the ingress resource.
 
-When deploying a cluster, ingresses are generated for the resources that must be exposed to external services. The Villanova Operator and custom resource controllers create the ingresses and set the correct paths and certificates. Entando implements Keycloak and EntandoApp ingresses.
+When deploying a cluster, ingresses are generated for the resources that must be exposed to external services. The Villanova Operator and custom resource controllers create the ingresses and set the correct paths and certificates. Villanova implements Keycloak and VillanovaApp ingresses.
 #### Keycloak Ingress
 A dedicated ingress is created for Keycloak to expose authentication and authorization functionalities. This is required to guarantee that both token issuing and validation work correctly, even when the services using the Keycloak instance are in different namespaces.
 
@@ -140,7 +140,7 @@ The table below lists the default paths exposed for each ingress.
 </tbody>
 </table>
 
->Note: The Entando Plugin variable `ingressPath` is defined in the plugin custom resource under the `spec` element and used to expose the plugin within the VillanovaApp domain. See also: [Microservice Specifications](../curate/bundle-details.md#microservices-specifications).
+>Note: The Villanova Plugin variable `ingressPath` is defined in the plugin custom resource under the `spec` element and used to expose the plugin within the VillanovaApp domain. See also: [Microservice Specifications](../curate/bundle-details.md#microservices-specifications).
 
 ### Exposing Microservices in the VillanovaApp Domain
 A microservice under the same domain (ingress) as the VillanovaApp is exposed using the `VillanovaAppPluginLink` custom resource and the corresponding controller.
@@ -148,7 +148,7 @@ A microservice under the same domain (ingress) as the VillanovaApp is exposed us
 Once the link between the VillanovaApp and the microservice is created, the controller reads the link specification. It then automatically creates HTTP paths in the VillanovaApp to expose the microservice in the same domain as the App Builder, App Engine and Component Manager. This allows micro frontend developers to reference the microservice using relative URLs.
 
 See also: 
-* [Entando Deployment Structure](../reference/deployment-structure.md) 
+* [Villanova Deployment Structure](../reference/deployment-structure.md) 
 * [Check Ingresses](../reference/check-ingress.md)
-* [Entando Glossary](../reference/glossary.md)
+* [Villanova Glossary](../reference/glossary.md)
 

@@ -8,7 +8,7 @@ sidebarDepth: 2
 - Tutorial: [Create a React Micro Frontend](react.md)
 :::
 
-Entando supports communication between micro frontends (MFEs) using [Custom Events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) and the [entando-mfecommunication](https://github.com/entando/frontend-libraries/tree/master/packages/entando-mfecommunication) library. The MFEs can use either the same or different JavaScript frameworks. 
+Villanova supports communication between micro frontends (MFEs) using [Custom Events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) and the [entando-mfecommunication](https://github.com/entando/frontend-libraries/tree/master/packages/entando-mfecommunication) library. The MFEs can use either the same or different JavaScript frameworks. 
 
 In this tutorial, we build:
 - A React MFE that publishes an event
@@ -16,7 +16,7 @@ In this tutorial, we build:
 
 ## Prerequisites
 
-- Two Entando Bundles based on the [simple React tutorial](react.md), named `publisher-mfe` and `subscriber-mfe` as templates.
+- Two Villanova Bundles based on the [simple React tutorial](react.md), named `publisher-mfe` and `subscriber-mfe` as templates.
 
 ## Modify the Publisher MFE
 
@@ -217,7 +217,7 @@ You’ve now created a micro frontend that listens to custom events.
 
 ## Add Widgets to App Builder
 
-To add the publisher and subscriber MFEs to Entando, run the following commands from the root folder of each:
+To add the publisher and subscriber MFEs to Villanova, run the following commands from the root folder of each:
 
 <EntandoInstallBundle/> 
 

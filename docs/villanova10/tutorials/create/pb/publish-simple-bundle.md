@@ -4,17 +4,17 @@ sidebarDepth: 2
 # Build and Publish a Simple Widget
 
 ## Overview
-This tutorial describes how to build and publish a single-component Entando Bundle consisting of a simple widget. Following the steps below will:
+This tutorial describes how to build and publish a single-component Villanova Bundle consisting of a simple widget. Following the steps below will:
 
 - Define the bundle component
 - Push the bundle artifact to a Docker registry
 - Apply the bundle custom resource to Kubernetes
-- Install the bundle into an Entando Application
+- Install the bundle into an Villanova Application
 
 ## Prerequisites
-* Verify dependencies with the [Entando CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+* Verify dependencies with the [Villanova CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
 * Authenticated Docker credentials
-* A running Entando instance
+* A running Villanova instance
 
 Bundles are generated using the `ent bundle` command and its convenience methods.
 

@@ -1,32 +1,32 @@
 ---
 sidebarDepth: 2
 ---
-# Manage Entando Databases
+# Manage Villanova Databases
 
-Entando currently supports PostgreSQL, MySQL and Oracle database systems. With
-PostgreSQL and MySQL, Entando automatically creates a Kubernetes deployment to host the DBMS. 
-For Oracle and others, Entando supports connectivity with [External Databases](../../tutorials/devops/external-db.md). 
+Villanova currently supports PostgreSQL, MySQL and Oracle database systems. With
+PostgreSQL and MySQL, Villanova automatically creates a Kubernetes deployment to host the DBMS. 
+For Oracle and others, Villanova supports connectivity with [External Databases](../../tutorials/devops/external-db.md). 
 
-This document describes how Entando manages databases and their connectivity.
+This document describes how Villanova manages databases and their connectivity.
 
 ## PostgreSQL and MySQL
 
 #### Lightweight & Low-Config 
-When deploying Entando Custom Resources that require databases to a new
-namespace, Entando creates a Kubernetes deployment by default. It uses standard OpenShift compliant images.
+When deploying Villanova Custom Resources that require databases to a new
+namespace, Villanova creates a Kubernetes deployment by default. It uses standard OpenShift compliant images.
 
-A relatively low-configuration approach, Entando creates and
+A relatively low-configuration approach, Villanova creates and
 initializes the databases transparently. Persistent data is stored on any
 persistent volume that meets the PersistentVolumeClaim requirements.
 
-When an Entando Custom Resource is redeployed, the persistent volumes
+When an Villanova Custom Resource is redeployed, the persistent volumes
 remain intact. Since the subsequent data initialization is idempotent,
 the supporting deployments will scale up and behave as expected.
 
 #### Isolated DB
-Generally, Entando services encapsulate the database they use, 
+Generally, Villanova services encapsulate the database they use, 
 providing mechanisms to import and export data without 
-knowledge of the internal workings of the data store. For simpler applications, where database size remains manageable, Entando isolates the DB without the need for deployment pipelines.
+knowledge of the internal workings of the data store. For simpler applications, where database size remains manageable, Villanova isolates the DB without the need for deployment pipelines.
 
 These database deployments are not clustered.
 It is therefore recommended that redundancy and clustering, in the form of clustered storage, be utilized in this type of application. 
@@ -42,34 +42,34 @@ to manage.
 
 ## Existing External Databases
 
-Entando can be configured to use an existing
+Villanova can be configured to use an existing
 DBMS provided by the customer. In such cases, lower level database
 operations such as tablespace creation, permissions and clustering must be carried out by the customer. 
 
-Then, Entando creates and populates the tables, indices and foreign keys in the appropriate table structure for the specified DBMS. A dedicated custom resource definition in Kubernetes called `EntandoDatabaseService` is used to configure it.
+Then, Villanova creates and populates the tables, indices and foreign keys in the appropriate table structure for the specified DBMS. A dedicated custom resource definition in Kubernetes called `VillanovaDatabaseService` is used to configure it.
 
-The [`EntandoDatabaseService` custom resource](../reference/database-cr.md) is created in
-the same namespace as the EntandoApp and EntandoPlugin that use them. It is usually created along with a Secret that carries admin credentials to the database.
+The [`VillanovaDatabaseService` custom resource](../reference/database-cr.md) is created in
+the same namespace as the VillanovaApp and VillanovaPlugin that use them. It is usually created along with a Secret that carries admin credentials to the database.
 
 See [Connecting to an External Database Tutorial](../../tutorials/devops/external-db.md) for specific instructions.
 
 ## How It Works
 ### Database Custom Resource
-In order for the EntandoApp and plugin deployer to choose the
-correct database service, the `EntandoDatabaseService` custom resource needs to be created
+In order for the VillanovaApp and plugin deployer to choose the
+correct database service, the `VillanovaDatabaseService` custom resource needs to be created
 **BEFORE** the app and plugins are created. There can be
-multiple `EntandoDatabaseServices` in the namespace, but each needs to
+multiple `VillanovaDatabaseServices` in the namespace, but each needs to
 point to the DBMS of different vendors, i.e. PostgreSQL, Oracle
 or MySQL. 
 
-Entando currently does not enforce any validation, and if there
-are two `EntandoDatabaseServices` with the same DBMS vendor, it will
+Villanova currently does not enforce any validation, and if there
+are two `VillanovaDatabaseServices` with the same DBMS vendor, it will
 simply pick the first one and continue. Please ensure that only one
-`EntandoDatabaseService` exists for each vendor used.
+`VillanovaDatabaseService` exists for each vendor used.
 
 #### Structure
 
-`EntandoDatabaseService` custom resource example:
+`VillanovaDatabaseService` custom resource example:
 
 ``` yaml
 kind: "EntandoDatabaseService"
@@ -103,7 +103,7 @@ stringData:
 #### Spec.dbms
 Any application or plugin that is created has to specify the
 appropriate DBMS vendor in their `spec.dbms` property. If the
-Entando Operator detects an `EntandoDatabaseService` with a matching DBMS
+Villanova Operator detects an `EntandoDatabaseService` with a matching DBMS
 vendor, it creates the necessary schemas for that specific
 database. 
 
@@ -118,7 +118,7 @@ a plugin, the operator assumes that it
 does not require a database, bypassing any database
 and schema creation.
 
-When the Entando Operator processes the app or plugin with
+When the Villanova Operator processes the app or plugin with
 an appropriate `spec.dbms` specification, it creates a schema/user pair
 for each datasource required. A typical app deployment requires 3
 datasources: portdb, servdb, and dedb. Plugins generally require 1
@@ -131,25 +131,25 @@ all characters that are not ANSI-SQL compliant with an underscore.
 
 The datasource name is then suffixed to the schema name. When naming
 your app or plugin, keep in mind that some DBMS 
-do not support long schema names. Future versions of Entando will allow
+do not support long schema names. Future versions of Villanova will allow
 you to override the schema prefix for an app or plugin.
 
 ### Credentials
 
-The Entando Operator generates a Kubernetes Secret for each schema/user
+The Villanova Operator generates a Kubernetes Secret for each schema/user
 combination it creates. The Secret name is the concatenation of
 the app or plugin name, the datasource qualifier,
 plus the suffix "secret", connected by dashes. 
 
-E.g. EntandoApp named `your-app` and datasource `portdb`  
+E.g. VillanovaApp named `your-app` and datasource `portdb`  
 Kubernetes Secret → `your-app-portdb-secret` 
 
 #### Passwords and Secrets
-The Entando Operator never overwrites or updates an existing database Secret. It generates a random string for the password, which is generally considered the safest
+The Villanova Operator never overwrites or updates an existing database Secret. It generates a random string for the password, which is generally considered the safest
 approach. If you wish to change the password for the user, remember to update the password in the Kubernetes
 Secret. Such an operation can sometimes create an error, resulting in deployment failures.
 
-The Entando Operator’s schema creation logic is idempotent. If the generated schema/user combination in the
+The Villanova Operator’s schema creation logic is idempotent. If the generated schema/user combination in the
 associated Kuberentes Secret already exists, there will be no side effects.
 But if the login fails, it 
 attempts to create the user. If the user already exists, with a
@@ -199,11 +199,11 @@ Coordinate with your Oracle DB admin to determine exactly what value to
 use. We strongly recommend testing your settings with code or
 a tool that constructs a JDBC connection.
 
-* You can specify which tablespace Entando should use to create the
+* You can specify which tablespace Villanova should use to create the
 schemas by using the `spec.tablespace` property.
 
-* When the operator prepares the schemas for your EntandoApp or
-Entando plugin, it creates a user for every datasource required. 
+* When the operator prepares the schemas for your VillanovaApp or
+Villanova plugin, it creates a user for every datasource required. 
 That user will have their own schema
 with the same name which is standard for Oracle. Permissions are set up to ensure that one user
 cannot access tables from another user’s schema. 
@@ -217,7 +217,7 @@ name is unique.
 
 #### ORA-01704: string literal too long
 
-Entando requires extended datatypes to be activated in Oracle 12c and
+Villanova requires extended datatypes to be activated in Oracle 12c and
 higher.
 (<https://oracle-base.com/articles/12c/extended-data-types-12cR1>)
 
@@ -255,13 +255,13 @@ jdbc:mysql://10.0.0.13:3306
 #### Notes
 
 * MySQL doesn’t distinguish between schemas and databases. For this reason, no
-`databaseName` is required. The Entando Operator will therefore create an
+`databaseName` is required. The Villanova Operator will therefore create an
 entirely new database for each datasource your app or plugin requires. It also creates a user with the same name as
 the database with permissions to ensure one user cannot access the
 database of another user. 
 >MySQL limits database names
 to 63 characters. Keep this in mind when naming your
-Entando Applications and plugins.
+Villanova Applications and plugins.
 
 ### PostgreSQL
 
@@ -295,15 +295,15 @@ jdbc:postgresql://10.0.0.13:5432/my\_db
 #### Notes
 
 * PostgreSQL behaves like Oracle when it comes to user and schema association. The current username is applied as a
-default schema/prefix to resolve tables. Entando ensures
+default schema/prefix to resolve tables. Villanova ensures
 that two users don’t have access to the other’s schemas.
 
 ## OPTIONS 
 ### Skipping DBMS Preparation
-When an Entando Application is deployed, an operator is responsible for the entire process, including DB creation and preparation.
+When an Villanova Application is deployed, an operator is responsible for the entire process, including DB creation and preparation.
 If you already have a prepared DB (schemas, tables, etc.), you could skip the schema creation and DB preparation to speed up the deployment process.
 
-To achieve this, specify the pertinent properties for the EntandoApp component in the `entandoapp.yaml` file.
+To achieve this, specify the pertinent properties for the VillanovaApp component in the `entandoapp.yaml` file.
 
 For the `spec.dbms` property, choose `none`. Then add the necessary DB connection parameters.
 Here is an example of the `entandoapp.yaml`:
@@ -353,17 +353,17 @@ For database credentials, use K8s Secrets to store them, using the syntax indica
 #### How It Works
 
 * Using `spec.dbms: "none"` directs the operator to skip the initial schema/user creation step.
-* Adding variables under the `spec.environmentVariables` section will supply connection parameters used by the EntandoApp.
-* Keep in mind that these parameters are applied to each of the containers in the EntandoApp pod, overriding existing values.
+* Adding variables under the `spec.environmentVariables` section will supply connection parameters used by the VillanovaApp.
+* Keep in mind that these parameters are applied to each of the containers in the VillanovaApp pod, overriding existing values.
 
 ### Liquibase Migration
 
-Beginning with Entando 7.0, the EntandoApp Engine modules include automatic Liquibase migrations to manage structural changes to databases running on MySQL or PostgreSQL.
+Beginning with Villanova, the EntandoApp Engine modules include automatic Liquibase migrations to manage structural changes to databases running on MySQL or PostgreSQL.
 
 #### DB Migration Modes
 The parameter provided to the environment variable `DB_MIGRATION_STRATEGY` determines how required updates are applied to components of an existing database. Three database migration modes are supported and govern upgrade behavior:
 
-- `auto` (default setting): The application starts and databases are updated. Changes are applied to each component introduced in Entando versions 7.0 and later.
+- `auto` (default setting): The application starts and databases are updated. Changes are applied to each component introduced in Villanova versions and later.
 - `disabled`: The application does not start. Database changes are detected but not implemented. The application indicates which components require updates.
 - `generate_sql`: The application does not start but generates the SQL scripts to upgrade databases manually.
 

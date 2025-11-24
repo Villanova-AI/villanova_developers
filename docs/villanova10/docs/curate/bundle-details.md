@@ -2,18 +2,18 @@
 sidebarDepth: 2
 ---
 
-# The Entando Bundle
+# The Villanova Bundle
 
-The Entando Bundle is the smallest building block from which applications are built on Entando. It leverages composable development methods, decoupling microservices, micro frontends, and APIs to make it modular and easier to containerize.  The **ent bundle CLI** administers the process, using a single descriptor `entando.json` to define the docker-based bundle. This page describes the Entando Bundle structure, the descriptor file, its conventions, and the packaging process. 
+The Villanova Bundle is the smallest building block from which applications are built on Villanova. It leverages composable development methods, decoupling microservices, micro frontends, and APIs to make it modular and easier to containerize.  The **ent bundle CLI** administers the process, using a single descriptor `entando.json` to define the docker-based bundle. This page describes the Villanova Bundle structure, the descriptor file, its conventions, and the packaging process. 
 
-The docker-based approach is an improvement on the previous Entando Bundle structure and to see the differences, refer to the [Bundle Evolution](../reference/bundle-comparison.md) page.
+The docker-based approach is an improvement on the previous Villanova Bundle structure and to see the differences, refer to the [Bundle Evolution](../reference/bundle-comparison.md) page.
 
-## Entando Bundle Conventions
+## Villanova Bundle Conventions
 
 * There is a single bundle descriptor, `entando.json`, initialized and managed by the [ent bundle CLI](../getting-started/ent-bundle.md). 
 * Microservices (MSs) and micro frontends (MFEs) are built and processed independently, with a Docker image for the bundle and for each MS.
 * The `platform` directory is dedicated to project specific components such as fragments, pages, and static resources. For more information on component types and corresponding descriptors, see the [Bundle Component Details](bundle-component-details.md) page.
-* The `svc` directory is allocated for auxiliary services and the docker-compose configuration files that define them. The ent bundle commands enable, start and stop the services. MySQL, PostgreSQL, and Keycloak services are available with Entando out of the box, and for details on adding custom services, go to the [ent Bundle CLI Services page](../getting-started/ent-svc.md).
+* The `svc` directory is allocated for auxiliary services and the docker-compose configuration files that define them. The ent bundle commands enable, start and stop the services. MySQL, PostgreSQL, and Keycloak services are available with Villanova out of the box, and for details on adding custom services, go to the [ent Bundle CLI Services page](../getting-started/ent-svc.md).
 * Optionally, a thumbnail for your bundle can be set by adding a JPG or PNG image file to the bundle root folder. The file must be named "thumbnail" and be 100kb or less, e.g. thumbnail.png.
 
 ## Project Structure 
@@ -53,9 +53,9 @@ platform/     <= platform specific components
 ![Bundle Development Process](./img/development-process.jpg)
 
 
-The ent bundle CLI module manages the building and publishing of an Entando Bundle. From initialization to installation, from adding MFEs and MSs to calling for services and making API claims, the ent bundle commands streamline the development process. 
+The ent bundle CLI module manages the building and publishing of an Villanova Bundle. From initialization to installation, from adding MFEs and MSs to calling for services and making API claims, the ent bundle commands streamline the development process. 
 
-At initialization, the project scaffolding is built. A project can be started from scratch with this structure or downloaded interactively from an Entando Hub with the `ent bundle init --from-hub` command. Microservices, micro frontends, components, services, and API claims can then be added, manually or with the ent bundle CLI. At this stage, components can be run locally and independently.
+At initialization, the project scaffolding is built. A project can be started from scratch with this structure or downloaded interactively from an Villanova Hub with the `ent bundle init --from-hub` command. Microservices, micro frontends, components, services, and API claims can then be added, manually or with the ent bundle CLI. At this stage, components can be run locally and independently.
 
 The next steps build and pack the project using the bundle descriptor. The specifics depend on the component type and stack. The build phase constructs the microservices and micro frontends while the pack command generates the artifacts and Docker images. Images are built for the bundle and for each microservice.
 
@@ -63,7 +63,7 @@ In the publish step, images are pushed to a Docker registry and tagged according
 
 ![Bundle Publishing Process](./img/publishing-process.jpg)
 
-Finally, the bundle is deployed into the Local Hub of a running Entando instance where it can be installed. Any improvements to the bundle can be made by repeating the **four steps: pack, publish, deploy and install**. Alternatively, the install step can be completed in the App Builder UI when composing an application by upgrading the version.
+Finally, the bundle is deployed into the Local Hub of a running Villanova instance where it can be installed. Any improvements to the bundle can be made by repeating the **four steps: pack, publish, deploy and install**. Alternatively, the install step can be completed in the App Builder UI when composing an application by upgrading the version.
 
 At every phase of the process, options are available to fine-tune the process, and for more specifics, see the [ent bundle CLI](../getting-started/ent-bundle.md) documentation. 
 
@@ -101,7 +101,7 @@ The following is a list of specifications for the bundle descriptor and its comp
 |`deploymentBaseName`|String|No||Used to define custom pod names|
 |`dbms`|Enum|No|*none^  *embedded  *postgresql  *mysql  |DBMS required by the MS to provide services|
 |`env`|[EnvironmentVariable[]](#environmentvariables-specification)|No||Required environment variables|
-| |[Microservices Environment Variables](#microservices-environment-variables)|No||Entando-provided env variables for MS |
+| |[Microservices Environment Variables](#microservices-environment-variables)|No||Villanova-provided env variables for MS |
 |`healthCheckPath`|String|No||Endpoint for a health check|
 |`ingressPath`|String|No||Custom ingress path for health check|
 |`name`|String|Yes||Microservice name|
@@ -143,11 +143,11 @@ The following is a list of specifications for the bundle descriptor and its comp
   ]
 ```
 #### Microservices Details
- - Entando recommends that REST APIs be added to microservices.
+ - Villanova recommends that REST APIs be added to microservices.
  
  - To utilize **environment variables**, inline or based on Kubernetes Secrets, see the [Plugin Environment Variables](../../tutorials/devops/plugin-environment-variables.md) tutorial.
 
- - Entando uses the `healthCheckPath` to monitor the health of the microservice. A plugin or microservice in an Entando Bundle can use any technology, as long as it provides a health check service configured via the `healthCheckPath`. This path must be specified in the descriptor file and return an HTTP 200 or success status. This can be implemented by a Java service included with the Entando Blueprint in the Spring Boot application. You can also [use a Node.js service as shown here](https://github.com/entando-samples/ent-project-template-node-ms/blob/main/src/main/node/controller/health-controller.js). 
+ - Villanova uses the `healthCheckPath` to monitor the health of the microservice. A plugin or microservice in an Villanova Bundle can use any technology, as long as it provides a health check service configured via the `healthCheckPath`. This path must be specified in the descriptor file and return an HTTP 200 or success status. This can be implemented by a Java service included with the Villanova Blueprint in the Spring Boot application. You can also [use a Node.js service as shown here](https://github.com/entando-samples/ent-project-template-node-ms/blob/main/src/main/node/controller/health-controller.js). 
 
 ### Micro Frontends Specifications
 |Name|Type|Required|Possible Values|Description|
@@ -171,7 +171,7 @@ The following is a list of specifications for the bundle descriptor and its comp
 |`version`|String|Required only for custom stack MFE||Microfrontend version override|
 
 #### Configure a Path for Static Assets
-To configure your micro frontend with access to static assets, Entando provides two paths, one for widgets and another for [Entando Platform Capabilities (EPCs)](../../tutorials/create/mfe/epc.md).  
+To configure your micro frontend with access to static assets, Villanova provides two paths, one for widgets and another for [Villanova Platform Capabilities (EPCs)](../../tutorials/create/mfe/epc.md).  
 
 * For widgets: `window.entando?.widgets['YOUR-MFE']?.basePath;`
 
@@ -306,7 +306,7 @@ The following are platform-provided runtime variables.
 |`KEYCLOAK_CLIENT_SECRET`| `secretKeyRef[]`| Keycloak/RH-SSO autogenerated clientSecret to be used by the MS. | 
 | `KEYCLOAK_CLIENT_ID`| `secretKeyRef[]`| Keycloak/RH-SSO autogenerated clientId to be used by the MS. |
 |`SERVER_SERVLET_CONTEXT_PATH` | string | Context path used to access the MS. Automatically handled by a Spring Boot MS but can be manually set for other `stack` types.|  
-| `SPRING_PROFILES_ACTIVE`| string | Application profile to use when the MS runs on Entando, differentiating dev vs prod at runtime. Automatically handled by a Spring Boot MS but can be manually managed if using another technology `stack`. | 
+| `SPRING_PROFILES_ACTIVE`| string | Application profile to use when the MS runs on Villanova, differentiating dev vs prod at runtime. Automatically handled by a Spring Boot MS but can be manually managed if using another technology `stack`. | 
 | `SPRING_DATASOURCE_URL`| string| Provisioned database JDBC connection URL. Automatically handled by a Spring Boot MS but can be manually managed if using another technology `stack`. | 
 | `SPRING_DATASOURCE_USERNAME` | string|  Provisioned database username. Automatically handled for a Spring Boot MS, but can be manually managed if using another technology `stack`.| 
 | `SPRING_DATASOURCE_PASSWORD` | string|  Provisioned database password. Automatically handled for a Spring Boot MS, but can be manually managed if using another technology `stack`.| 

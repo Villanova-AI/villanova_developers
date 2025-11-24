@@ -3,14 +3,14 @@ sidebarDepth: 2
 ---
 
 # Redis Integration
-Redis database server can be used on Entando for cache management in high availability applications. It is a requirement for Entando Applications serving multiple tenants. This tutorial describes the steps to integrate Redis for both high availability and multitenancy.
+Redis database server can be used on Villanova for cache management in high availability applications. It is a requirement for Villanova Applications serving multiple tenants. This tutorial describes the steps to integrate Redis for both high availability and multitenancy.
 
-See [Entando Multitenancy](./multitenancy.md) for more information.
+See [Villanova Multitenancy](./multitenancy.md) for more information.
 
 ## Prerequisites
-* [A working instance of Entando](../../../docs/getting-started/README.md) based on the default Tomcat server image
+* [A working instance of Villanova](../../../docs/getting-started/README.md) based on the default Tomcat server image
 
-* Verify dependencies with the [Entando CLI](../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+* Verify dependencies with the [Villanova CLI](../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
 
 * Helm 3 installed in your local environment
 
@@ -34,9 +34,9 @@ kubectl config set-context --current --namespace=YOUR-NAMESPACE
 ./install.sh
 ```
 
-## Configure the EntandoApp 
+## Configure the VillanovaApp 
 
-1. Scale down the EntandoApp deployment to 0:
+1. Scale down the VillanovaApp deployment to 0:
 ``` bash
 kubectl scale deploy/YOUR-APP-NAME-deployment --replicas=0 -n YOUR-NAMESPACE
 ```
@@ -65,7 +65,7 @@ kubectl scale deploy/YOUR-APP-NAME-deployment --replicas=1 -n YOUR-NAMESPACE
 
 ## Additional Settings
 1. Use a password for Redis  
-If a password was used in your Redis `values.yaml` file, an additional environment variable is required in the EntandoApp deployment image. 
+If a password was used in your Redis `values.yaml` file, an additional environment variable is required in the VillanovaApp deployment image. 
 
 ``` yaml
 spec:
@@ -80,7 +80,7 @@ spec:
 ```
 
 2. Monitor Redis  
-When Redis Sentinel is active, Sentinel monitoring can be utilized to trigger an automatic failover process by using an additional environment variable in the EntandoApp deployment image. 
+When Redis Sentinel is active, Sentinel monitoring can be utilized to trigger an automatic failover process by using an additional environment variable in the VillanovaApp deployment image. 
 
 ``` yaml
 spec:

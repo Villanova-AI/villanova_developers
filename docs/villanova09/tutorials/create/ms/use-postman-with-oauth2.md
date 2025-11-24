@@ -7,7 +7,7 @@ sidebarDepth: 2
 ## Overview
 The tutorial will help you to configure Postman to reach your APIs secured with OAuth2 and Keycloak.
 
-In this tutorial, we will call an API from an application generated with the [Entando JHipster blueprint](./generate-microservices-and-micro-frontends.md).
+In this tutorial, we will call an API from an application generated with the [Villanova JHipster blueprint](./generate-microservices-and-micro-frontends.md).
 
 ## Prerequisites
 Get the [Postman](https://www.postman.com/downloads/) application or create an account to use it on the web.
@@ -32,7 +32,7 @@ Postman allows us to define variables for a given collection, and we can use the
 
 Please note you can choose the variable names you want, according to what makes sense to you.
 
-| Variable | Default value in a Blueprint-based Entando App | Details |
+| Variable | Default value in a Blueprint-based Villanova App | Details |
 |------|------|------|
 | client_id | web_app | The client id account used to authenticate the user |
 | client_secret | web_app | The secret for the client_id |

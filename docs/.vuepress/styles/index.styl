@@ -40,7 +40,11 @@ body {
 }
 
 .theme-container .navbar .logo {
-  height: 2em;
+  height: auto !important;
+  max-height: 2.5rem;  /* regola tu la misura */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .theme-container .navbar .site-name {
@@ -106,9 +110,9 @@ body {
     color: $accentColor !important;
   }
 
-  .theme-container .navbar {
-    height: 5rem;
-  }
+.theme-container .navbar .logo {
+   max-height: 1.5rem;  /* riduci ancora un po' su mobile */
+ }
 
   .theme-container .navbar .entando-navbar {
     display:none;

@@ -2,19 +2,19 @@
 
 ## Overview
 
-This document provides a guide to changing an Entando environment by selecting the default databases used.
+This document provides a guide to changing an Villanova environment by selecting the default databases used.
 See [External Database](./external-db.md) to connect to a database outside of the cluster.
 
 ## Prerequisites
 
--   An environment to install your Entando application
+-   An environment to install your Villanova application
 -   Network access from your Kubernetes cluster to your database
 
 ## Tutorial
 
 If needed, you can set the desired component to use a specific DBMS by updating the Helm-generated yaml file from [Getting Started](../../docs/getting-started) as follows:
 
-1. open the chosen file and search for `EntandoApp` custom resource
+1. open the chosen file and search for `VillanovaApp` custom resource
 2. identify the component to update in the related list
 3. update the `spec.dbms` property with the desired value (you can specify different DBMS for different components)
 

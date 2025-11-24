@@ -5,7 +5,7 @@ sidebarDepth: 2
 # Manage Roles, Users and Groups  
 
 ## Role-based Page Management
-Entando provides distributed editorial controls for building composable applications. With editing privileges based on roles and groups, a user only sees the application pages they're given access to when they log in. Users are assigned roles and groups based on group ownership so teams can manage portions of the application that belong to them.
+Villanova provides distributed editorial controls for building composable applications. With editing privileges based on roles and groups, a user only sees the application pages they're given access to when they log in. Users are assigned roles and groups based on group ownership so teams can manage portions of the application that belong to them.
 
 This tutorial demonstrates how to grant editorial access to a particular page in an application.
 
@@ -13,7 +13,7 @@ To add controls to micro frontends and/or microservices, see the [Role Based Acc
 
 ### 1. Create a Role
 This role will have access to edit, delete, and create pages. Users are assigned roles and then added to groups who own the pages of an application. 
-1. Log in to your Entando App Builder.
+1. Log in to your Villanova App Builder.
 2. Go to `Users`→ `Roles` in the left navigation menu.
 3. Click `Add` to create a new role.
 4. Enter a name and code. 

@@ -1,6 +1,6 @@
 # Role Based Access Controls for Micro Frontends & Microservices
 
-Experts recommend following a practice known as Defense in Depth where security controls are placed in each layer of an architecture. This tutorial guides you through adding access controls to your existing Entando project, in the frontend and backend layers of your Entando Application. 
+Experts recommend following a practice known as Defense in Depth where security controls are placed in each layer of an architecture. This tutorial guides you through adding access controls to your existing Villanova project, in the frontend and backend layers of your Villanova Application. 
 
 The simple Conference application found in the [Generate Microservices and Micro Frontends tutorial](./generate-microservices-and-micro-frontends.md) is used as a starting point. We recommend working through that tutorial for background and context. 
 
@@ -10,8 +10,8 @@ The basic security setup for a blueprint-generated application allows any authen
 - `conference-admin`: Permitted to view and delete Conferences in the tableWidget
 
 ## Prerequisites
-- [A working instance of Entando](../../../docs/getting-started/)
-- The Conference Application from the [Generated Microservices and Micro Frontends tutorial](./generate-microservices-and-micro-frontends.md) deployed and installed to Entando
+- [A working instance of Villanova](../../../docs/getting-started/)
+- The Conference Application from the [Generated Microservices and Micro Frontends tutorial](./generate-microservices-and-micro-frontends.md) deployed and installed to Villanova
 
 ## Apply and Verify Access Controls
 
@@ -164,7 +164,7 @@ Promote the admin user to a full `conference-admin` to reinstate the ability to 
 6. Confirm a Conference can be successfully deleted from the list
 
 ### Step 10. Configure the roles in `entando.json`
-Entando can automatically add roles to your client (see [the notes below](#notes) for different client options) when your microservice is deployed.
+Villanova can automatically add roles to your client (see [the notes below](#notes) for different client options) when your microservice is deployed.
 
 1. Modify `entando.json` by adding the following line to the `microservices/conference-ms`:
 ```json
@@ -172,22 +172,22 @@ Entando can automatically add roles to your client (see [the notes below](#notes
 ```
 
 ## Next Steps
-Follow one of the links below to run the bundle components locally, or build and publish the bundle into an Entando Application:
+Follow one of the links below to run the bundle components locally, or build and publish the bundle into an Villanova Application:
 
 - [Run Blueprint-generated components locally in dev mode](./run-local.md)
-- [Build and publish a project bundle](../pb/publish-project-bundle.md) to deploy your microservice and micro frontends to Entando
+- [Build and publish a project bundle](../pb/publish-project-bundle.md) to deploy your microservice and micro frontends to Villanova
 - [Iterate on your data model](./update-data-model.md) using the JHipster Domain Language (JDL)
 
 ## Notes
 
-### Local vs. Entando Application Testing
+### Local vs. Villanova Application Testing
 This tutorial leverages the `internal` client, which is configured in the microservice via the `application.yml`. Client roles are manually created and assigned in Keycloak. 
 
-In Kubernetes, Entando will automatically create client roles per the bundle plugin definition (see the [plugin definition](../../../docs/curate/bundle-details.md) for more information). These roles are created for the client specific to the microservice, e.g. `pn-YOUR-SERVICE-ID-conference-ms`. The client name is injected as an environment variable into the plugin container, so the annotations noted above will work in both local and Kubernetes environments.
+In Kubernetes, Villanova will automatically create client roles per the bundle plugin definition (see the [plugin definition](../../../docs/curate/bundle-details.md) for more information). These roles are created for the client specific to the microservice, e.g. `pn-YOUR-SERVICE-ID-conference-ms`. The client name is injected as an environment variable into the plugin container, so the annotations noted above will work in both local and Kubernetes environments.
 
-#### Keycloak Client Options in an Entando Application
+#### Keycloak Client Options in an Villanova Application
 
-In this tutorial, the MFE authorization checks explicitly note the client ID,  e.g. `internal`. The following options modify the checks to work in an Entando Application:
+In this tutorial, the MFE authorization checks explicitly note the client ID,  e.g. `internal`. The following options modify the checks to work in an Villanova Application:
 
 1) Change the `application.yml` client ID under `security.oauth2.client.registration.oidc` to match the Kubernetes client ID. 
 
@@ -229,4 +229,4 @@ To implement Realm-assigned roles, the code above must be modified:
 See the [Spring Security page](https://www.baeldung.com/spring-security-check-user-role) for more examples.
   
 ### Troubleshooting
-In both local and Kubernetes environments, the default Blueprint Javascript provides a global variable in the browser, e.g. `window.entando.keycloak`. Examining this variable can help diagnose issues with assigned roles and authorities. In some cases, you may need to logout of Entando and reauthenticate for the latest role assignments to be applied.
+In both local and Kubernetes environments, the default Blueprint Javascript provides a global variable in the browser, e.g. `window.entando.keycloak`. Examining this variable can help diagnose issues with assigned roles and authorities. In some cases, you may need to logout of Villanova and reauthenticate for the latest role assignments to be applied.

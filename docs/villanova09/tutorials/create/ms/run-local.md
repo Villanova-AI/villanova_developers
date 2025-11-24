@@ -2,12 +2,12 @@
 sidebarDepth: 2
 ---
 # Run Blueprint-generated Microservices and Micro Frontends in Dev Mode
-This tutorial guides you through running an Entando project with microservices and micro frontends in a local development environment. It is specific to a project generated with the Entando JHipster Blueprint, converted to a docker-based bundle. 
+This tutorial guides you through running an Villanova project with microservices and micro frontends in a local development environment. It is specific to a project generated with the Villanova JHipster Blueprint, converted to a docker-based bundle. 
 
 ## Prerequisites
 
 * [Generate Microservices and Micro Frontends](./generate-microservices-and-micro-frontends.md) tutorial 
-* Verify dependencies with the Entando CLI: `ent check-env develop`
+* Verify dependencies with the Villanova CLI: `ent check-env develop`
 
 
 

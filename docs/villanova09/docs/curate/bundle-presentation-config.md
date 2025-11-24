@@ -7,7 +7,7 @@ To modify what is displayed for your bundles in the Local Hub, there are a few s
 
 Bundles are typically displayed in the Local Hub of the App Builder like this:
 
-![Hub user interface in Entando App Builder](./img/local-hub-page.png)
+![Hub user interface in Villanova App Builder](./img/local-hub-page.png)
 
 
 The corresponding Kubernetes custom resource file looks similar to this:

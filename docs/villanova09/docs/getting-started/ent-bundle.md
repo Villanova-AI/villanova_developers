@@ -4,29 +4,29 @@ sidebarDepth: 2
 
 # Bundle Management
 
-The Entando Bundle commands extend the functionality of **ent** through a dedicated bundle management system. The `ent bundle` set of subcommands orchestrate the lifecycle of a component, packing it into a convenient standardized docker-based bundle that can be used to build composable applications. This approach takes advantage of a single project descriptor, along with centralized [API management](ent-api.md) and [DB and Keycloak services](ent-svc.md). Common operations and the steps required to create an Entando Bundle are detailed below.
+The Villanova Bundle commands extend the functionality of **ent** through a dedicated bundle management system. The `ent bundle` set of subcommands orchestrate the lifecycle of a component, packing it into a convenient standardized docker-based bundle that can be used to build composable applications. This approach takes advantage of a single project descriptor, along with centralized [API management](ent-api.md) and [DB and Keycloak services](ent-svc.md). Common operations and the steps required to create an Villanova Bundle are detailed below.
 
-In addition, this document describes the series of `ent ecr` commands that manage bundle interactions with the [Entando Component Repository](../../docs/compose/local-hub-overview.md) (ECR). These are applicable to both docker-based bundles and their git-based predecessors (< Entando 7.1). Notable commands applicable to creating and deploying only git-based bundles are also discussed.
+In addition, this document describes the series of `ent ecr` commands that manage bundle interactions with the [Villanova Component Repository](../../docs/compose/local-hub-overview.md) (ECR). These are applicable to both docker-based bundles and their git-based predecessors. <!-- (< Entando 7.1). --> Notable commands applicable to creating and deploying only git-based bundles are also discussed.
 
-## Entando Bundle Development
+## Villanova Bundle Development
 
 The bundle development lifecycle consists of 6 stages, each corresponding to a subcommand of ent bundle:
 
-- [Initialization](#initialization): `ent bundle init` launches a new bundle project, either with the default starter files and folders, or dynamically, from the catalog of an Entando Hub. The bundle format relies on a single JSON descriptor as the project manifest. 
+- [Initialization](#initialization): `ent bundle init` launches a new bundle project, either with the default starter files and folders, or dynamically, from the catalog of an Villanova Hub. The bundle format relies on a single JSON descriptor as the project manifest. 
 
 - [Build](#build): With the structure established, `ent bundle build` generates micro frontend (MFE) and microservice (MS) components. These are filtered by type and name, and assigned version numbers. 
 
-- [Run](#run): `ent bundle run` and Keycloak integration enable components to be tested locally, independent of an Entando cluster.   
+- [Run](#run): `ent bundle run` and Keycloak integration enable components to be tested locally, independent of an Villanova cluster.   
 
 - [Package](#package): `ent bundle pack` generates the bundle artifacts and images for the bundle and each microservice. 
 
 - [Publish](#publish): `ent bundle publish` pushes the images to a Docker repository, after which the bundle can be deployed and installed. 
 
-- [Deploy](#deploy): `ent bundle deploy` delivers a published bundle to the ECR of the Entando Platform. The bundle custom resource is generated and tags are retrieved from Docker Hub.
+- [Deploy](#deploy): `ent bundle deploy` delivers a published bundle to the ECR of the Villanova Platform. The bundle custom resource is generated and tags are retrieved from Docker Hub.
 
-- [Install](#install): `ent bundle install` applies the bundle to the Entando instance. It is then available in the App Builder for unlimited reuse.
+- [Install](#install): `ent bundle install` applies the bundle to the Villanova instance. It is then available in the App Builder for unlimited reuse.
 
-See the [Build and Publish a Simple Bundle](../../tutorials/create/pb/publish-simple-bundle.md) tutorial to follow the full process. And for more information on Entando Bundle specifications, go to the [Bundle Details](../curate/bundle-details.md) page.
+See the [Build and Publish a Simple Bundle](../../tutorials/create/pb/publish-simple-bundle.md) tutorial to follow the full process. And for more information on Villanova Bundle specifications, go to the [Bundle Details](../curate/bundle-details.md) page.
 
 ## Docker-based Bundle Commands
 
@@ -34,12 +34,12 @@ See the [Build and Publish a Simple Bundle](../../tutorials/create/pb/publish-si
 |:- |:-
 |`ent bundle build`| Build components (MFE, MS) with a selector |
 |`ent bundle convert --bundle-path [path1]` | Convert a git-based bundle to a Docker-based one |
-|`ent bundle deploy`|Deploy a bundle to the Local Hub of an Entando Platform
-|`ent bundle generate-cr`| Generate the Entando Custom Resource for a bundle project |
+|`ent bundle deploy`|Deploy a bundle to the Local Hub of an Villanova Platform
+|`ent bundle generate-cr`| Generate the Villanova Custom Resource for a bundle project |
 |`ent bundle help` | Display help for ent bundle |
 |`ent bundle info`| Show status information for the bundle project |
 |`ent bundle init`| Initialize the project folder structure and descriptor |
-|`ent bundle install`| Install a bundle to the Local Hub of an Entando Platform|
+|`ent bundle install`| Install a bundle to the Local Hub of an Villanova Platform|
 |`ent bundle list`| List the available bundle components |
 |`ent bundle mfe add` | Add a micro frontend |
 |`ent bundle mfe rm` |  Remove a micro frontend |
@@ -76,7 +76,7 @@ See the [Build and Publish a Simple Bundle](../../tutorials/create/pb/publish-si
 |`ent bundle ms add --stack custom [name]` | Add a custom stack microservice |
 
 #### MFE and MS Command Details
-- `ent bundle mfe add --stack custom [name]` & `ent bundle ms add --stack custom [name]`: When a custom stack is used for any MFE or microservice, custom commands for the build, run, and pack functions are required under the Command spec in the bundle descriptor `entando.json`. In addition, a version number must be specified for each component. Because Entando can only parse information from a pom.xml or package.json, the custom commands are required to manage the bundle, and the version number is required to track Docker images. For an example, see the [Bundle Details](../curate/bundle-details.md#micro-frontends-sample-code) page.
+- `ent bundle mfe add --stack custom [name]` & `ent bundle ms add --stack custom [name]`: When a custom stack is used for any MFE or microservice, custom commands for the build, run, and pack functions are required under the Command spec in the bundle descriptor `entando.json`. In addition, a version number must be specified for each component. Because Villanova can only parse information from a pom.xml or package.json, the custom commands are required to manage the bundle, and the version number is required to track Docker images. For an example, see the [Bundle Details](../curate/bundle-details.md#micro-frontends-sample-code) page.
 
 ### Build
  
@@ -151,12 +151,12 @@ See the [Build and Publish a Simple Bundle](../../tutorials/create/pb/publish-si
 ### Deploy
 | Command| Description
 |:--|:--
-|`ent bundle deploy`| Deploy a bundle to the Local Hub of the Entando Platform |
+|`ent bundle deploy`| Deploy a bundle to the Local Hub of the Villanova Platform |
 
 ### Install
 | Command| Description
 |:--|:--
-|`ent bundle install`| Install a bundle in the Local Hub of the Entando Platform |
+|`ent bundle install`| Install a bundle in the Local Hub of the Villanova Platform |
 
 #### Install Command Details
 * `ent bundle install --conflict-strategy=OVERRIDE`: If a bundle project has already been installed, this flag forces a `CREATE`, `SKIP` or `OVERRIDE` strategy for components.
@@ -208,7 +208,7 @@ The following commands are applicable to both docker-based and git-based bundles
 
 ## Git-based Bundle Commands
 
-The following ent commands are used to manage git-based (< Entando 7.1) bundles.
+The following ent commands are used to manage git-based <!--(< Entando 7.1)--> bundles.
 
 | Command | Descriptions
 |:--|:--
@@ -222,7 +222,7 @@ The following ent commands are used to manage git-based (< Entando 7.1) bundles.
 |`ent prj fe-test-run`| Initialize one or more frontend widgets, each from its own shell |
 |`ent prj get-bundle-id --auto`| Determine the bundle ID |
 |`ent prj get-plugin-code --auto [URL]`| Determine the plugin code of each microservice in the project |
-|`ent prj install`| Install the bundle into Entando |
+|`ent prj install`| Install the bundle into Villanova |
 |`ent prj install --conflict-strategy=OVERRIDE`| Adopt a strategy for conflicts affecting installed bundles |
 |`ent prj pbs-init` | Initialize the bundle directory |
 |`ent prj pbs-publish`| Publish the artifacts to GitHub and Docker Hub |  
@@ -236,7 +236,7 @@ The following ent commands are used to manage git-based (< Entando 7.1) bundles.
 
 * `ent prj install --conflict-strategy=OVERRIDE`: If a bundle project has already been installed, this flag forces a `CREATE`, `SKIP` or `OVERRIDE` strategy for components
 
-* `ent bundler`: Provides an interactive mode to identify components to export. Point the bundler to existing environments to extract components and static assets into a custom bundle. This bundle can be used to migrate from one Entando environment to another (e.g. Dev to QA) or as a framework for building a new application.
+* `ent bundler`: Provides an interactive mode to identify components to export. Point the bundler to existing environments to extract components and static assets into a custom bundle. This bundle can be used to migrate from one Villanova environment to another (e.g. Dev to QA) or as a framework for building a new application.
 
      * An `env.json` file to configure the application URLs and client credentials must be present in the directory from which the bundler is run. For example:
          ``` json

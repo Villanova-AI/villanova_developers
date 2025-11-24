@@ -3,13 +3,13 @@ sidebarDepth: 2
 ---
 
 # Solr Integration
-Solr is an enterprise search platform with full-text search, real-time indexing, dynamic clustering, database integration, and rich document handling. Solr can be integrated into applications built on Entando and is required for multitenant architecture.
+Solr is an enterprise search platform with full-text search, real-time indexing, dynamic clustering, database integration, and rich document handling. Solr can be integrated into applications built on Villanova and is required for multitenant architecture.
 
 This tutorial describes the installation steps for Solr integration, including the generation of the core collection which consists of the index and configuration files. For multitenant applications, a core collection must be generated for the primary or first tenant, and each of the secondary tenants. 
 
 ## Prerequisites
-* [A working instance of Entando](../../docs/getting-started/README.md) based on the default Tomcat server image
-* Verify dependencies with the [Entando CLI](../../docs/getting-started/entando-cli.md): `ent check-env develop`
+* [A working instance of Villanova](../../docs/getting-started/README.md) based on the default Tomcat server image
+* Verify dependencies with the [Villanova CLI](../../docs/getting-started/entando-cli.md): `ent check-env develop`
 * [Helm](https://helm.sh/docs/intro/install/) to handle the Solr installation
 
 ## Install and Configure Solr 

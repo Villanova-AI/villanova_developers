@@ -3,15 +3,15 @@ sidebarDepth: 2
 --- 
 # Development Tips and Tricks
 We've collected a list of tips and tricks to optimize your local quickstart or [Getting Started](../../docs/getting-started/) development environment. We invite you to ask questions, collaborate with the community, and share your own favorite 
-practices over on the [Entando forum](https://forum.entando.com).
+practices over on the [Entando forum](https://forum.villanova.ai/).
 
 ## Quickstart Management
-Here are a few common questions about the quickstart environment. The quickstart environment uses Multipass to launch an Ubuntu VM, where K3s Kubernetes is then installed and from which Entando is deployed.
+Here are a few common questions about the quickstart environment. The quickstart environment uses Multipass to launch an Ubuntu VM, where K3s Kubernetes is then installed and from which Villanova is deployed.
 
 ### General
 **Q: How can I remove a quickstart environment?** 
 
-**A:** If you want to completely remove the VM created by Multipass, you can use `multipass delete YOUR-VM-NAME` (where the default YOUR-VM-NAME for a quickstart is `entando`) and then `multipass purge` to recover the resources. If you just want to shutdown Entando but keep the VM, you can use `multipass shell YOUR-VM-NAME` to shell into the VM and then remove the namespace via `sudo kubectl delete namespace entando`. 
+**A:** If you want to completely remove the VM created by Multipass, you can use `multipass delete YOUR-VM-NAME` (where the default YOUR-VM-NAME for a quickstart is `Villanova`) and then `multipass purge` to recover the resources. If you just want to shutdown Villanova but keep the VM, you can use `multipass shell YOUR-VM-NAME` to shell into the VM and then remove the namespace via `sudo kubectl delete namespace entando`. 
 
 **Q: What if the installation fails due to timeout?**
 
@@ -43,9 +43,9 @@ The namespace will be recreated, preserving the images already pulled, so it's u
 
 **Q: What do I need to do after restarting my laptop?** 
 
-**A:** By default, Multipass is installed as a service and will restart automatically. If Multipass isn't running, you'll need to first initialize this service; then you can start your VM via `multipass start YOUR-VM-NAME`. Kubernetes will launch automatically along with any installed pods, including Entando. It can take a few minutes for all of the pods to fully initialize, but you can use `sudo kubectl -n entando get pods --watch` to observe the progress. 
+**A:** By default, Multipass is installed as a service and will restart automatically. If Multipass isn't running, you'll need to first initialize this service; then you can start your VM via `multipass start YOUR-VM-NAME`. Kubernetes will launch automatically along with any installed pods, including Villanova. It can take a few minutes for all of the pods to fully initialize, but you can use `sudo kubectl -n entando get pods --watch` to observe the progress. 
 
-**Q: How can I pause or idle my Entando instance?** 
+**Q: How can I pause or idle my Villanova instance?** 
 
 **A:** You can pause with `multipass stop YOUR-VM-NAME`, or idle with `multipass suspend YOUR-VM-NAME` to preserve the VM state. You can then use `multipass start YOUR-VM-NAME` to start the VM. 
 
@@ -53,8 +53,8 @@ The namespace will be recreated, preserving the images already pulled, so it's u
 
 **A:** You can run `multipass help` or refer to the [Multipass docs](https://multipass.run/docs) for more information on Multipass.
 
-### Entando in Kubernetes
-**Q: How can I install a new copy of Entando into an existing VM?** 
+### Villanova in Kubernetes
+**Q: How can I install a new copy of Villanova into an existing VM?** 
 
 **A:** By default, the quickstart installation deploys Kubernetes resources into a dedicated namespace called `entando`. If you want to remove all of the resources in `entando`, you can simply delete the namespace with `ent kubectl delete namespace entando`. You can then recreate the namespace and reinstall the resources. Alternatively, you can achieve this with `ent quickstart --vm-reuse=true`, but you'll need to set other `ent quickstart` options, so check the `ent` help.
 
@@ -62,15 +62,15 @@ The namespace will be recreated, preserving the images already pulled, so it's u
 
 **A:** You can use the standard Kubernetes commands, e.g. `sudo kubectl exec -it YOUR-POD-NAME -c YOUR-CONTAINER-NAME -- bash` or `sudo kubectl logs YOUR-POD-NAME YOUR-CONTAINER-NAME`.
 
-**Q: What do I do if Entando doesn't fully initialize?** 
+**Q: What do I do if Villanova doesn't fully initialize?** 
 
 **A:** The most common cause is a networking problem. See the [Network issues](#network-issues) section below for details. If all else fails, reach out to the Entando team on Slack. 
 
 **Q: What do I do if the AppBuilder is lacking its left menu?** 
 
-**A:** The most common cause is a failure of the EntandoApp to initialize. This could be caused by networking issues (see the previous point) or configuration issues related to the database, Keycloak, etc. The `appbuilder-menu-bff-deployment` will not be created until the EntandoApp installation is successful, and without that service, the left menu will be unable to load.  
+**A:** The most common cause is a failure of the VillanovaApp to initialize. This could be caused by networking issues (see the previous point) or configuration issues related to the database, Keycloak, etc. The `appbuilder-menu-bff-deployment` will not be created until the VillanovaApp installation is successful, and without that service, the left menu will be unable to load.  
 
-1. Examine the status of the EntandoApp:
+1. Examine the status of the VillanovaApp:
 ``` bash
 kubectl get EntandoApp
 ```
@@ -80,7 +80,7 @@ NAME         PHASE        OBSERVED GENERATION   AGE
 quickstart   error        1                     3d    
 ```
 
-If the phase is not `successful`, try restarting the installation process. This can be done by adding an annotation to the EntandoApp resource, e.g., `EntandoApp/quickstart`.
+If the phase is not `successful`, try restarting the installation process. This can be done by adding an annotation to the VillanovaApp resource, e.g., `EntandoApp/quickstart`.
 
 2. Create a file named `entandoapp-redeploy.yaml`:
 ``` yaml 
@@ -89,24 +89,24 @@ metadata:
       entando.org/processing-instruction: force
 ```   
    
-3. Apply the patch to the EntandoApp:
+3. Apply the patch to the VillanovaApp:
 ``` bash
 kubectl patch EntandoApp quickstart --type merge --patch-file entandoapp-redeploy.yaml
 ```
 
-The EntandoApp phase should change to `started` and the Entando Operator will resume the installation process of the EntandoApp.
+The VillanovaApp phase should change to `started` and the Villanova Operator will resume the installation process of the VillanovaApp.
 
 ## Shared Servers
 We recommend using Multipass to quickly spin up an Ubuntu VM to host a local Kubernetes cluster for test purposes. A local environment is often useful, but most teams utilize a shared Kubernetes cluster. This shared cluster is managed by an operations team, and installed either on-premise or with a cloud provider for full integration testing, CI/CD, DevOps, etc. 
 
 ## Network Issues
-A local Entando 7 quickstart installation (e.g. what you get if you follow the [Getting Started](../../docs/getting-started/) guide) may use a set of local domain names to enable access to Entando services. Your IP address will vary, but may look something like this:
+A local Villanova quickstart installation (e.g. what you get if you follow the [Getting Started](../../docs/getting-started/) guide) may use a set of local domain names to enable access to Villanova services. Your IP address will vary, but may look something like this:
 ```
 quickstart.192.168.99.1.nip.io
 YOUR-APP.192.168.99.1.nip.io
 ```
 
-The base domain configured via the ingressHostName (e.g. in your entandoapp.yaml) is based on the IP address that is created during the initial VM installation. This domain is used to generate ingress routes to map incoming URLs to individual services. In production environments, there's generally a dedicated network layer to manage IPs/routing (both on premise and in the cloud), but this is not readily available in most local setups. Below are a couple of common issues that can prevent Entando from initializing in a local environment:
+The base domain configured via the ingressHostName (e.g. in your entandoapp.yaml) is based on the IP address that is created during the initial VM installation. This domain is used to generate ingress routes to map incoming URLs to individual services. In production environments, there's generally a dedicated network layer to manage IPs/routing (both on premise and in the cloud), but this is not readily available in most local setups. Below are a couple of common issues that can prevent Villanova from initializing in a local environment:
 
 ### `.nip.io isn't allowed`
  - This could be due to firewall settings or corporate security policies. The simplest workaround is to manually edit your /etc/hosts file and map the domain to the IP of your local virtual machine.
@@ -128,9 +128,9 @@ The base domain configured via the ingressHostName (e.g. in your entandoapp.yaml
 Internet Connection Sharing (ICS) is a Windows service that provides Internet connectivity to virtual machines, and its `hosts.ics` file can occasionally get corrupted. Restarting the host laptop or desktop should remedy this, but a quicker and simpler fix is to shutdown any VMs using the hypervisor (Hyper-V or VirtualBox), remove the `hosts.ics` file from `Windows/System32/drivers/etc` using elevated privileges, and then restart the VM(s). You can examine the `hosts.ics` file first to check if it is well-formed, with clean IP to VM-NAME mappings insteaad of spurious numbers or letters.
 
 ### Hyper-V IP changes
-**Q: My Entando installation stops working when I restart Windows. How can I fix this?**
+**Q: My Villanova installation stops working when I restart Windows. How can I fix this?**
 
-**A:** The basic issue is that Windows Hyper-V makes it difficult to set a static IP for a VM (see this [forum post](https://techcommunity.microsoft.com/t5/windows-insider-program/hyper-v-default-switch-ip-address-range-change-ver-1809-build/m-p/261431) for details). As discussed [above](#network-issues), Entando's ingress routes rely on a fixed IP address and will break if the IP address changes after initial installation. Here are a few options to solve this issue, short of modifying your router or network switch settings: 
+**A:** The basic issue is that Windows Hyper-V makes it difficult to set a static IP for a VM (see this [forum post](https://techcommunity.microsoft.com/t5/windows-insider-program/hyper-v-default-switch-ip-address-range-change-ver-1809-build/m-p/261431) for details). As discussed [above](#network-issues), Villanova's ingress routes rely on a fixed IP address and will break if the IP address changes after initial installation. Here are a few options to solve this issue, short of modifying your router or network switch settings: 
 
 #### Option 1: Single host routing
 The simplest way to deal with the peculiarities of Hyper-V IP assignment is to avoid it, instead using Windows-specific mshome.net addresses. This allows you to access a VM with an address like `YOUR-VM-NAME.mshome.net`. If you set up your enviroment using the [Automatic Install](../getting-started/#automatic-install) instructions, then the ent CLI will select the single host option and the address will be `entando.mshome.net`. You can accomplish the same thing yourself using the `ent quickstart` script, but see `--help` for the current set of options.
@@ -161,12 +161,12 @@ primary                 Running           172.31.118.12   Ubuntu 18.04 LTS
 172.31.118.12 YOUR-APP.192.168.235.100.nip.io
 ``` 
 
-4. You should now be able to access your Entando URLs via the new IP. If your Entando installation stalled during startup, it should continue initializing as soon as the external address is functional again. 
+4. You should now be able to access your Villanova URLs via the new IP. If your Villanova installation stalled during startup, it should continue initializing as soon as the external address is functional again. 
 
 #### Option 3: Add a Windows route
 This option is initially a little more involved, but future repairs to your network settings can then be made very easily. You'll need to choose a static IP, configure a Windows route to map it to the Hyper-V interface, and claim the IP in the Ubuntu VM via a netplan entry. 
 
- When implementing this option for the first time, all steps must be executed before installing Entando. Subsequent Windows restarts require steps #1 and #2, only. 
+ When implementing this option for the first time, all steps must be executed before installing Villanova. Subsequent Windows restarts require steps #1 and #2, only. 
 
 1. Determine an IP that is unused on your local network (e.g. via ping). The following steps assume that IP 192.168.99.1 is selected.
 
@@ -232,17 +232,17 @@ network:
 python3 -m http.server 8000
 ```
 
-13. You should now be able to install Entando using the static IP. If your Entando installation stalled during startup, and was previously configured with a static IP, it should continue initializing as soon as the external address is functional again. 
+13. You should now be able to install Villanova using the static IP. If your Villanova installation stalled during startup, and was previously configured with a static IP, it should continue initializing as soon as the external address is functional again. 
 
-#### Option 4: Reinstall Entando
-We're including this option because it works and requires no additional configuration. If you work with Entando regularly, we recommend developing in a centralized and shared Kubernetes instance rather than running a full stack locally. If you require a local cluster, we recommend using option 1 or 2.
+#### Option 4: Reinstall Villanova
+We're including this option because it works and requires no additional configuration. If you work with Villanova regularly, we recommend developing in a centralized and shared Kubernetes instance rather than running a full stack locally. If you require a local cluster, we recommend using option 1 or 2.
 
 ### Multipass with VirtualBox
 **Q: How do I run Multipass with VirtualBox?**
 
 **A:** Multipass supports the use of VirtualBox on Windows as an alternative to Hyper-V. Refer to the Multipass documentation for VirtualBox configuration instructions. 
 
-For Entando to work correctly with VirtualBox, you will need to add a port forwarding rule to access Entando from your host system. 
+For Villanova to work correctly with VirtualBox, you will need to add a port forwarding rule to access Villanova from your host system. 
 * Create your VM within Multipass
 * Go to the Oracle VM VirtualBox Manager to edit the `Network` settings for the VM
 * Go to the `Advanced` options and click `Port Forwarding Rules`

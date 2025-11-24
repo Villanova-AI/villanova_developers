@@ -82,7 +82,7 @@ module.exports = {
 	],
 	themeConfig: {
 		logo: '/theme/Entando_Logo_Dark_Blue.svg',
-		repo: 'entando/entando-docs',
+		repo: 'https://github.com/Villanova-AI',
 		editLinks: true,
 		docsDir: 'vuepress/docs',
 		docsBranch: 'main',

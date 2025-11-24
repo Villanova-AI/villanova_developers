@@ -14,13 +14,13 @@ The Strapi Content Widget and Strapi Content List Widget enable the user to add 
 
 ## Prerequisites
 
-- [A working instance of Entando](../../../docs/getting-started/)
-- Verify dependencies with the [Entando CLI](../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
-- [A configured Strapi instance running on Entando](../../tutorials/solution/strapi.md)
+- [A working instance of Villanova](../../../docs/getting-started/)
+- Verify dependencies with the [Villanova CLI](../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+- [A configured Strapi instance running on Villanova](../../tutorials/solution/strapi.md)
 
 ## Strapi Content Widget
 
-1. Select a page or [create a page](../compose/page-management.md#create-a-page) in your Entando Application on which to place the Strapi Content Widget
+1. Select a page or [create a page](../compose/page-management.md#create-a-page) in your Villanova Application on which to place the Strapi Content Widget
 2. Go to  `App Builder` → `Pages` → `Management`
 3. Find the Strapi content page in the page tree and click on the three dots representing the `Actions` icon
 4. Select `Design` from the drop-down
@@ -30,7 +30,7 @@ The Strapi Content Widget and Strapi Content List Widget enable the user to add 
 
 ![content_config-page.png](./strapi-images/content_config-page.png)
 
->Note: If you have not yet created the content you wish to place in your Entando Application, click `Add new content` to be directed to the login for your Strapi dashboard. After creating the desired content, click `Add existing content` to resume content management.
+>Note: If you have not yet created the content you wish to place in your Villanova Application, click `Add new content` to be directed to the login for your Strapi dashboard. After creating the desired content, click `Add existing content` to resume content management.
 8. On the resultant page, select a collection type from the drop-down menu. These are returned by the Strapi API. Only one collection type can be selected. 
 
 ![content_collection-type.png](./strapi-images/content_collection-type.png)
@@ -50,7 +50,7 @@ The Strapi Content Widget and Strapi Content List Widget enable the user to add 
 
 ## Strapi Content List Widget
 
-1. Select a page or [create a page](../compose/page-management.md#create-a-page) in your Entando Application on which to place the Strapi Content List Widget
+1. Select a page or [create a page](../compose/page-management.md#create-a-page) in your Villanova Application on which to place the Strapi Content List Widget
 2. Go to  `App Builder` → `Pages` → `Management`
 3. Find the Strapi content list page in the page tree and click on the three dots representing the `Actions` icon
 4. Select `Design` from the drop-down
@@ -60,7 +60,7 @@ The Strapi Content Widget and Strapi Content List Widget enable the user to add 
 
 ![content-list_config-page.png](./strapi-images/content-list_config-page.png)
 
->Note: If you have not yet created the content you wish to place in your Entando Application, click `Add new content` to be directed to the login for your Strapi dashboard. After creating the desired content, click `Add existing content` to resume content management.
+>Note: If you have not yet created the content you wish to place in your Villanova Application, click `Add new content` to be directed to the login for your Strapi dashboard. After creating the desired content, click `Add existing content` to resume content management.
 8. On the resultant page, select a collection type from the drop-down menu. These are returned by the Strapi API. Only one collection type can be selected. 
 - To save all content related to this collection type as a query:
    1. Leaving the checkboxes unchecked, click `Save as Query`

@@ -1,12 +1,12 @@
 # Authentication
 
-Entando employs Keycloak as a central point of authentication to provide a single, unified view of identity. To set up a Keycloak server, please refer to the [Keycloak
+Villanova employs Keycloak as a central point of authentication to provide a single, unified view of identity. To set up a Keycloak server, please refer to the [Keycloak
 documentation](https://www.keycloak.org/documentation.html).
 
 As all micro frontends use the same Keycloak instance, it should be
 initialized on a container of all widgets.
 
-In the conference-details micro frontend from the [Entando JHipster Blueprint tutorial](../ms/generate-microservices-and-micro-frontends.md), the authentication implementation assumes that Keycloak is
+In the conference-details micro frontend from the [Villanova JHipster Blueprint tutorial](../ms/generate-microservices-and-micro-frontends.md), the authentication implementation assumes that Keycloak is
 initialized outside of the widget. As shown below, the Keycloak server’s `keycloak.js` is called in the micro frontend's `index.html`.
 
 ``` html
@@ -146,4 +146,4 @@ At `components/ConferenceDetailsContainer.js`:
 **Next Steps**
 
 * To apply more fine-grained access controls, see the [Role Based Access Controls tutorial](../ms/add-access-controls.md).
-* Learn more about the [Entando Identity Management System](../../../docs/consume/identity-management.md).
+* Learn more about the [Villanova Identity Management System](../../../docs/consume/identity-management.md).

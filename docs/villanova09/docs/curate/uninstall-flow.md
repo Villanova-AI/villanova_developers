@@ -2,7 +2,7 @@
 sidebarDepth: 2
 ---
 # Bundle Upgrade, Downgrade, and Uninstall
-An application bundle that has been installed in the Entando App Builder can be removed, upgraded to a new version, or downgraded to a previous version at any time. You can update the bundle group or just a component within that bundle. 
+An application bundle that has been installed in the Villanova App Builder can be removed, upgraded to a new version, or downgraded to a previous version at any time. You can update the bundle group or just a component within that bundle. 
 
 ## Upgrade or Downgrade Bundle Version
 
@@ -18,8 +18,8 @@ An application bundle that has been installed in the Entando App Builder can be 
 3. Click `Uninstall`.
 4. An initial check is done to verify that components are not in use outside of the bundle. A pop-up window will list the components with external references that must be cleared manually, and then the uninstall process may resume.
 5. When the `Uninstall` is confirmed, a progress bar shows the following removal process:
-    - Bundle resources are deleted from the Entando App Engine
-    - Components included in the bundle are removed from the Entando App Engine
+    - Bundle resources are deleted from the Villanova App Engine
+    - Components included in the bundle are removed from the Villanova App Engine
     - Microservices are unlinked
 6. To remove the bundle from the Local Hub catalog, click the `Undeploy` button.
 
@@ -28,7 +28,7 @@ When unistalling a PBC or a Bundle Group with multiple bundles, it is important 
 :::
 
 ## Troubleshooting
-If an error occurs during the uninstall process, check out the [Troubleshooting guide](./troubleshooting-guide.md) or the [Entando Forum](https://forum.entando.com).
+If an error occurs during the uninstall process, check out the [Troubleshooting guide](./troubleshooting-guide.md) or the [Villanova Forum](https://forum.villanova.ai/).
 
 
 

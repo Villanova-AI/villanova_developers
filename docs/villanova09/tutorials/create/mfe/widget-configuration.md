@@ -1,7 +1,7 @@
 
 # Add a Configuration MFE in App Builder
 
-Entando MFEs can be customized through an App Builder feature that uses a specialized micro frontend. This tutorial splits the process into 4 steps:
+Villanova MFEs can be customized through an App Builder feature that uses a specialized micro frontend. This tutorial splits the process into 4 steps:
 
 1. Modify an existing MFE (the target MFE) to take a configuration option
 2. Create a new MFE (the config MFE) to provide a user interface for the configuration option
@@ -9,7 +9,7 @@ Entando MFEs can be customized through an App Builder feature that uses a specia
 4. Publish and test the configurable MFE
 
 ## Prerequisites
-- [A working instance of Entando](../../../docs/getting-started/)
+- [A working instance of Villanova](../../../docs/getting-started/)
 - [An existing React MFE](./react.md)
 
 ## Step 1: Add a Configuration Option to a Target MFE
@@ -17,7 +17,7 @@ Start by adding a configuration option to an existing MFE. If you don't already 
 
 ### Add an Attribute to the Custom Element
 
-1. Replace the contents of `src/custom-elements/WidgetElement.js` with the following code to add attribute handling to the custom element and re-render the app when an attribute changes. This enables the Entando-provided `config` to be passed as a property to the React root component (`App`).
+1. Replace the contents of `src/custom-elements/WidgetElement.js` with the following code to add attribute handling to the custom element and re-render the app when an attribute changes. This enables the Villanova-provided `config` to be passed as a property to the React root component (`App`).
    
 ``` javascript
 import React from 'react';
@@ -96,7 +96,7 @@ export default App;
 }
 ```
 
-4. Replace the `body` of `public/index.html` with the following. This allows you to set the MFE `config` attribute and test locally with the same configuration structure provided by Entando.
+4. Replace the `body` of `public/index.html` with the following. This allows you to set the MFE `config` attribute and test locally with the same configuration structure provided by Villanova.
 ``` html 
 <simple-mfe/>
 <script>
@@ -174,7 +174,7 @@ customElements.define('simple-mfe-config', WidgetElement);
 ::: tip App Builder integration
 * A config MFE must retain its state in a `config` property
 * The App Builder supplies the `config` property when the config MFE is rendered
-* When a user saves the form, the App Builder automatically persists the configuration through Entando APIs
+* When a user saves the form, the App Builder automatically persists the configuration through Villanova APIs
 :::
 
 5. Replace the contents of `src/App.js` with the following to add a simple form for managing a single `name` field

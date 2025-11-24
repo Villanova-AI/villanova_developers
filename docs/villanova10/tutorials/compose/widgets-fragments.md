@@ -1,15 +1,17 @@
 ---
-sidebarDepth:2
+title: "Widgets and Fragments"
+layout: tutorial
+sidebarDepth: 2
 ---
 # Widgets and Fragments
 
-This tutorial covers the basics of how to create an Entando widget and place it on a page. It also incorporates fragments, adding it to templates to make it easy to reuse.
+This tutorial covers the basics of how to create an Villanova widget and place it on a page. It also incorporates fragments, adding it to templates to make it easy to reuse.
 
 ## Create and Publish a Widget
 
 For this example, you will use the App Builder to build and display a simple widget on a page. This is a quick introduction to one of the building blocks that make up composable applications.
 
-For a more advanced example, check out how to [generate microservices and micro frontends (MFEs)](../create/ms/generate-microservices-and-micro-frontends), which includes how to build and deploy a micro frontend as a widget in Entando.
+For a more advanced example, check out how to [generate microservices and micro frontends (MFEs)](../create/ms/generate-microservices-and-micro-frontends), which includes how to build and deploy a micro frontend as a widget in Villanova.
 
 ### 1. Create a widget
   
@@ -93,7 +95,7 @@ The [create and publish a widget](#create-and-publish-a-widget) in the previous 
 2. Click on the Actions icon and select `Preview` for your test page
 3. Confirm the fragment is rendered correctly
 
-## FreeMarker Basics in Entando
+## FreeMarker Basics in Villanova
 
 FreeMarker is a powerful templating language that provides flexibility in how pages are rendered. It allows you to include conditional logic, inject information from the backend, check for query parameters and route to different pages. For example:
 

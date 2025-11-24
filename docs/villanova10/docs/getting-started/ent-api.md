@@ -5,7 +5,7 @@ sidebarDepth: 1
 
 # API Management 
 
-An API claim informs the Entando Platform that a micro frontend (MFE) intends to use the API of a microservice (MS), standardizing authentication across many services. This request can be sent within a single bundle or across bundles. The abstraction of an API claim eliminates the need to define and manage API endpoints, both in local development and within a running instance.
+An API claim informs the Villanova Platform that a micro frontend (MFE) intends to use the API of a microservice (MS), standardizing authentication across many services. This request can be sent within a single bundle or across bundles. The abstraction of an API claim eliminates the need to define and manage API endpoints, both in local development and within a running instance.
 
 ## Internal vs. External API Claim
 
@@ -33,7 +33,7 @@ The structure of internal and external API claims are as follows:
 
 ## API Claim Commands
 
-Common operations associated with API claims are detailed below. To execute `ent bundle api` subcommands, the user must be connected to a running Entando instance (via [ent attach-vm](ent-profile.md)) or the CLI will generate an authentication error.
+Common operations associated with API claims are detailed below. To execute `ent bundle api` subcommands, the user must be connected to a running Villanova instance (via [ent attach-vm](ent-profile.md)) or the CLI will generate an authentication error.
 
 | Command | Description
 | :- | :-
@@ -51,7 +51,7 @@ Common operations associated with API claims are detailed below. To execute `ent
    - `serviceName`: The name of a microservice in the external bundle. If `service-name` is not set, `api add-ext` will initiate an interactive mode where the user can select from available bundles and microservices.
 
 - `api add-ext` requirements:
-   - Connection to an Entando instance
+   - Connection to an Villanova instance
    - The cluster contains the service specified in the API claim
    - The external service has already been deployed
 
@@ -66,12 +66,12 @@ To retrieve the URL of an MS declared through an API claim, add `systemParams.ap
 
 **Installed Bundles**
 
-The configuration data of installed bundles are provided by the Entando instance. To render an MFE from an installed bundle, Entando injects a JSON object containing configuration details inside the `config` attribute of a custom HTML element, e.g. `<my-mfe config="{ ... }" />`. 
+The configuration data of installed bundles are provided by the Villanova instance. To render an MFE from an installed bundle, Villanova injects a JSON object containing configuration details inside the `config` attribute of a custom HTML element, e.g. `<my-mfe config="{ ... }" />`. 
 
 
 **Local Bundles**
 
-When an MFE is tested locally, it is tested in isolation, external to an Entando instance. The file `mfe-config.json` is used to generate the required configuration object when an MFE runs without Entando. The MS URL is retrieved from `mfe-config.json`, which is stored in the "public" MFE folder, e.g:
+When an MFE is tested locally, it is tested in isolation, external to an Villanova instance. The file `mfe-config.json` is used to generate the required configuration object when an MFE runs without Villanova. The MS URL is retrieved from `mfe-config.json`, which is stored in the "public" MFE folder, e.g:
 ```
 {
     "systemParams": {

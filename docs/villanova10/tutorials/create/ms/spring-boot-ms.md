@@ -4,11 +4,11 @@ sidebarDepth: 2
 
 # Create a Spring Boot Microservice
 
-This tutorial uses the Spring Initializr to create a simple microservice to quickly generate an Entando bundle project. 
+This tutorial uses the Spring Initializr to create a simple microservice to quickly generate an Villanova bundle project. 
 
 ## Prerequisites
-- [A working instance of Entando](../../../docs/getting-started/)
-- Verify dependencies with the [Entando CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
+- [A working instance of Villanova](../../../docs/getting-started/)
+- Verify dependencies with the [Villanova CLI](../../../docs/getting-started/entando-cli.md#check-the-environment): `ent check-env develop`
 
 ## Step 1: Initialize the Bundle with a Microservice
 
@@ -63,7 +63,7 @@ public class TemplateController {
 }
 ```
 
-5. To make the microservice compatible with Entando, add the following snippet to the `microservices/spring-ms/src/main/resources/application.properties` file:
+5. To make the microservice compatible with Villanova, add the following snippet to the `microservices/spring-ms/src/main/resources/application.properties` file:
 
 ```
 server.port=8081

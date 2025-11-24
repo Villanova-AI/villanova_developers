@@ -1,12 +1,12 @@
 ---
 sidebarDepth: 2
 ---
-# Troubleshooting the Entando Local Hub
+# Troubleshooting the Villanova Local Hub
 
 ## 1. How do I access the logs? 
 **A bundle installation or removal has failed. How do I access the logs?**
 
-The Entando Component Manager (ECM) logs can be viewed using CLI tools like kubectl or oc, or visualization dashboards like OpenShift or K9s.
+The Villanova Component Manager (ECM) logs can be viewed using CLI tools like kubectl or oc, or visualization dashboards like OpenShift or K9s.
 
 ### Solution
 1. To view the Component Manager logs, find the ECM pod name in your instance:
@@ -48,7 +48,7 @@ This may happen if the Docker image for the microservice is located in a private
 ## 4. How do I uninstall a bundle 
 **I can't uninstall a bundle because some components are in use**
 
-When uninstalling a previously installed bundle, the Entando Component Manager verifies that the bundle components are not in use elsewhere. If any part of the bundle is in use, an error message informs you and does not allow the removal. 
+When uninstalling a previously installed bundle, the Villanova Component Manager verifies that the bundle components are not in use elsewhere. If any part of the bundle is in use, an error message informs you and does not allow the removal. 
 
 ### Solution
 

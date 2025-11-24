@@ -12,11 +12,11 @@ sidebarDepth: 2
 
 Think of micro frontends as the implementation of a microservices architecture applied to the full web application that extends all the way to the frontend.
 
-Entando implements micro frontends based on [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components), a set of technologies that allow developers to create reusable custom elements supported by all major internet browsers.
+Villanova implements micro frontends based on [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components), a set of technologies that allow developers to create reusable custom elements supported by all major internet browsers.
 
 Web Components can work with vanilla JavaScript as well as with the most popular web frameworks (e.g., React, Angular, and Vue).
 
-Entando's microservice and micro frontend architecture allows developers to work with their favorite technology stack, and makes it easier for companies to integrate disparate applications.
+Villanova's microservice and micro frontend architecture allows developers to work with their favorite technology stack, and makes it easier for companies to integrate disparate applications.
 
 ## Tutorials
 

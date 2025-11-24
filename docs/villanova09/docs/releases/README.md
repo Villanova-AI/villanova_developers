@@ -2,22 +2,22 @@
 sidebarDepth: 2
 ---
 
-# Entando 7.3 Release Notes
+# Villanova 0.9 Release Notes
 
-Entando 7.3 is an essential feature release with significant advances for Multitenancy and design and performance upgrades for the App Builder.
+Villanova 0.9 is an essential feature release with significant advances for Multitenancy and design and performance upgrades for the App Builder.
 
 ## Summary
 - [Multitenancy 2.0](#multitenancy-2-0) adds full bundle functionality and access to registries independently across tenants.
-- Cloud ARM systems and ARM64-based architecture is now supported, including MacBooks with an M1 or M2 chip. [Install Entando on ARM based system](../../tutorials/getting-started/arm-install.md).
+- Cloud ARM systems and ARM64-based architecture is now supported, including MacBooks with an M1 or M2 chip. [Install Villanova on ARM based system](../../tutorials/getting-started/arm-install.md).
 - App Builder enhances the distributed editorial system by redesigning the page tree composition.
 - New bundle features were added to automate the upgrade process to docker-based bundles and request basic resources for microservices. The bundle uninstall process was also improved with internal references to minimize technical debt. 
-- APISIX is now supported on Entando, with authentication, authorization, and improved security features.
+- APISIX is now supported on Villanova, with authentication, authorization, and improved security features.
 - A mediator library has been added to improve communications between micro frontends in the portal UI via a broadcast event.
 - Additional Performance, security, and dependency improvements
 
 ### Compatibility
-* [Entando 7.3 Compatibility](https://auth.entando.com/entando-de-app/cmsresources/cms/documents/Entando_7.3_Compatibility.pdf)
-* [Guides for previous versions of Entando](https:/auth.entando.com/page/en/compatibility-guide)
+* [Villanova 0.9 Compatibility](https://auth.entando.com/entando-de-app/cmsresources/cms/documents/Entando_7.3_Compatibility.pdf)
+<!-- * [Guides for previous versions of Entando](https:/auth.entando.com/page/en/compatibility-guide)-->
 
 ## New Features and Improvements
 
@@ -30,7 +30,7 @@ Entando 7.3 is an essential feature release with significant advances for Multit
 - Improved bundle install and uninstall process with individuated processes for each component type to strengthen resilience in error handling and maintain the consistent state of an application. The uninstall process now includes a progress bar and a list of dependencies to clear.
 - With Formik and Yup replacing Redux, many sections, including user profile, password and account forms, search windows, and configuration pages, were rebuilt with improved data management and error responses. 
 - In Page Management, only the accessible portion of the page tree is rendered for users with the permission to configure, edit, or add to those sections.
-- A new [mediator library](https://github.com/entando/frontend-libraries/tree/master/packages/entando-mfecommunication) was integrated to improve communications between micro frontends
+- A new [mediator library](https://github.com/Villanova-AI/frontend-libraries) was integrated to improve communications between micro frontends
 - Fixed bug with bundle installation involving circular links in content types and disabled EPC menu
 - Fixed bug related to activity stream notifications appearing when the home button is clicked
 - Fixed bugs in the Page Manager with disabled page tree actions for child pages, when a folder is relocated within the page tree, and removed the expand caret icon in page tree when the folder is empty 
@@ -55,11 +55,11 @@ Entando 7.3 is an essential feature release with significant advances for Multit
 - Fixed bug that sometimes prevented the creation of database backups 
 - Fixed issue with ESAPI warnings about `validation.properties` when widgets have been configured on a published page
 
-### Entando CLI (ent) 
+### Villanova CLI (ent) 
 - Improved the semantic version verification process for bundle installation to select the most recent version
-- Added capability to initialize bundles from private Entando Hubs with an API key
+- Added capability to initialize bundles from private Villanova Hubs with an API key
 - The ent CLI can now be used to automate the upgrade process from v1 bundles to the v5 docker-based bundles 
-- Increased the default memory to 6 GB for the automatic installation of Entando
+- Increased the default memory to 6 GB for the automatic installation of Villanova
 - Improved the bundle name validation in the bundle management process
 - Fixed a bug with the `ent bundler` command which generated duplicate fragments associated with micro frontends with uppercase letters or hyphens
 - Improved error logs for ent bundle commands related to Docker, to print to the console and be more explicit in [debug mode](../getting-started/ent-diag.md)
@@ -67,10 +67,10 @@ Entando 7.3 is an essential feature release with significant advances for Multit
 - Fixed a bug related to the caching plugin on MySQL-based bundles for authentication
 
 ### Portal UI
-- Improved the strategy for communication between micro frontends with a mechanism using CustomEvent objects, enabling MFEs to broadcast events and respond in a decoupled and flexible way. This will eliminate conflicts between bundles and with other non-Entando entities on pages. [Communicate between MFEs tutorial](../../tutorials/create/mfe/communication.md)
+- Improved the strategy for communication between micro frontends with a mechanism using CustomEvent objects, enabling MFEs to broadcast events and respond in a decoupled and flexible way. This will eliminate conflicts between bundles and with other non-Villanova entities on pages. [Communicate between MFEs tutorial](../../tutorials/create/mfe/communication.md)
 - Fixed bug with a redirect page functionality associated with an error in a widget 
 
-### Entando CMS
+### Villanova CMS
 - Fixed bug with the access URL for a micro frontend's static assets in production
 - Improved error messaging and resolved issues with uploading attribute image files that were the wrong formats
 - Improved error messaging for invalid codes in a content template
@@ -78,10 +78,10 @@ Entando 7.3 is an essential feature release with significant advances for Multit
 - Resolved issues with retention for the image crop options in the edit mode of Content Settings
 - Fixed issue with content attribute fields that would not propagate for content type Monolist 
 
-### Entando Component Generator/Blueprint
-- The Entando Blueprint now supports duration and UUID field types for automatically generated entities 
+### Villanova Component Generator/Blueprint
+- The Villanova Blueprint now supports duration and UUID field types for automatically generated entities 
 
-### Entando Component Manager
+### Villanova Component Manager
 - Upgraded bundle functionality in multitenant applications by injecting a tenant ID in all microservices in the bundle installation process to assign tenant ownership
 - Extended support for custom Freemarker templates in v5 bundles with a customUiPath
 - Improved the deletion and confirmation process of bundle components 
@@ -89,12 +89,12 @@ Entando 7.3 is an essential feature release with significant advances for Multit
 - Fixed bug in bundle install process when using a NullPointerException and the child micro frontend’s name alphabetically comes before the parent’s
 
 ### Infrastructure
-- Entando 7.3 now supports integration with Kubernetes 1.26 - 1.28
-- Upgraded Entando integration with support for Kubernetes 1.26 on Entando 6.5, 7.1, and 7.2 
+- Villanova 0.9 now supports integration with Kubernetes 1.26 - 1.28
+<!--- Upgraded Entando integration with support for Kubernetes 1.26 on Entando 6.5, 7.1, and 7.2 -->
 - Upgraded OLM support for Tomcat web server
 - APISIX gateway can now be utilized to better manage microservices, security, and scalability
 - Added ARM support for GKE, AKS, EKS, OpenShift and K3s installations 
-- Oracle DB can now be configured for Keycloak and auto-provisioned for all databases by the Entando Operator
+- Oracle DB can now be configured for Keycloak and auto-provisioned for all databases by the Villanova Operator
 - Fixed an issue with the K8s service API that prevented the initial installation of a microservice because it searched for the configuration from the instance itself, which cannot exist yet, forcing the user to repeat the installation
 
 ### Security Updates
@@ -111,12 +111,12 @@ Entando 7.3 is an essential feature release with significant advances for Multit
 
 ## Known Issues
 - In a multitenant application, errors occur when several database backups are created for the primary and its tenants. The temporary workaround is to Refresh the page.
-- Currently, `ent bundle` commands `pack` and `publish` are not operable for Entando running on ARM architecture systems. You may use other frameworks to create the docker images (i.e. buildx), then resume the normal process to deploy and install the bundles.
+- Currently, `ent bundle` commands `pack` and `publish` are not operable for Villanova running on ARM architecture systems. You may use other frameworks to create the docker images (i.e. buildx), then resume the normal process to deploy and install the bundles.
 
-## Deprecation Warnings
-- Support for Kubernetes 1.23 is deprecated on Entando 6.5, 7.1, 7.2, and 7.3
+<!--## Deprecation Warnings
+- Support for Kubernetes 1.23 is deprecated on Entando 6.5, 7.1, 7.2, and 7.3-->
 
 ## Previous Releases
-Refer to the drop-down list of versions in the left navigation menu to access documentation and release notes for previous versions of Entando.
+Refer to the drop-down list of versions in the left navigation menu to access documentation and release notes for previous versions of Villanova.
 
 

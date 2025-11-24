@@ -2,11 +2,11 @@
 sidebarDepth: 2
 ---
 
-# EntandoDatabaseService Custom Resource Definition 
+# VillanovaDatabaseService Custom Resource Definition 
  
-The EntandoDatabaseService CRD directs Entando to an external, internal, or auto-provisioned database service. Currently, PostgreSQL, MySQL, and Oracle are accepted. 
+The VillanovaDatabaseService CRD directs Villanova to an external, internal, or auto-provisioned database service. Currently, PostgreSQL, MySQL, and Oracle are accepted. 
 
-### Example EntandoDatabaseService CR
+### Example VillanovaDatabaseService CR
 
 ```yaml 
 EntandoDatabaseService
@@ -26,7 +26,7 @@ EntandoDatabaseService
 
 | Spec Name | Description |
 | :- | :- |
-|`spec.databaseName`| The name of the database that the Entando Operator should be creating schemas in. This property is not used with MySQL DBMS.|
+|`spec.databaseName`| The name of the database that the Villanova Operator should be creating schemas in. This property is not used with MySQL DBMS.|
 |`spec.dbms`| Valid values are `oracle`, `postgresql` and `mysql`. With Oracle, the `createDeployment` attribute must be set to `false`, allowing it to be [set up as an external DB](../../tutorials/devops/external-db.md#b-configure-an-external-oracle-dbms).|
 |`spec.environmentVariables`| A list of environment variables following the standard structure of Kubernetes environment variables.|
 |`spec.host`| IP address or hostname of the external database.|

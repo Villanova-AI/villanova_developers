@@ -1,11 +1,11 @@
 # Page and Content Protection
 
-On Entando's Web Content Management System (WCMS), you can protect pages, content, and other digital assets by assigning groups that have the authority to view those assets. If users without the correct authorization attempt to view them, the platform will return an error. You can manage these errors for your application with dedicated error pages or by adding logic to your widgets or FreeMarker templates.
+On Villanova's Web Content Management System (WCMS), you can protect pages, content, and other digital assets by assigning groups that have the authority to view those assets. If users without the correct authorization attempt to view them, the platform will return an error. You can manage these errors for your application with dedicated error pages or by adding logic to your widgets or FreeMarker templates.
 
 For content with no restrictions, the default setting is `Free Access` for group ownership.
 
 ## Create a Group
-Pages, content, and digital assets (images and files) are protected with group assignments. You can add new groups in the Entando App Builder as follows:
+Pages, content, and digital assets (images and files) are protected with group assignments. You can add new groups in the Villanova App Builder as follows:
 
 1. Go to `Users` → `Groups` from the left navigation
 1. Select `Add`
@@ -56,7 +56,7 @@ Images and attachments uploaded to the CMS can be protected by assigning groups.
 
 ## FreeMarker Tags and Consuming Protected Resources
 
-Entando supports a set of FreeMarker tags to assist in accessing and using protected assets in widgets and pages. The [if-authorized](../../docs/reference/freemarker-tags/freemarker-core-tags.md#tag-ifauthorized) and [tag-nav](../../docs/reference/freemarker-tags/freemarker-core-tags.md#tag-nav) tags can help in rendering page lists and fetching assets.
+Villanova supports a set of FreeMarker tags to assist in accessing and using protected assets in widgets and pages. The [if-authorized](../../docs/reference/freemarker-tags/freemarker-core-tags.md#tag-ifauthorized) and [tag-nav](../../docs/reference/freemarker-tags/freemarker-core-tags.md#tag-nav) tags can help in rendering page lists and fetching assets.
 
 The [content](../../docs/reference/freemarker-tags/freemarker-JACMS-tags.md#tag-content) and [content-list](../../docs/reference/freemarker-tags/freemarker-JACMS-tags.md#tag-contentlist) tags also provide the ability to fetch and render protected content and lists of content.
 

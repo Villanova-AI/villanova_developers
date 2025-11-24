@@ -1,7 +1,7 @@
 <!-- This component is modeled on theme/components/NavLinks.vue but using custom Entando version config -->
 <template>
   <div class="entando-version-links">
-    <span class="version-wrapper">Version {{version}}</span>
+    <span class="version-wrapper" v-if="version">Version {{version}}</span>
     <div
         v-for="item in links"
         :key="item.link"
@@ -52,7 +52,7 @@ export default {
         const item = this.nav[0].items.find(item => {
           return currentPath.startsWith(item.link);
         })
-        entando.version = item ? item.text : "NEXT"
+        entando.version = item ? item.text : ""
       }
       return entando.version
     },

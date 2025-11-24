@@ -1,7 +1,7 @@
 
 # Page Management
 
-The [Entando App Builder](../../docs/compose/app-builder.md) provides the Content Management System (CMS) to design and publish application pages. Page Templates are used to define the layout using frames on a page where content and other frontend components are placed. Details of this process are examined below. 
+The [Villanova App Builder](../../docs/compose/app-builder.md) provides the Content Management System (CMS) to design and publish application pages. Page Templates are used to define the layout using frames on a page where content and other frontend components are placed. Details of this process are examined below. 
 
 Additionally, the App Builder offers a distributed editorial management system through roles and groups. When a user is created, they are assigned a role and added to groups to grant access to the content and pages of an application. For details on this topic, see the [Manage Roles, Users, and Groups tutorial](./role-users-groups.md). 
 

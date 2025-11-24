@@ -35,7 +35,7 @@ export default ({ router, isServer }) => {
         try {
             var pathname = window.location.pathname || "";
             // Lista delle versioni che vuoi riconoscere (aggiungi future versioni qui)
-            var versions = ["/villanova10", "/villanova09", "/v7.2", "/next"];
+            var versions = ["/villanova10", "/villanova09"];
 
             // Se il path passato già contiene una version (es. "/villanova09/docs"), usalo così com'è
             var pathHasVersion = versions.some(v => path.startsWith(v + "/") || path === v || path.startsWith(v));

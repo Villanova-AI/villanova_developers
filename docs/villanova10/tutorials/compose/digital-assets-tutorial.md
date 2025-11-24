@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # Digital Assets
 
-The Entando Web Content Management System (WCMS) includes capabilities to manage content and digital assets. These can include images, documents and other media files in the following formats.
+The Villanova Web Content Management System (WCMS) includes capabilities to manage content and digital assets. These can include images, documents and other media files in the following formats.
 
 **Default Supported Document Formats:** `pdf`, `xls`, `doc`, `ppt`, `txt`, `rtf`, `sxw`, `sxc`, `odt`, `ods`, `odp`, `tar`, `gz`, `zip`, `rar`, `flv`, `swf`, `avi`, `wmv`, `ogg`, `mp3`, `wav`, `ogm`, `mov`, `iso`, `nrg`, `docx`, `docm`, `xlsx`, `xlsm`, `xlsb`, `pptx`, `pptm`, `ppsx`, `ppsm`, `sldx`, `sldm`  
 The WCMS in the App Builder can be configured to allow or exclude any type of file extension. The MIME type of each asset should be specified.
@@ -67,7 +67,7 @@ The asset can be added to a content type that has an `Attach` or `Image` attribu
 
 ## Configure File Extensions for Upload
 
-The file types that can be uploaded to an Entando Application are defined on the server side of the App Builder, in the `entando-de-app` of a quickstart application.
+The file types that can be uploaded to an Villanova Application are defined on the server side of the App Builder, in the `entando-de-app` of a quickstart application.
 
 Two properties in `src/main/conf/systemParams.properties` specify the supported file types via comma delimitted lists:
 

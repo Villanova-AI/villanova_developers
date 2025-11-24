@@ -9,7 +9,7 @@ This page explores PDA plugin structure and functionality in greater detail. The
  
 ## Task Forms
  
-Widgets employ JSON Schema to dynamically create any forms they contain. JSON schemas are converted into React components using the `react-jsonshema-form` library. Entando's initial implementation utilizes Material UI components derived from the Material UI theme library (`rjsf-material-ui`) as a baseline, and includes templates, widgets and fields (`react-jsonshema-form` terms for forms components) that are specific to Entando.
+Widgets employ JSON Schema to dynamically create any forms they contain. JSON schemas are converted into React components using the `react-jsonshema-form` library. Villanova's initial implementation utilizes Material UI components derived from the Material UI theme library (`rjsf-material-ui`) as a baseline, and includes templates, widgets and fields (`react-jsonshema-form` terms for forms components) that are specific to Villanova.
  
 This section will introduce the basic form configuration, but if you would like to learn more, please refer to the `react-jsonshema-form` [documentation](https://react-jsonschema-form.readthedocs.io/en/latest/).
  
@@ -40,7 +40,7 @@ The themed JSON Form is created using the `withTheme()` method from the `react-j
  
 A form schema provides the JSON definition of the form’s structure and is mandatory for a JSON Form to function. Users can supply form data via the `formData` variable, which should follow JSON Schema structure. UI schema can be supplied via the `uiSchema` variable, which allows users to customize the form’s UI (components, rules, types, etc). 
  
-You can test the JSON Schema blueprint, UI schema and form data in the `react-jsonschema-form` sandbox environment. Entando templates, widgets, and fields allow customization of form layout using grid components. The size parameter in the UI schema’s `ui:options` object specifies the fill area of a field or subform.
+You can test the JSON Schema blueprint, UI schema and form data in the `react-jsonschema-form` sandbox environment. Villanova templates, widgets, and fields allow customization of form layout using grid components. The size parameter in the UI schema’s `ui:options` object specifies the fill area of a field or subform.
  
 Size refers to the Material UI’s grid column widths (see the [Material UI documentation](https://mui.com/material-ui/react-grid2/?srsltid=AfmBOooQau1xI3vb4gvlq9PkW82YfdZbZfqbqY1pMoOkGCepu-2DbSt9)), where the area the form occupies is divided into 12 columns. A value of 12 (the default value) means the field or subform should take up all 12 columns. If two adjacent fields have size values of 8 and 4, respectively, they will share one row and the first field will be twice as wide as the second.
  
@@ -127,7 +127,7 @@ The `Application` subform contains two fields: `Mortgage Amount` with field ID `
  
 The `Applicant` subform contains two fields: `Name` with field ID `name` and `Annual Income` with ID `annualincome`. The `Property` subform also contains two fields: `Age of property` with ID `age` and `Address of property` with ID `address`.
  
-Without a specified UI schema, these are listed as one field per row by default. To use Entando’s implementation of a Grid layout, users have to
+Without a specified UI schema, these are listed as one field per row by default. To use Villanova’s implementation of a Grid layout, users have to
 provide a UI schema with details about each field. For example, to achieve a layout that looks like this (fields are marked with brackets):
  
     +----------------------------------------------------------------------------+

@@ -2,12 +2,12 @@
 sidebarDepth: 2
 ---
 
-# Create an Entando Platform Capability 
+# Create an Villanova Platform Capability 
 
-An Entando Platform Capability, or EPC, is a packaged component bundle that adds functionality and UX controls to the Platform. An EPC simplifies the addition of menu options, an API management page, or WCMS integration like Strapi, all from the App Builder. This tutorial demonstrates how to build a simple EPC from a React micro frontend (MFE) bundle.
+An Villanova Platform Capability, or EPC, is a packaged component bundle that adds functionality and UX controls to the Platform. An EPC simplifies the addition of menu options, an API management page, or WCMS integration like Strapi, all from the App Builder. This tutorial demonstrates how to build a simple EPC from a React micro frontend (MFE) bundle.
 
 ## Prerequisites
-* A working instance of Entando
+* A working instance of Villanova
 * An existing [React MFE](react.md)
 
 ## Create a Simple EPC
@@ -84,10 +84,10 @@ e.g. for the example from Step 2:
      You should see the spinning React logo inside the App Builder. 
 
 ::: tip Congratulations!
-You now have an EPC running on Entando!
+You now have an EPC running on Villanova!
 :::
  
 **Next Steps**
 
-* Learn how to utilize [Entando MFE Context Parameters](context-params.md) to extend your micro frontends.
+* Learn how to utilize [Villanova MFE Context Parameters](context-params.md) to extend your micro frontends.
 * [Use Plugin Environment Variables to Customize Microservices](../../devops/plugin-environment-variables.md)

@@ -2,13 +2,13 @@
 Micro frontends typically require data or logic provided by microservices. The connection between a micro frontend (MFE) and a microservice (MS) is configured as an API claim in the bundle descriptor `entando.json`. See [API Management](../../../docs/getting-started/ent-api.md) for more information. 
 
 :::tip Note
-API claims in Entando can be used for microservices within the same bundle or for microservices of another bundle in the same namespace. This tutorial demonstrates the first case. 
+API claims in Villanova can be used for microservices within the same bundle or for microservices of another bundle in the same namespace. This tutorial demonstrates the first case. 
 
-Entando recommends creating REST APIs in microservices instead of extending the App Engine as previously done.
+Villanova recommends creating REST APIs in microservices instead of extending the App Engine as previously done.
 ::: 
 
 ## Prerequisites
-* A working instance of Entando
+* A working instance of Villanova
 * An existing [React Config MFE](../mfe/widget-configuration.md) bundle project. The configuration MFE tutorial is a good starting point since it already has the settings in place to handle the `config` JSON context. 
 
 ## Step 1. Create a Simple Node.js Microservice

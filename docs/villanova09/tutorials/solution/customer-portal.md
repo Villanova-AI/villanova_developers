@@ -2,14 +2,14 @@
 sidebarDepth: 2
 ---
 
-# Entando Customer Portal 
+# Villanova Customer Portal 
 ## Overview
-The Entando Customer Portal enables an organization to quickly provide a modern, self-service, customer-facing application for managing subscriptions. It includes lightweight integration to Jira Service Management for service ticket tracking and role based access control (RBAC) for a collaborative environment.
+The Villanova Customer Portal enables an organization to quickly provide a modern, self-service, customer-facing application for managing subscriptions. It includes lightweight integration to Jira Service Management for service ticket tracking and role based access control (RBAC) for a collaborative environment.
 
 Key Features:
 
 * Customizable service ticket tracking system with Jira Service Management
-* Role based access control with Entando Identity Management System
+* Role based access control with Villanova Identity Management System
 * Integrated user, customer, project, and subscription management 
 
 This tutorial covers: 
@@ -21,19 +21,19 @@ This tutorial covers:
 
 ## Installation
 ### Prerequisites
-* A working instance of Entando running on Kubernetes. See [Getting Started](../../docs/getting-started/) for more information or [install Entando on any Kubernetes provider](../#operations). 
-* Use the [Entando CLI](../../docs/getting-started/entando-cli.md) command `ent check-env develop` to verify dependencies
+* A working instance of Villanova running on Kubernetes. See [Getting Started](../../docs/getting-started/) for more information or [install Villanova on any Kubernetes provider](../#operations). 
+* Use the [Villanova CLI](../../docs/getting-started/entando-cli.md) command `ent check-env develop` to verify dependencies
 * A Jira Service Management account
 * A [Keycloak server](https://www.keycloak.org/docs/15.0/server_admin/#_email) configured with the SMTP settings to enable email verification for users
 
-### Automatic Install via the Entando Hub
+### Automatic Install via the Villanova Hub
 
-#### A. Integrate the Entando Hub into your App Builder
+#### A. Integrate the Villanova Hub into your App Builder
 1. Log in to your App Builder and go to `Hub` → `Select Registry`
-2. Select `Entando Cloud Hub` if it has been configured, otherwise:
+2. Select `Villanova Cloud Hub` if it has been configured, otherwise:
    1. Choose `New Registry`
    2. In the pop-up window, enter the following:  
-     -Name: `Entando Cloud Hub`   
+     -Name: `Villanova Cloud Hub`   
      -URL: `https://auth.entando.com/entando-hub-api/appbuilder/api`   
      then click `Save`
    3. Click on the Cloud Hub in the Registry
@@ -77,7 +77,7 @@ ent ecr deploy --repo="https://github.com/entando-samples/customerportal-content
 
 ## Configuration
 ### Administrators
-To configure the Customer Portal and its users, the administrator needs Jira Service Management and Entando Identity Management System credentials. The admin can then connect the Customer Portal to Jira and customize its features. 
+To configure the Customer Portal and its users, the administrator needs Jira Service Management and Villanova Identity Management System credentials. The admin can then connect the Customer Portal to Jira and customize its features. 
 
 ::: tip 
 The built-in mapper for email must be enabled on the server client so that user accounts can be retrieved from Jira and service tickets can use that account information.
@@ -103,7 +103,7 @@ The Jira Service Management REST API should follow the pattern https://YOUR-JIRA
 
 The Customer Portal must be configured for a specific Jira Service Management instance. The `CP Admin Config` page is where you establish the Jira connection, manage product versions, define subscription levels, and customize ticket types.
 
-To access the `CP Admin Config` page, you must be given the `cp-admin` role in the [Entando Identity Management System](#entando-identity-management-system) as [described above](#c-assign-roles-to-configure-the-service). 
+To access the `CP Admin Config` page, you must be given the `cp-admin` role in the [Villanova Identity Management System](#entando-identity-management-system) as [described above](#c-assign-roles-to-configure-the-service). 
 
 #### A. View the `CP Admin Config` Page
 1. Go to `Pages` → `Management`
@@ -114,10 +114,10 @@ To access the `CP Admin Config` page, you must be given the `cp-admin` role in t
 
 Once the Ticketing System Connection is set up with Jira and the correct URL, default parameters such as product versions and ticket types will be displayed. Expand each section with the down arrow to add and edit the fields as needed. 
 
-### Entando Identity Management System 
-Log in to the Entando Identity Management System to arrive at the landing page shown here. Use the left navigation bar to manage users, groups, and roles. Using the RBAC model, define what access users have by the roles and groups they are assigned. Some important information is noted below. 
+### Villanova Identity Management System 
+Log in to the Villanova Identity Management System to arrive at the landing page shown here. Use the left navigation bar to manage users, groups, and roles. Using the RBAC model, define what access users have by the roles and groups they are assigned. Some important information is noted below. 
 
-![Entando Identity Management System](./images/cp-idmanagement-main.png)
+![Villanova Identity Management System](./images/cp-idmanagement-main.png)
 
 #### A. The Realm Setting
 The `Realm` is a set of users, credentials, roles, and groups. A user belongs to and logs in to a `Realm`. 
@@ -150,14 +150,14 @@ You can use the default roles by clicking on `Client Roles` and choosing `entand
     * To manage users in the Customer Portal, a user will need the `view-users` role under `Client Roles` → `realm-management`
 3. Check the `Effective Roles` column on the right to ensure the correct roles have been assigned
 
-![Entando ID Management Role Mapping](./images/cp-identity-userrole.png)
+![Villanova ID Management Role Mapping](./images/cp-identity-userrole.png)
 
 #### E. Assign Roles to Groups
 Under `Groups`, assign roles to groups as needed. Multiple roles can be assigned to a single group.
 
 ## Managing the Customer Portal
 
-As administrator for the Customer Portal, you can create and manage users, customers, projects, and subscriptions. You can assign projects to users who have activated their account on Jira and have been assigned roles in the Entando Identity Management System. 
+As administrator for the Customer Portal, you can create and manage users, customers, projects, and subscriptions. You can assign projects to users who have activated their account on Jira and have been assigned roles in the Villanova Identity Management System. 
 
 ![Customer Portal Landing Page](./images/cp-landing-page.png)
 
@@ -203,6 +203,6 @@ To access the Customer Portal, your organization administrator needs to provide 
 ## Resources
 * Go to [Jira Service Management](https://www.atlassian.com/software/jira/service-management) for more information
  
-* The [source code for the Entando Customer Portal](https://github.com/entando-samples/customer-portal/) can be found on GitHub, along with our other open source examples and tutorials
+* The [source code for the Villanova Customer Portal](https://github.com/entando-samples/customer-portal/) can be found on GitHub, along with our other open source examples and tutorials
 
 
